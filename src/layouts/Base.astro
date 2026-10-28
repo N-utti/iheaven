@@ -1,6 +1,6 @@
 ---
-import { TEL, BOOKING, KAKAO, ADDRESS } from '../site.js';
-const { title = '아이헤븐 | 김해 반려동물 장례식장', description = '1:1 담당 장례지도사, 100% 예약제, 개별화장과 보호자 참관. 진실된 책임장례만을 약속하는 아이헤븐입니다.' } = Astro.props;
+import { TEL, BOOKING, KAKAO, ADDRESS, BLOG, INSTAGRAM, FACEBOOK } from '../site.js';
+const { title = '아이헤븐 | 김해 반려동물 장례식장', description = '1:1 담당 장례지도사, 100% 예약제, 개별화장과 보호자 참관. 진실된 책임장례만을 약속하는 김해 반려동물 장례식장 아이헤븐입니다.' } = Astro.props;
 ---
 <!doctype html>
 <html lang="ko">
@@ -12,23 +12,28 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:locale" content="ko_KR" />
+  <!-- ponytail: SVG 파비콘만. 사파리 홈화면용 PNG(apple-touch-icon)는 로고 확정 후 추가 -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" />
 </head>
 <body>
   <header class="site-header">
-    <div class="wrap header-inner">
-      <a href="/" class="wordmark" aria-label="아이헤븐 홈">i<span>heaven</span></a>
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="아이헤븐 홈">
+        <img src="/favicon.svg" alt="" width="34" height="34" />
+        <span>아이헤븐<small>PREMIUM PET FUNERAL</small></span>
+      </a>
       <nav class="nav" aria-label="주요 메뉴">
-        <a href="#service">장례서비스</a>
-        <a href="#price">장례비용</a>
-        <a href="#service">루세떼</a>
-        <a href="#service">납골당</a>
-        <a href="#location">오시는 길</a>
+        <a href="/#service">장례서비스</a>
+        <a href="/#price">장례비용</a>
+        <a href="/#lucete">루세떼</a>
+        <a href="/#house">납골당</a>
+        <a href="/#aftercare">사후 수습 방법</a>
+        <a href="/#location">오시는 길</a>
       </nav>
-      <a class="header-tel" href={`tel:${TEL}`}>24시 상담 <strong>{TEL}</strong></a>
+      <a class="header-cta" href={`tel:${TEL}`}>24시 장례상담 <strong>{TEL}</strong></a>
     </div>
   </header>
 
@@ -36,7 +41,14 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
 
   <footer class="site-footer">
     <div class="wrap">
-      <p class="wordmark wordmark--footer">i<span>heaven</span></p>
+      <div class="footer-top">
+        <p class="brand brand--footer"><img src="/favicon.svg" alt="" width="30" height="30" /><span>아이헤븐</span></p>
+        <nav class="sns" aria-label="SNS">
+          <a href={BLOG} target="_blank" rel="noopener">블로그</a>
+          <a href={INSTAGRAM} target="_blank" rel="noopener">인스타그램</a>
+          <a href={FACEBOOK} target="_blank" rel="noopener">페이스북</a>
+        </nav>
+      </div>
       <dl class="biz">
         <div><dt>상호</dt><dd>아이헤븐</dd></div>
         <div><dt>대표</dt><dd>정이찬</dd></div>
@@ -44,12 +56,22 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
         <div><dt>동물장묘업 등록번호</dt><dd>제 535-038-2018-0001호</dd></div>
         <div><dt>통신판매업 신고번호</dt><dd>제 2018-경남김해-0585호</dd></div>
         <div><dt>주소</dt><dd>{ADDRESS}</dd></div>
-        <div><dt>전화</dt><dd>{TEL}</dd></div>
+        <div><dt>24시 장례상담</dt><dd>{TEL}</dd></div>
         <div><dt>이메일</dt><dd>iheaven1004@naver.com</dd></div>
       </dl>
-      <p class="copy">© iheaven. All rights reserved.</p>
+      <p class="copy">© 아이헤븐. All rights reserved.</p>
     </div>
   </footer>
+
+  <nav class="quick" aria-label="빠른 상담">
+    <a href={BLOG} target="_blank" rel="noopener" class="quick--blog"><b>N</b>블로그</a>
+    <a href={`tel:${TEL}`} class="quick--tel">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>전화하기</a>
+    <a href={KAKAO} target="_blank" rel="noopener" class="quick--kakao">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.7 6.7L5.7 21l4-2.6c.7.1 1.5.2 2.3.2 5.5 0 10-3.6 10-8s-4.5-8-10-8z"/></svg>카톡문의</a>
+    <a href={BOOKING} target="_blank" rel="noopener" class="quick--book">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2zm-2 8h14v10H5z"/></svg>장례예약</a>
+  </nav>
 
   <nav class="mobile-bar" aria-label="빠른 상담">
     <a href={`tel:${TEL}`} class="is-primary">전화 상담</a>
@@ -61,68 +83,89 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
 
 <style is:global>
   :root {
-    --bg: #f6f2ec;
-    --surface: #fffdf9;
-    --ink: #2b2622;
-    --muted: #6f665d;
-    --line: #e3dacd;
-    --gold: #9c7a48;
-    --deep: #2f2a25;
-    --serif: 'Noto Serif KR', 'Nanum Myeongjo', serif;
-    --sans: 'Pretendard', -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    --navy: #1c2b55;
+    --navy-deep: #141d38;
+    --ink: #161a24;
+    --text: #454a55;
+    --muted: #7a808c;
+    --line: #e4e6eb;
+    --soft: #f4f5f8;
+    --radius: 16px;
+    --sans: 'IBM Plex Sans KR', -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.75 var(--sans); word-break: keep-all; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body { margin: 0; background: #fff; color: var(--text); font: 400 16px/1.75 var(--sans); word-break: keep-all; -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
-  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.35; margin: 0; }
+  h1, h2, h3 { color: var(--ink); line-height: 1.35; margin: 0; font-weight: 700; }
   p { margin: 0; }
-  .wrap { width: min(1160px, 100% - 40px); margin-inline: auto; }
+  img { display: block; }
+  .wrap { width: min(1180px, 100% - 40px); margin-inline: auto; }
 
-  .wordmark { font-family: var(--serif); font-size: 24px; letter-spacing: .02em; color: var(--gold); }
-  .wordmark span { color: var(--ink); }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--navy); }
+  .brand span { font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; display: grid; }
+  .brand small { font-size: 9.5px; font-weight: 500; letter-spacing: .18em; color: var(--muted); margin-top: 3px; }
 
-  .site-header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  .header-inner { display: flex; align-items: center; gap: 40px; height: 68px; }
-  .nav { display: flex; gap: 28px; font-size: 15px; color: var(--muted); }
-  .nav a:hover { color: var(--ink); }
-  .header-tel { margin-left: auto; font-size: 14px; color: var(--muted); }
-  .header-tel strong { color: var(--ink); font-weight: 600; margin-left: 6px; }
+  .site-header { position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; height: 84px; padding-inline: clamp(20px, 3vw, 44px); }
+  .nav { display: flex; gap: clamp(20px, 2.4vw, 40px); font-size: 16px; font-weight: 500; color: var(--ink); }
+  .nav a:hover { color: var(--navy); text-decoration: underline; text-underline-offset: 8px; }
+  .header-cta { font-size: 14px; color: var(--muted); }
+  .header-cta strong { display: block; font-size: 20px; color: var(--navy); line-height: 1.2; }
 
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 26px; border-radius: 999px; font-weight: 600; font-size: 15px; border: 1px solid var(--ink); transition: background .2s, color .2s; }
-  .btn--primary { background: var(--ink); color: var(--surface); }
-  .btn--primary:hover { background: var(--gold); border-color: var(--gold); }
-  .btn--ghost:hover { background: var(--ink); color: var(--surface); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 22px; border-radius: 4px; font-weight: 600; font-size: 15px; background: var(--navy); color: #fff; transition: background .2s; }
+  .btn:hover { background: var(--navy-deep); }
+  .btn--line { background: transparent; color: var(--navy); box-shadow: inset 0 0 0 1px var(--navy); }
+  .btn--line:hover { background: var(--navy); color: #fff; }
+  .btn--light { background: #fff; color: var(--navy); }
+  .btn--light:hover { background: var(--soft); }
 
-  .eyebrow { font-size: 13px; letter-spacing: .14em; color: var(--gold); font-weight: 600; }
   .section { padding-block: 120px; }
-  .section-head { display: grid; gap: 14px; margin-bottom: 56px; max-width: 620px; }
-  .section-head h2 { font-size: clamp(28px, 3.4vw, 40px); }
-  .section-head p { color: var(--muted); }
+  .section-head { display: grid; gap: 12px; margin-bottom: 56px; text-align: center; justify-items: center; }
+  .section-head h2 { font-size: clamp(26px, 3vw, 36px); }
+  .section-head p { color: var(--muted); max-width: 640px; }
+  .eyebrow { font-size: 15px; color: var(--muted); }
 
   /* ponytail: 사진 저작권 확인 전까지 쓰는 목업 칸. 실사진 받으면 <img>로 교체 */
-  .ph { position: relative; display: grid; place-items: center; border-radius: 4px; overflow: hidden; color: #8a7d6d; font-size: 14px;
-    background: repeating-linear-gradient(135deg, #ebe3d8 0 14px, #e6ddd1 14px 28px); }
+  .ph { position: relative; display: grid; place-items: center; border-radius: var(--radius); overflow: hidden; color: #8b92a1; font-size: 14px; text-align: center; padding: 16px;
+    background: repeating-linear-gradient(135deg, #eceef3 0 14px, #e5e8ee 14px 28px); }
   .ph::before { content: 'PHOTO'; position: absolute; top: 14px; left: 16px; font-size: 11px; letter-spacing: .2em; opacity: .7; }
 
-  .site-footer { background: var(--deep); color: #b9ada0; padding: 64px 0 120px; font-size: 14px; }
-  .wordmark--footer span { color: #efe7dc; }
-  .biz { display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 24px 0; }
+  .site-footer { background: var(--navy-deep); color: #a6adc0; padding: 64px 0 56px; font-size: 14px; }
+  .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding-bottom: 28px; border-bottom: 1px solid #2a3557; }
+  .brand--footer { color: #fff; }
+  .brand--footer img { filter: brightness(0) invert(1); }
+  .sns { display: flex; gap: 20px; }
+  .sns a:hover { color: #fff; }
+  .biz { display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 28px 0 20px; }
   .biz div { display: flex; gap: 8px; }
-  .biz dt { color: #8c8175; }
+  .biz dt { color: #6f7895; }
   .biz dd { margin: 0; }
-  .copy { color: #8c8175; font-size: 13px; }
+  .copy { color: #6f7895; font-size: 13px; }
+
+  .quick { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 25; display: grid; gap: 4px; }
+  .quick a { width: 76px; height: 76px; display: grid; place-items: center; align-content: center; gap: 4px; font-size: 12px; font-weight: 500; color: #fff; border-radius: 10px 0 0 10px; box-shadow: 0 4px 14px rgba(20,29,56,.15); }
+  .quick svg { width: 22px; height: 22px; fill: currentColor; }
+  .quick b { font-size: 20px; line-height: 22px; }
+  .quick--blog { background: #03c75a; }
+  .quick--tel { background: var(--navy); }
+  .quick--kakao { background: #fee500; color: #3a1d1d !important; }
+  .quick--book { background: var(--navy-deep); }
 
   .mobile-bar { display: none; }
 
-  @media (max-width: 860px) {
+  @media (max-width: 1080px) {
     .nav { display: none; }
-    .header-tel { font-size: 0; }
-    .header-tel strong { font-size: 14px; }
+  }
+  @media (max-width: 860px) {
+    .header-inner { height: 64px; }
+    .header-cta { font-size: 0; }
+    .header-cta strong { font-size: 16px; }
     .section { padding-block: 80px; }
+    .quick { display: none; }
     .site-footer { padding-bottom: 110px; }
-    .mobile-bar { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; inset: auto 0 0; z-index: 20; background: var(--surface); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
-    .mobile-bar a { text-align: center; padding: 16px 0; font-weight: 600; font-size: 15px; }
-    .mobile-bar .is-primary { background: var(--ink); color: var(--surface); }
+    .mobile-bar { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; inset: auto 0 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
+    .mobile-bar a { text-align: center; padding: 16px 0; font-weight: 600; font-size: 15px; color: var(--navy); }
+    .mobile-bar .is-primary { background: var(--navy); color: #fff; }
   }
 </style>
