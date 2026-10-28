@@ -10,13 +10,13 @@
 - 동물장묘업 등록 제535-038-2018-0001호 / 통신판매업 제2018-경남김해-0585호 (기존 사이트 표기, 기존 대표 표기 정이찬은 폐기)
 - 사업자등록증(2026.07.02 정정 발급) 기준: 주식회사 아이헤븐, 대표 임채윤(현 대표 확인됨), 757-88-03042,
   법인등록번호 195511-0294888, 개업 2024.02.15, 서비스/동물장묘업. 213-17-78999 는 법인 전환 전 개인사업자 번호로 추정.
+- 네이버 예약 https://booking.naver.com/booking/6/bizes/173803/items/3216198
+- 카카오 채널 https://pf.kakao.com/_pxkxllj (새 사이트에선 뺌)
+- 블로그 https://blog.naver.com/iheaven1004 / 인스타 https://www.instagram.com/iheaven.official/ / 페이스북 https://www.facebook.com/profile.php?id=100028432577861 (새 사이트에선 SNS 전부 뺌, 외부 링크는 네이버 예약만)
 
 ## TODO
 - [ ] 동물장묘업 등록번호(제535-038-2018-0001호)가 법인(주식회사 아이헤븐) 명의로 유효한지 확인 — 2018년 개인사업자 시절 발급
 - [ ] 통신판매업 신고번호(제2018-경남김해-0585호)가 법인 명의로 재신고됐는지 확인 — 바뀌었으면 `src/layouts/Base.astro` 하단 정보 수정
-- 네이버 예약 https://booking.naver.com/booking/6/bizes/173803/items/3216198
-- 카카오 채널 https://pf.kakao.com/_pxkxllj (새 사이트에선 뺌)
-- 블로그 https://blog.naver.com/iheaven1004 / 인스타 https://www.instagram.com/iheaven.official/ / 페이스북 https://www.facebook.com/profile.php?id=100028432577861 (새 사이트에선 SNS 전부 뺌, 외부 링크는 네이버 예약만)
 
 ## 메뉴 구조(기존)
 장례서비스(장례서비스·루세떼 장례서비스·아이헤븐 컬렉션) / 장례비용 / 루세떼 / 납골당 / HEAVEN COLLECTION /
