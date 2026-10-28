@@ -48,7 +48,7 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
         <div><dt>상호</dt><dd>주식회사 아이헤븐</dd></div>
         <div><dt>대표</dt><dd>임채윤</dd></div>
         <div><dt>사업자등록번호</dt><dd>757-88-03042</dd></div>
-        <div><dt>동물장묘업 등록번호</dt><dd>제 535-038-2018-0001호</dd></div>
+        <div><dt>동물장묘업 허가번호</dt><dd>제 5350000-038-2018-0001호 <a class="biz-link" href="/license.jpg" target="_blank" rel="noopener" onclick="event.preventDefault(); document.getElementById('license').showModal()">허가증 보기</a></dd></div>
         <div><dt>통신판매업 신고번호</dt><dd>제 2018-경남김해-0585호</dd></div>
         <div><dt>주소</dt><dd>{ADDRESS}</dd></div>
         <div><dt>24시 장례상담</dt><dd>{TEL}</dd></div>
@@ -57,6 +57,11 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
       <p class="copy">© 아이헤븐. All rights reserved.</p>
     </div>
   </footer>
+
+  <dialog id="license" class="license" aria-label="동물장묘업 허가증" onclick="if (event.target === this) this.close()">
+    <form method="dialog"><button class="license-close" aria-label="닫기">×</button></form>
+    <img src="/license.jpg" alt="동물장묘업 허가증 (주식회사 아이헤븐, 제 5350000-038-2018-0001호)" width="524" height="720" loading="lazy" />
+  </dialog>
 
   <nav class="quick" aria-label="빠른 상담">
     <a href={`tel:${TEL}`} class="quick--tel">
@@ -133,6 +138,12 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
   .biz div { display: flex; gap: 8px; }
   .biz dt { color: #777; }
   .biz dd { margin: 0; }
+  .biz-link { margin-left: 6px; text-decoration: underline; text-underline-offset: 3px; }
+  .biz-link:hover { color: #fff; }
+  .license { padding: 0; border: 0; border-radius: 8px; overflow: visible; background: #fff; }
+  .license::backdrop { background: rgba(0,0,0,.7); }
+  .license img { width: auto; max-width: 90vw; max-height: 86vh; height: auto; }
+  .license-close { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border: 0; background: none; color: #fff; font-size: 34px; line-height: 1; cursor: pointer; }
   .copy { color: #777; font-size: 13px; }
 
   .quick { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 25; display: grid; gap: 4px; }
