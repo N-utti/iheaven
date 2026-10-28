@@ -138,7 +138,7 @@ const mapQuery = encodeURIComponent(ADDRESS);
 <style>
   .hero { padding: 0 clamp(0px, 3vw, 44px); }
   .hero-media { position: relative; min-height: min(78vh, 760px); display: flex; align-items: flex-end; padding: clamp(32px, 6vw, 88px);
-    background: linear-gradient(180deg, rgba(20,29,56,0) 30%, rgba(20,29,56,.55)), repeating-linear-gradient(135deg, #6f7a95 0 16px, #68738e 16px 32px); }
+    background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.5)), repeating-linear-gradient(135deg, #8a8278 0 16px, #837b71 16px 32px); }
   .hero-photo-label { position: absolute; top: 24px; right: 28px; color: rgba(255,255,255,.7); font-size: 13px; letter-spacing: .04em; }
   .hero-copy { display: grid; gap: 20px; color: #fff; }
   .hero-brand { font-size: 18px; font-weight: 600; opacity: .9; }
@@ -146,42 +146,42 @@ const mapQuery = encodeURIComponent(ADDRESS);
   .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-top: 8px; }
   .hero-link { font-size: 15px; color: rgba(255,255,255,.9); border-bottom: 1px solid rgba(255,255,255,.5); padding-bottom: 2px; }
 
-  .intro { background: var(--navy); color: #c9cfe0; padding-block: 72px; }
+  .intro { background: var(--gold); color: #3a3128; padding-block: 72px; }
   .intro .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 40px; }
-  .intro-lead { font-size: clamp(20px, 2.2vw, 26px); line-height: 1.6; color: #fff; }
+  .intro-lead { font-size: clamp(20px, 2.2vw, 26px); line-height: 1.6; color: var(--ink); }
   .intro-lead strong { font-weight: 700; }
   .intro-facts { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(28px, 4vw, 64px); font-size: 14px; }
-  .intro-facts strong { display: block; font-size: 30px; font-weight: 600; color: #fff; line-height: 1.3; }
+  .intro-facts strong { display: block; font-size: 30px; font-weight: 600; color: var(--ink); line-height: 1.3; }
 
   .features .wrap { display: grid; gap: clamp(64px, 9vw, 120px); }
   .feature { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 100px); align-items: center; }
   .feature--flip .feature-photo { order: 2; }
   .feature-photo { aspect-ratio: 16 / 10; }
   .feature-copy { display: grid; gap: 14px; justify-items: start; max-width: 460px; }
-  .feature-copy h2 { font-size: clamp(24px, 2.5vw, 30px); color: var(--navy); }
+  .feature-copy h2 { font-size: clamp(24px, 2.5vw, 30px); color: var(--brand); }
   .feature-copy .btn { margin-top: 12px; }
 
   .price { background: var(--soft); }
   .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .plan { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 36px 32px; display: grid; gap: 14px; align-content: start; }
-  .plan--featured { border: 2px solid var(--navy); }
+  .plan--featured { border: 2px solid var(--gold); }
   .plan h3 { font-size: 19px; }
   .plan-price { color: var(--muted); }
-  .plan-price strong { font-size: 34px; font-weight: 700; color: var(--navy); margin-right: 4px; }
+  .plan-price strong { font-size: 34px; font-weight: 700; color: var(--gold-deep); margin-right: 4px; }
   .plan ul { list-style: none; margin: 0; padding: 18px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 15px; }
-  .plan li::before { content: '✓'; color: var(--navy); margin-right: 10px; font-weight: 700; }
+  .plan li::before { content: '✓'; color: var(--gold-deep); margin-right: 10px; font-weight: 700; }
   .price-note { margin-top: 28px; text-align: center; font-size: 15px; color: var(--muted); }
 
   .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .steps li { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; display: grid; gap: 10px; align-content: start; }
-  .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-weight: 600; font-size: 15px; }
+  .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; font-weight: 600; font-size: 15px; }
   .steps h3 { font-size: 17px; }
   .steps p { font-size: 15px; }
   .aftercare-note { margin-top: 40px; padding: 36px 40px; border-radius: var(--radius); background: var(--soft); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; color: var(--ink); }
 
   .location { padding-top: 0; }
   .location-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
-  .location h2 { font-size: clamp(24px, 2.5vw, 30px); color: var(--navy); margin: 8px 0 28px; }
+  .location h2 { font-size: clamp(24px, 2.5vw, 30px); color: var(--brand); margin: 8px 0 28px; }
   .map { aspect-ratio: 4 / 3; }
   .info { margin: 0 0 32px; display: grid; gap: 14px; }
   .info div { display: grid; grid-template-columns: 100px 1fr; }

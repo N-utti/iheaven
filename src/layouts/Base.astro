@@ -83,13 +83,16 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
 
 <style is:global>
   :root {
-    --navy: #1c2b55;
-    --navy-deep: #141d38;
-    --ink: #161a24;
-    --text: #454a55;
-    --muted: #7a808c;
-    --line: #e4e6eb;
-    --soft: #f4f5f8;
+    --brand: #333;
+    --gold: #bca280;
+    --gold-deep: #a58b6a;
+    --gold-light: #ddbf97;
+    --brand-deep: #222;
+    --ink: #222;
+    --text: #4a4a4a;
+    --muted: #77736e;
+    --line: #e8e4de;
+    --soft: #f7f5f2;
     --radius: 16px;
     --sans: 'IBM Plex Sans KR', -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
   }
@@ -102,22 +105,22 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
   img { display: block; }
   .wrap { width: min(1180px, 100% - 40px); margin-inline: auto; }
 
-  .brand { display: flex; align-items: center; gap: 10px; color: var(--navy); }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--brand); }
   .brand span { font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; display: grid; }
   .brand small { font-size: 9.5px; font-weight: 500; letter-spacing: .18em; color: var(--muted); margin-top: 3px; }
 
   .site-header { position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
   .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; height: 84px; padding-inline: clamp(20px, 3vw, 44px); }
   .nav { display: flex; gap: clamp(20px, 2.4vw, 40px); font-size: 16px; font-weight: 500; color: var(--ink); }
-  .nav a:hover { color: var(--navy); text-decoration: underline; text-underline-offset: 8px; }
+  .nav a:hover { color: var(--gold-deep); text-decoration: underline; text-underline-offset: 8px; }
   .header-cta { font-size: 14px; color: var(--muted); }
-  .header-cta strong { display: block; font-size: 20px; color: var(--navy); line-height: 1.2; }
+  .header-cta strong { display: block; font-size: 20px; color: var(--gold-deep); line-height: 1.2; }
 
-  .btn { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 22px; border-radius: 4px; font-weight: 600; font-size: 15px; background: var(--navy); color: #fff; transition: background .2s; }
-  .btn:hover { background: var(--navy-deep); }
-  .btn--line { background: transparent; color: var(--navy); box-shadow: inset 0 0 0 1px var(--navy); }
-  .btn--line:hover { background: var(--navy); color: #fff; }
-  .btn--light { background: #fff; color: var(--navy); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 22px; border-radius: 4px; font-weight: 600; font-size: 15px; background: var(--brand); color: #fff; transition: background .2s; }
+  .btn:hover { background: var(--brand-deep); }
+  .btn--line { background: transparent; color: var(--brand); box-shadow: inset 0 0 0 1px var(--brand); }
+  .btn--line:hover { background: var(--brand); color: #fff; }
+  .btn--light { background: #fff; color: var(--brand); }
   .btn--light:hover { background: var(--soft); }
 
   .section { padding-block: 120px; }
@@ -127,30 +130,30 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
   .eyebrow { font-size: 15px; color: var(--muted); }
 
   /* ponytail: 사진 저작권 확인 전까지 쓰는 목업 칸. 실사진 받으면 <img>로 교체 */
-  .ph { position: relative; display: grid; place-items: center; border-radius: var(--radius); overflow: hidden; color: #8b92a1; font-size: 14px; text-align: center; padding: 16px;
-    background: repeating-linear-gradient(135deg, #eceef3 0 14px, #e5e8ee 14px 28px); }
+  .ph { position: relative; display: grid; place-items: center; border-radius: var(--radius); overflow: hidden; color: #8f8a83; font-size: 14px; text-align: center; padding: 16px;
+    background: repeating-linear-gradient(135deg, #efece7 0 14px, #e9e5df 14px 28px); }
   .ph::before { content: 'PHOTO'; position: absolute; top: 14px; left: 16px; font-size: 11px; letter-spacing: .2em; opacity: .7; }
 
-  .site-footer { background: var(--navy-deep); color: #a6adc0; padding: 64px 0 56px; font-size: 14px; }
-  .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding-bottom: 28px; border-bottom: 1px solid #2a3557; }
+  .site-footer { background: var(--brand-deep); color: #aaa; padding: 64px 0 56px; font-size: 14px; }
+  .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding-bottom: 28px; border-bottom: 1px solid #3a3a3a; }
   .brand--footer { color: #fff; }
   .brand--footer img { filter: brightness(0) invert(1); }
   .sns { display: flex; gap: 20px; }
   .sns a:hover { color: #fff; }
   .biz { display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 28px 0 20px; }
   .biz div { display: flex; gap: 8px; }
-  .biz dt { color: #6f7895; }
+  .biz dt { color: #777; }
   .biz dd { margin: 0; }
-  .copy { color: #6f7895; font-size: 13px; }
+  .copy { color: #777; font-size: 13px; }
 
   .quick { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 25; display: grid; gap: 4px; }
-  .quick a { width: 76px; height: 76px; display: grid; place-items: center; align-content: center; gap: 4px; font-size: 12px; font-weight: 500; color: #fff; border-radius: 10px 0 0 10px; box-shadow: 0 4px 14px rgba(20,29,56,.15); }
+  .quick a { width: 76px; height: 76px; display: grid; place-items: center; align-content: center; gap: 4px; font-size: 12px; font-weight: 500; color: #fff; border-radius: 10px 0 0 10px; box-shadow: 0 4px 14px rgba(0,0,0,.15); }
   .quick svg { width: 22px; height: 22px; fill: currentColor; }
   .quick b { font-size: 20px; line-height: 22px; }
   .quick--blog { background: #03c75a; }
-  .quick--tel { background: var(--navy); }
+  .quick--tel { background: var(--brand); color: var(--gold-light) !important; }
   .quick--kakao { background: #fee500; color: #3a1d1d !important; }
-  .quick--book { background: var(--navy-deep); }
+  .quick--book { background: var(--brand-deep); }
 
   .mobile-bar { display: none; }
 
@@ -165,7 +168,7 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
     .quick { display: none; }
     .site-footer { padding-bottom: 110px; }
     .mobile-bar { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; inset: auto 0 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
-    .mobile-bar a { text-align: center; padding: 16px 0; font-weight: 600; font-size: 15px; color: var(--navy); }
-    .mobile-bar .is-primary { background: var(--navy); color: #fff; }
+    .mobile-bar a { text-align: center; padding: 16px 0; font-weight: 600; font-size: 15px; color: var(--brand); }
+    .mobile-bar .is-primary { background: var(--brand); color: #fff; }
   }
 </style>
