@@ -1,5 +1,5 @@
 ---
-import { TEL, BOOKING, KAKAO, ADDRESS, BLOG, INSTAGRAM, FACEBOOK } from '../site.js';
+import { TEL, BOOKING, ADDRESS } from '../site.js';
 const { title = '아이헤븐 | 김해 반려동물 장례식장', description = '1:1 담당 장례지도사, 100% 예약제, 개별화장과 보호자 참관. 진실된 책임장례만을 약속하는 김해 반려동물 장례식장 아이헤븐입니다.' } = Astro.props;
 ---
 <!doctype html>
@@ -43,11 +43,6 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
     <div class="wrap">
       <div class="footer-top">
         <p class="brand brand--footer"><img src="/favicon.svg" alt="" width="30" height="30" /><span>아이헤븐</span></p>
-        <nav class="sns" aria-label="SNS">
-          <a href={BLOG} target="_blank" rel="noopener">블로그</a>
-          <a href={INSTAGRAM} target="_blank" rel="noopener">인스타그램</a>
-          <a href={FACEBOOK} target="_blank" rel="noopener">페이스북</a>
-        </nav>
       </div>
       <dl class="biz">
         <div><dt>상호</dt><dd>주식회사 아이헤븐</dd></div>
@@ -64,11 +59,8 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
   </footer>
 
   <nav class="quick" aria-label="빠른 상담">
-    <a href={BLOG} target="_blank" rel="noopener" class="quick--blog"><b>N</b>블로그</a>
     <a href={`tel:${TEL}`} class="quick--tel">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>전화하기</a>
-    <a href={KAKAO} target="_blank" rel="noopener" class="quick--kakao">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.7 6.7L5.7 21l4-2.6c.7.1 1.5.2 2.3.2 5.5 0 10-3.6 10-8s-4.5-8-10-8z"/></svg>카톡문의</a>
     <a href={BOOKING} target="_blank" rel="noopener" class="quick--book">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2zm-2 8h14v10H5z"/></svg>장례예약</a>
   </nav>
@@ -76,7 +68,6 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
   <nav class="mobile-bar" aria-label="빠른 상담">
     <a href={`tel:${TEL}`} class="is-primary">전화 상담</a>
     <a href={BOOKING} target="_blank" rel="noopener">예약하기</a>
-    <a href={KAKAO} target="_blank" rel="noopener">카카오톡</a>
   </nav>
 </body>
 </html>
@@ -138,8 +129,6 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
   .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding-bottom: 28px; border-bottom: 1px solid #3a3a3a; }
   .brand--footer { color: #fff; }
   .brand--footer img { filter: brightness(0) invert(1); }
-  .sns { display: flex; gap: 20px; }
-  .sns a:hover { color: #fff; }
   .biz { display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 28px 0 20px; }
   .biz div { display: flex; gap: 8px; }
   .biz dt { color: #777; }
@@ -149,10 +138,7 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
   .quick { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 25; display: grid; gap: 4px; }
   .quick a { width: 76px; height: 76px; display: grid; place-items: center; align-content: center; gap: 4px; font-size: 12px; font-weight: 500; color: #fff; border-radius: 10px 0 0 10px; box-shadow: 0 4px 14px rgba(0,0,0,.15); }
   .quick svg { width: 22px; height: 22px; fill: currentColor; }
-  .quick b { font-size: 20px; line-height: 22px; }
-  .quick--blog { background: #03c75a; }
   .quick--tel { background: var(--brand); color: var(--gold-light) !important; }
-  .quick--kakao { background: #fee500; color: #3a1d1d !important; }
   .quick--book { background: var(--brand-deep); }
 
   .mobile-bar { display: none; }
@@ -167,7 +153,7 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
     .section { padding-block: 80px; }
     .quick { display: none; }
     .site-footer { padding-bottom: 110px; }
-    .mobile-bar { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; inset: auto 0 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
+    .mobile-bar { display: grid; grid-template-columns: repeat(2, 1fr); position: fixed; inset: auto 0 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
     .mobile-bar a { text-align: center; padding: 16px 0; font-weight: 600; font-size: 15px; color: var(--brand); }
     .mobile-bar .is-primary { background: var(--brand); color: #fff; }
   }

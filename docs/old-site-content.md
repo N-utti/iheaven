@@ -14,10 +14,9 @@
 ## TODO
 - [ ] 동물장묘업 등록번호(제535-038-2018-0001호)가 법인(주식회사 아이헤븐) 명의로 유효한지 확인 — 2018년 개인사업자 시절 발급
 - [ ] 통신판매업 신고번호(제2018-경남김해-0585호)가 법인 명의로 재신고됐는지 확인 — 바뀌었으면 `src/layouts/Base.astro` 하단 정보 수정
-- [ ] 블로그 주소(blog.naver.com/iheaven1004) 변경 예정 — 새 주소 받으면 `src/site.js` 의 `BLOG` 교체 (이메일은 iheaven_official 로 이미 변경)
 - 네이버 예약 https://booking.naver.com/booking/6/bizes/173803/items/3216198
-- 카카오 채널 https://pf.kakao.com/_pxkxllj
-- 블로그 https://blog.naver.com/iheaven1004 / 인스타 https://www.instagram.com/iheaven.official/ / 페이스북 https://www.facebook.com/profile.php?id=100028432577861
+- 카카오 채널 https://pf.kakao.com/_pxkxllj (새 사이트에선 뺌)
+- 블로그 https://blog.naver.com/iheaven1004 / 인스타 https://www.instagram.com/iheaven.official/ / 페이스북 https://www.facebook.com/profile.php?id=100028432577861 (새 사이트에선 SNS 전부 뺌, 외부 링크는 네이버 예약만)
 
 ## 메뉴 구조(기존)
 장례서비스(장례서비스·루세떼 장례서비스·아이헤븐 컬렉션) / 장례비용 / 루세떼 / 납골당 / HEAVEN COLLECTION /
