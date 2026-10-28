@@ -1,0 +1,178 @@
+---
+import Base from '../layouts/Base.astro';
+import { TEL, BOOKING, KAKAO, ADDRESS } from '../site.js';
+
+const promises = [
+  ['1:1 담당 장례지도사', '상담부터 유골 인도까지 한 명의 장례지도사가 처음부터 끝까지 함께합니다.'],
+  ['100% 예약제 단독 추모실', '다른 가족과 겹치지 않도록 예약제로 운영해, 서두르지 않는 작별 시간을 드립니다.'],
+  ['개별화장', '아이 한 명만을 위해 화장로를 운영합니다. 다른 아이와 함께 화장하지 않습니다.'],
+  ['보호자 참관', '염습부터 화장까지 모든 절차를 보호자께서 직접 지켜보실 수 있습니다.'],
+];
+
+const services = [
+  { id: 'funeral', en: 'HEAVEN FUNERAL', title: '장례 서비스', photo: '단독 추모실 사진', text: '염습, 단독 추모실, 개별화장, 유골함까지. 아이에게 어울리는 예식으로 마지막 인사를 준비합니다.' },
+  { id: 'lucete', en: 'HEAVEN LUCETE', title: '루세떼', photo: '루세떼 스톤 사진', text: '"밝게 빛나라"는 뜻의 루세떼. 유골분을 순도 99.99%의 스톤으로 만들어 반지·목걸이로 늘 곁에 둘 수 있습니다.' },
+  { id: 'house', en: 'HEAVEN HOUSE', title: '납골당', photo: '헤븐 하우스 내부 사진', text: '언제든 만나러 올 수 있는 아이의 안식처. 오전 9시부터 오후 6시까지 연중무휴로 방문하실 수 있습니다.' },
+];
+
+const plans = [
+  { name: '헤븐 장례', price: '250,000', items: ['염습', '단독 추모실', '종교용품', '국화 헌화 (생화)', '개별화장', '기본 청자 유골함'] },
+  { name: '헤븐 고급 장례', price: '450,000', items: ['헤븐 장례 구성 전체', '고급 수의', '고급 오동나무관', '청자 유골함'], featured: true },
+  { name: '헤븐 최고급 장례', price: '1,000,000', items: ['헤븐 장례 구성 전체', '최고급 수의', '최고급 오동나무관', '무지개 유골함', '헤븐 하우스', '원목 액자'] },
+];
+
+const mapQuery = encodeURIComponent(ADDRESS);
+---
+<Base>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">김해 반려동물 장례식장 · 정식 등록 동물장묘업</p>
+        <h1>가족이었던 아이의<br />마지막 산책길을<br />함께합니다.</h1>
+        <p class="lead">모든 장례는 1:1 담당 장례지도사가 처음부터 끝까지 함께합니다.<br />
+          100% 예약제로, 다른 가족과 겹치지 않는 여유로운 작별 시간을 드립니다.</p>
+        <div class="cta">
+          <a class="btn btn--primary" href={`tel:${TEL}`}>24시 장례상담 {TEL}</a>
+          <a class="btn btn--ghost" href={BOOKING} target="_blank" rel="noopener">네이버 예약</a>
+          <a class="btn btn--ghost" href={KAKAO} target="_blank" rel="noopener">카카오톡 상담</a>
+        </div>
+      </div>
+      <div class="ph hero-photo">대표 사진 · 추모실 또는 시설 외관</div>
+    </div>
+  </section>
+
+  <section class="section promise">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">OUR PROMISE</p>
+        <h2>아이헤븐 책임장례의 네 가지 약속</h2>
+      </div>
+      <ol class="promise-list">
+        {promises.map(([title, text], i) => (
+          <li>
+            <span class="num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section services" id="service">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">SERVICE</p>
+        <h2>이별 이후까지, 오래 기억되도록</h2>
+        <p>장례부터 유골 보석 제작, 안치까지 아이헤븐 한곳에서 이어집니다.</p>
+      </div>
+      <div class="service-grid">
+        {services.map((s) => (
+          <article class="service" id={s.id}>
+            <div class="ph service-photo">{s.photo}</div>
+            <p class="eyebrow">{s.en}</p>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section price" id="price">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">FUNERAL PRICE</p>
+        <h2>장례비용을 투명하게 공개합니다</h2>
+        <p>아래 금액은 체중 5kg 이하 기준이며 부가세 별도입니다.</p>
+      </div>
+      <div class="plan-grid">
+        {plans.map((p) => (
+          <div class:list={['plan', { 'plan--featured': p.featured }]}>
+            <h3>{p.name}</h3>
+            <p class="plan-price"><strong>{p.price}</strong>원</p>
+            <ul>{p.items.map((it) => <li>{it}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+      <p class="price-note">루세떼 장례는 800,000원부터, 납골당 안치는 1년 200,000원부터입니다. 5kg 초과 시 체중별 비용은 상담 시 안내드립니다.</p>
+    </div>
+  </section>
+
+  <section class="section location" id="location">
+    <div class="wrap location-inner">
+      <div>
+        <div class="section-head">
+          <p class="eyebrow">LOCATION</p>
+          <h2>오시는 길</h2>
+        </div>
+        <dl class="info">
+          <div><dt>주소</dt><dd>{ADDRESS}</dd></div>
+          <div><dt>장례 예약</dt><dd>24시간 · {TEL}</dd></div>
+          <div><dt>운영 시간</dt><dd>오전 9시 – 오후 8시</dd></div>
+          <div><dt>납골당 방문</dt><dd>오전 9시 – 오후 6시, 연중무휴</dd></div>
+          <div><dt>이메일</dt><dd>iheaven1004@naver.com</dd></div>
+        </dl>
+        <div class="cta">
+          <a class="btn btn--ghost" href={`https://map.naver.com/p/search/${mapQuery}`} target="_blank" rel="noopener">네이버 지도</a>
+          <a class="btn btn--ghost" href={`https://map.kakao.com/?q=${mapQuery}`} target="_blank" rel="noopener">카카오맵</a>
+        </div>
+      </div>
+      <div class="ph map">지도 영역</div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-block: 72px 120px; }
+  .hero-inner { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
+  .hero-copy { display: grid; gap: 28px; }
+  .hero h1 { font-size: clamp(34px, 4.6vw, 56px); font-weight: 400; line-height: 1.32; }
+  .lead { color: var(--muted); font-size: 17px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero-photo { aspect-ratio: 4 / 5; }
+
+  .promise { background: var(--surface); border-block: 1px solid var(--line); }
+  .promise-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+  .promise-list li { padding: 8px 28px 8px 0; display: grid; gap: 12px; align-content: start; }
+  .promise-list li + li { border-left: 1px solid var(--line); padding-left: 28px; }
+  .num { font-family: var(--serif); color: var(--gold); font-size: 15px; }
+  .promise-list h3 { font-size: 20px; }
+  .promise-list p { color: var(--muted); font-size: 15px; }
+
+  .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .service { display: grid; gap: 12px; align-content: start; }
+  .service-photo { aspect-ratio: 4 / 3; margin-bottom: 12px; }
+  .service h3 { font-size: 24px; }
+  .service p:last-child { color: var(--muted); font-size: 15px; }
+
+  .price { background: var(--deep); color: #efe7dc; }
+  .price .section-head p { color: #b9ada0; }
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .plan { border: 1px solid #4a433c; border-radius: 4px; padding: 36px 32px; display: grid; gap: 16px; align-content: start; }
+  .plan--featured { border-color: var(--gold); background: #38312b; }
+  .plan h3 { font-size: 20px; }
+  .plan-price { color: #b9ada0; }
+  .plan-price strong { font-family: var(--serif); font-size: 36px; font-weight: 400; color: #fff; margin-right: 4px; }
+  .plan ul { list-style: none; margin: 0; padding: 16px 0 0; border-top: 1px solid #4a433c; display: grid; gap: 8px; font-size: 15px; color: #d6cbbd; }
+  .plan li::before { content: '—'; color: var(--gold); margin-right: 10px; }
+  .price-note { margin-top: 28px; font-size: 14px; color: #b9ada0; }
+
+  .location-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: start; }
+  .info { margin: 0 0 32px; display: grid; gap: 14px; }
+  .info div { display: grid; grid-template-columns: 110px 1fr; }
+  .info dt { color: var(--muted); }
+  .info dd { margin: 0; }
+  .map { aspect-ratio: 4 / 3; }
+
+  @media (max-width: 860px) {
+    .hero { padding-block: 40px 72px; }
+    .hero-inner, .location-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-photo { aspect-ratio: 4 / 3; order: -1; }
+    .lead br { display: none; }
+    .cta .btn { flex: 1 1 100%; }
+    .promise-list, .service-grid, .plan-grid { grid-template-columns: 1fr; }
+    .promise-list li, .promise-list li + li { border-left: 0; padding: 24px 0; border-top: 1px solid var(--line); }
+    .service-grid { gap: 48px; }
+  }
+</style>

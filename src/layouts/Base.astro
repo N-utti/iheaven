@@ -1,0 +1,128 @@
+---
+import { TEL, BOOKING, KAKAO, ADDRESS } from '../site.js';
+const { title = '아이헤븐 | 김해 반려동물 장례식장', description = '1:1 담당 장례지도사, 100% 예약제, 개별화장과 보호자 참관. 진실된 책임장례만을 약속하는 아이헤븐입니다.' } = Astro.props;
+---
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:locale" content="ko_KR" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="/" class="wordmark" aria-label="아이헤븐 홈">i<span>heaven</span></a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="#service">장례서비스</a>
+        <a href="#price">장례비용</a>
+        <a href="#service">루세떼</a>
+        <a href="#service">납골당</a>
+        <a href="#location">오시는 길</a>
+      </nav>
+      <a class="header-tel" href={`tel:${TEL}`}>24시 상담 <strong>{TEL}</strong></a>
+    </div>
+  </header>
+
+  <main><slot /></main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="wordmark wordmark--footer">i<span>heaven</span></p>
+      <dl class="biz">
+        <div><dt>상호</dt><dd>아이헤븐</dd></div>
+        <div><dt>대표</dt><dd>정이찬</dd></div>
+        <div><dt>사업자등록번호</dt><dd>757-88-03042</dd></div>
+        <div><dt>동물장묘업 등록번호</dt><dd>제 535-038-2018-0001호</dd></div>
+        <div><dt>통신판매업 신고번호</dt><dd>제 2018-경남김해-0585호</dd></div>
+        <div><dt>주소</dt><dd>{ADDRESS}</dd></div>
+        <div><dt>전화</dt><dd>{TEL}</dd></div>
+        <div><dt>이메일</dt><dd>iheaven1004@naver.com</dd></div>
+      </dl>
+      <p class="copy">© iheaven. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <nav class="mobile-bar" aria-label="빠른 상담">
+    <a href={`tel:${TEL}`} class="is-primary">전화 상담</a>
+    <a href={BOOKING} target="_blank" rel="noopener">예약하기</a>
+    <a href={KAKAO} target="_blank" rel="noopener">카카오톡</a>
+  </nav>
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #f6f2ec;
+    --surface: #fffdf9;
+    --ink: #2b2622;
+    --muted: #6f665d;
+    --line: #e3dacd;
+    --gold: #9c7a48;
+    --deep: #2f2a25;
+    --serif: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+    --sans: 'Pretendard', -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.75 var(--sans); word-break: keep-all; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.35; margin: 0; }
+  p { margin: 0; }
+  .wrap { width: min(1160px, 100% - 40px); margin-inline: auto; }
+
+  .wordmark { font-family: var(--serif); font-size: 24px; letter-spacing: .02em; color: var(--gold); }
+  .wordmark span { color: var(--ink); }
+
+  .site-header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .header-inner { display: flex; align-items: center; gap: 40px; height: 68px; }
+  .nav { display: flex; gap: 28px; font-size: 15px; color: var(--muted); }
+  .nav a:hover { color: var(--ink); }
+  .header-tel { margin-left: auto; font-size: 14px; color: var(--muted); }
+  .header-tel strong { color: var(--ink); font-weight: 600; margin-left: 6px; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 26px; border-radius: 999px; font-weight: 600; font-size: 15px; border: 1px solid var(--ink); transition: background .2s, color .2s; }
+  .btn--primary { background: var(--ink); color: var(--surface); }
+  .btn--primary:hover { background: var(--gold); border-color: var(--gold); }
+  .btn--ghost:hover { background: var(--ink); color: var(--surface); }
+
+  .eyebrow { font-size: 13px; letter-spacing: .14em; color: var(--gold); font-weight: 600; }
+  .section { padding-block: 120px; }
+  .section-head { display: grid; gap: 14px; margin-bottom: 56px; max-width: 620px; }
+  .section-head h2 { font-size: clamp(28px, 3.4vw, 40px); }
+  .section-head p { color: var(--muted); }
+
+  /* ponytail: 사진 저작권 확인 전까지 쓰는 목업 칸. 실사진 받으면 <img>로 교체 */
+  .ph { position: relative; display: grid; place-items: center; border-radius: 4px; overflow: hidden; color: #8a7d6d; font-size: 14px;
+    background: repeating-linear-gradient(135deg, #ebe3d8 0 14px, #e6ddd1 14px 28px); }
+  .ph::before { content: 'PHOTO'; position: absolute; top: 14px; left: 16px; font-size: 11px; letter-spacing: .2em; opacity: .7; }
+
+  .site-footer { background: var(--deep); color: #b9ada0; padding: 64px 0 120px; font-size: 14px; }
+  .wordmark--footer span { color: #efe7dc; }
+  .biz { display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 24px 0; }
+  .biz div { display: flex; gap: 8px; }
+  .biz dt { color: #8c8175; }
+  .biz dd { margin: 0; }
+  .copy { color: #8c8175; font-size: 13px; }
+
+  .mobile-bar { display: none; }
+
+  @media (max-width: 860px) {
+    .nav { display: none; }
+    .header-tel { font-size: 0; }
+    .header-tel strong { font-size: 14px; }
+    .section { padding-block: 80px; }
+    .site-footer { padding-bottom: 110px; }
+    .mobile-bar { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; inset: auto 0 0; z-index: 20; background: var(--surface); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
+    .mobile-bar a { text-align: center; padding: 16px 0; font-weight: 600; font-size: 15px; }
+    .mobile-bar .is-primary { background: var(--ink); color: var(--surface); }
+  }
+</style>
