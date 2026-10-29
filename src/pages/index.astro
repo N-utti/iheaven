@@ -33,8 +33,7 @@ const mapQuery = encodeURIComponent(ADDRESS);
     <div class="hero-media">
       <span class="hero-photo-label">대표 사진 · 시설 외관 또는 추모실</span>
       <div class="hero-copy">
-        <p class="hero-brand">아이헤븐</p>
-        <h1>가족이었던 아이의 <br />마지막 산책길을 함께합니다.</h1>
+        <h1>가족이었던 아이의 마지막 산책길, <br /><strong>아이헤븐</strong>이 함께합니다.</h1>
         <div class="hero-cta">
           <a class="btn btn--light" href={`tel:${TEL}`}>24시 장례상담 {TEL}</a>
           <a class="hero-link" href="#aftercare">아이가 방금 떠났다면 — 사후 수습 방법 →</a>
@@ -142,8 +141,8 @@ const mapQuery = encodeURIComponent(ADDRESS);
     background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.5)), repeating-linear-gradient(135deg, #8a8278 0 16px, #837b71 16px 32px); }
   .hero-photo-label { position: absolute; top: 24px; right: 28px; color: rgba(255,255,255,.7); font-size: 13px; letter-spacing: .04em; }
   .hero-copy { display: grid; gap: 20px; color: #fff; }
-  .hero-brand { font-size: 18px; font-weight: 600; opacity: .9; }
   .hero h1 { color: #fff; font-size: clamp(30px, 4.4vw, 54px); font-weight: 600; letter-spacing: -.02em; }
+  .hero h1 strong { color: var(--gold-light); font-weight: 700; }
   .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-top: 8px; }
   .hero-link { font-size: 15px; color: rgba(255,255,255,.9); border-bottom: 1px solid rgba(255,255,255,.5); padding-bottom: 2px; }
 
