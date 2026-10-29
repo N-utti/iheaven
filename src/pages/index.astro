@@ -181,7 +181,7 @@ const mapQuery = encodeURIComponent(ADDRESS);
   .steps p { font-size: 15px; }
   .aftercare-note { margin-top: 40px; padding: 36px 40px; border-radius: var(--radius); background: var(--soft); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; color: var(--ink); }
 
-  .location { padding-top: 0; }
+  .location { padding-top: 0; scroll-margin-top: 24px; }
   .location-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
   .location h2 { font-size: clamp(24px, 2.5vw, 30px); color: var(--brand); margin: 8px 0 28px; }
   .map { aspect-ratio: 4 / 3; width: 100%; border: 0; border-radius: var(--radius); }
@@ -197,12 +197,20 @@ const mapQuery = encodeURIComponent(ADDRESS);
   }
   @media (max-width: 860px) {
     .hero { padding: 0; }
-    .hero-media { min-height: 72vh; }
+    .hero-media { min-height: 72svh; }
+    .intro { padding-block: 56px; }
     .hero h1 br { display: none; }
     .intro-lead br { display: none; }
     .feature, .location-inner { grid-template-columns: 1fr; gap: 28px; }
     .feature--flip .feature-photo { order: 0; }
     .plan-grid, .steps { grid-template-columns: 1fr; }
+    .plan { padding: 28px 24px; }
+    /* 번호를 왼쪽에 붙여 7단계 세로 길이를 줄임 */
+    .steps li { grid-template-columns: 32px 1fr; gap: 6px 14px; padding: 22px 20px; }
+    .step-num { grid-row: span 2; }
+    .steps h3 { align-self: center; }
+    /* 제목 먼저, 지도는 버튼 아래. 터치 시 스크롤을 가로채지 않게 — 지도 앱은 아래 버튼으로 */
+    .map { order: 2; aspect-ratio: 16 / 11; pointer-events: none; }
     .aftercare-note { padding: 28px 24px; }
     .aftercare-note br { display: none; }
   }

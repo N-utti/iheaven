@@ -36,7 +36,7 @@ const ogImage = new URL('og.png', Astro.url);
       <a href="./" class="brand" aria-label="아이헤븐 홈">
         <img src="logo.svg" alt="" width="120" height="27" />
       </a>
-      <nav class="nav" aria-label="주요 메뉴">
+      <nav id="nav" class="nav" aria-label="주요 메뉴" onclick="if (event.target.closest('a')) { this.parentNode.parentNode.classList.remove('is-open'); document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false') }">
         <a href="#service">장례서비스</a>
         <a href="#price">장례비용</a>
         <a href="#lucete">루세떼</a>
@@ -47,6 +47,9 @@ const ogImage = new URL('og.png', Astro.url);
       <div class="header-actions">
         <a class="header-cta" href={`tel:${TEL}`}>24시 장례상담 <strong>{TEL}</strong></a>
         <a class="btn header-book" href={BOOKING} target="_blank" rel="noopener">예약하기</a>
+        <button class="nav-toggle" aria-label="메뉴" aria-expanded="false" aria-controls="nav" onclick="this.setAttribute('aria-expanded', this.closest('.site-header').classList.toggle('is-open'))">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -103,7 +106,7 @@ const ogImage = new URL('og.png', Astro.url);
   html { scroll-behavior: smooth; scroll-padding-top: 84px; }
   body { margin: 0; background: #fff; color: var(--text); font: 400 16px/1.75 var(--serif); word-break: keep-all; -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
-  h1, h2, h3 { color: var(--ink); line-height: 1.35; margin: 0; font-weight: 700; }
+  h1, h2, h3 { color: var(--ink); line-height: 1.35; margin: 0; font-weight: 700; text-wrap: balance; }
   p { margin: 0; }
   img { display: block; }
   .wrap { width: min(1180px, 100% - 40px); margin-inline: auto; }
@@ -111,12 +114,13 @@ const ogImage = new URL('og.png', Astro.url);
   .brand { display: flex; align-items: center; gap: 10px; color: var(--brand); }
 
   .site-header { position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; height: 84px; padding-inline: clamp(20px, 3vw, 44px); }
+  .header-inner { --pad: clamp(20px, 3vw, 44px); display: flex; align-items: center; justify-content: space-between; gap: 0 32px; height: 84px; padding-inline: var(--pad); }
   .nav { display: flex; gap: clamp(20px, 2.4vw, 40px); font-size: 16px; font-weight: 500; color: var(--ink); }
   .nav a:hover { color: var(--gold-deep); text-decoration: underline; text-underline-offset: 8px; }
   .header-actions { display: flex; align-items: center; gap: 20px; }
   .header-cta { font-size: 14px; color: var(--muted); }
   .header-cta strong { display: block; font-size: 20px; color: var(--gold-deep); line-height: 1.2; }
+  .nav-toggle { display: none; padding: 10px; margin-right: -10px; border: 0; background: none; color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 
   .btn { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 22px; border-radius: 4px; font-weight: 600; font-size: 15px; background: var(--brand); color: #fff; transition: background .2s; }
   .btn:hover { background: var(--brand-deep); }
@@ -128,7 +132,7 @@ const ogImage = new URL('og.png', Astro.url);
   .section { padding-block: 120px; }
   .section-head { display: grid; gap: 12px; margin-bottom: 56px; text-align: center; justify-items: center; }
   .section-head h2 { font-size: clamp(26px, 3vw, 36px); }
-  .section-head p { color: var(--muted); max-width: 640px; }
+  .section-head p { color: var(--muted); max-width: 640px; text-wrap: pretty; }
   .eyebrow { font-size: 15px; color: var(--muted); }
 
   /* ponytail: 사진 저작권 확인 전까지 쓰는 목업 칸. 실사진 받으면 <img>로 교체 */
@@ -155,15 +159,34 @@ const ogImage = new URL('og.png', Astro.url);
   .mobile-bar { display: none; }
 
   @media (max-width: 1080px) {
-    .nav { display: none; }
+    html { scroll-padding-top: 132px; }
+    /* 메뉴를 숨기지 않고 헤더 아래 가로 스크롤 줄로 */
+    .header-inner { flex-wrap: wrap; height: auto; }
+    .brand, .header-actions { height: 84px; }
+    .nav { order: 3; flex: 0 0 auto; width: calc(100% + 2 * var(--pad)); margin-inline: calc(-1 * var(--pad)); padding-inline: var(--pad) 48px; gap: 24px; overflow-x: auto; white-space: nowrap; font-size: 15px; border-top: 1px solid var(--line); scrollbar-width: none; }
+    /* 잘린 메뉴가 있다는 신호: 오른쪽 끝을 흐리게, 끝까지 밀면 마지막 항목은 패딩 덕에 선명 */
+    .nav { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a { padding-block: 10px; }
   }
   @media (max-width: 860px) {
-    .header-inner { height: 64px; }
-    .header-cta { font-size: 0; }
-    .header-cta strong { font-size: 16px; }
-    .section { padding-block: 80px; }
+    html { scroll-padding-top: 60px; }
+    .brand, .header-actions { height: 60px; }
+    /* 하단 고정 바의 전화 상담과 중복 → 그 자리에 햄버거 */
+    .header-cta { display: none; }
+    .nav-toggle { display: block; }
+    /* 헤더 아래로 겹쳐 펼침 — 문서 흐름에 넣으면 sticky 헤더가 커지며 본문이 밀림 */
+    /* display:none 은 전환이 안 돼서 visibility + clip-path 로 숨김 (visibility 가 탭 이동·스크린리더에서도 빼 줌) */
+    .nav { visibility: hidden; clip-path: inset(0 0 100% 0); transition: clip-path .25s ease, visibility .25s; position: absolute; top: 100%; left: 0; right: 0; width: auto; margin: 0; padding-inline: var(--pad); flex-direction: column; gap: 0; overflow: visible; white-space: normal; background: #fff; border-bottom: 1px solid var(--line); -webkit-mask-image: none; mask-image: none; }
+    .site-header.is-open .nav { visibility: visible; clip-path: inset(0); }
+    .nav a { padding-block: 14px; }
+    .nav a + a { border-top: 1px solid var(--line); }
+    .section { padding-block: 64px; }
+    .section-head { margin-bottom: 36px; }
     .header-book { display: none; }
     .site-footer { padding-bottom: 110px; }
+    .biz { flex-direction: column; }
+    .biz dt { flex-shrink: 0; }
     .mobile-bar { display: grid; grid-template-columns: repeat(2, 1fr); position: fixed; inset: auto 0 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
     .mobile-bar a { text-align: center; padding: 16px 0; font-weight: 600; font-size: 15px; color: var(--brand); }
     .mobile-bar .is-primary { background: var(--brand); color: #fff; }
