@@ -1,9 +1,9 @@
 ---
 import { TEL, BOOKING, ADDRESS } from '../site.js';
 const { title = '아이헤븐 | 김해 반려동물 장례식장', description = '1:1 담당 장례지도사, 100% 예약제, 개별화장과 보호자 참관. 진실된 책임장례만을 약속하는 김해 반려동물 장례식장 아이헤븐입니다.' } = Astro.props;
-// 공유 미리보기는 절대 URL만 인식 — Astro.url 은 site+base 기준
+// 공유 미리보기는 절대 URL만 인식. Astro.url 은 site+base 기준
 const ogImage = new URL('og.png', Astro.url);
-// build.format 'file' 이라 메인이 index.html 로 잡힘 — 대표 주소는 폴더 주소로
+// build.format 'file' 이라 메인이 index.html 로 잡힘. 대표 주소는 폴더 주소로
 const pageUrl = String(Astro.url).replace(/index\.html$/, '');
 ---
 <!doctype html>
@@ -25,7 +25,7 @@ const pageUrl = String(Astro.url).replace(/index\.html$/, '');
   <meta property="og:image:alt" content="아이헤븐 김해 반려동물 장례식장, 24시 장례상담 1577-5474" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href={pageUrl} />
-  <!-- 옛 사이트(iheaven.kr) 심볼 그대로 — 건물 간판과 일치 -->
+  <!-- 옛 사이트(iheaven.kr) 심볼 그대로, 건물 간판과 일치 -->
   <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -181,10 +181,10 @@ const pageUrl = String(Astro.url).replace(/index\.html$/, '');
   @media (max-width: 860px) {
     html { scroll-padding-top: 60px; }
     .brand, .header-actions { height: 60px; }
-    /* 하단 고정 바의 전화 상담과 중복 → 그 자리에 햄버거 */
+    /* 하단 고정 바의 전화 상담과 중복이라 그 자리에 햄버거 */
     .header-cta { display: none; }
     .nav-toggle { display: block; }
-    /* 헤더 아래로 겹쳐 펼침 — 문서 흐름에 넣으면 sticky 헤더가 커지며 본문이 밀림 */
+    /* 헤더 아래로 겹쳐 펼침. 문서 흐름에 넣으면 sticky 헤더가 커지며 본문이 밀림 */
     /* display:none 은 전환이 안 돼서 visibility + clip-path 로 숨김 (visibility 가 탭 이동·스크린리더에서도 빼 줌) */
     .nav { visibility: hidden; clip-path: inset(0 0 100% 0); transition: clip-path .25s ease, visibility .25s; position: absolute; top: 100%; left: 0; right: 0; width: auto; margin: 0; padding-inline: var(--pad); flex-direction: column; gap: 0; overflow: visible; white-space: normal; background: #fff; border-bottom: 1px solid var(--line); -webkit-mask-image: none; mask-image: none; }
     .site-header.is-open .nav { visibility: visible; clip-path: inset(0); }
