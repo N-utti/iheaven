@@ -108,6 +108,8 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
     --serif: 'Noto Serif KR', 'AppleMyungjo', 'Batang', serif;
   }
   * { box-sizing: border-box; }
+  /* 모바일에서 링크·버튼을 누를 때 생기는 회색 깜빡임을 사이트 전체에서 끔 (상속돼서 새 링크에도 적용) */
+  html { -webkit-tap-highlight-color: transparent; }
   /* 페이지 사이 이동을 브라우저 기본 전환으로. 헤더·하단 바는 그대로 두고 본문만 바뀜. 지원 안 하는 브라우저는 그냥 이동 */
   @media (prefers-reduced-motion: no-preference) {
     @view-transition { navigation: auto; }
@@ -134,7 +136,7 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
   .header-cta { font-size: 14px; color: var(--muted); }
   .header-cta strong { display: block; font-size: 20px; color: var(--gold-deep); line-height: 1.2; transition: color .2s; }
   .header-cta:hover, .header-cta:hover strong { color: var(--ink); }
-  .nav-toggle { display: none; padding: 10px; margin-right: -10px; border: 0; background: none; color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; transition: color .2s; }
+  .nav-toggle { display: none; padding: 10px; margin-right: -10px; border: 0; background: none; color: var(--ink); cursor: pointer; transition: color .2s; }
   .nav-toggle:hover { color: var(--gold-deep); }
 
   .btn { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 22px; border-radius: 4px; font-weight: 600; font-size: 15px; background: var(--brand); color: #fff; transition: background .2s; }
