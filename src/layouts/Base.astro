@@ -1,6 +1,8 @@
 ---
 import { TEL, BOOKING, ADDRESS } from '../site.js';
 const { title = '아이헤븐 | 김해 반려동물 장례식장', description = '1:1 담당 장례지도사, 100% 예약제, 개별화장과 보호자 참관. 진실된 책임장례만을 약속하는 김해 반려동물 장례식장 아이헤븐입니다.' } = Astro.props;
+// 공유 미리보기는 절대 URL만 인식 — Astro.url 은 site+base 기준
+const ogImage = new URL('og.png', Astro.url);
 ---
 <!doctype html>
 <html lang="ko">
@@ -12,6 +14,15 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:locale" content="ko_KR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="아이헤븐" />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="아이헤븐 김해 반려동물 장례식장, 24시 장례상담 1577-5474" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href={Astro.url} />
   <!-- 옛 사이트(iheaven.kr) 심볼 그대로 — 건물 간판과 일치 -->
   <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="favicon.png" />
