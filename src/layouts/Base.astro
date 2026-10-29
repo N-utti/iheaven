@@ -127,7 +127,6 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
   .wrap { width: min(1180px, 100% - 40px); margin-inline: auto; }
 
   .brand { display: flex; align-items: center; gap: 10px; color: var(--brand); }
-  a.brand:hover { opacity: .65; }
 
   .site-header { position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
   .header-inner { --pad: clamp(20px, 3vw, 44px); display: flex; align-items: center; justify-content: space-between; gap: 0 32px; height: 84px; padding-inline: var(--pad); }
@@ -168,10 +167,7 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
   .plan ul { list-style: none; margin: 0; padding: 18px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 15px; }
   .plan li::before { content: '✓'; color: var(--gold-deep); margin-right: 10px; font-weight: 700; }
 
-  /* ponytail: 사진 저작권 확인 전까지 쓰는 목업 칸. 실사진 받으면 <img>로 교체 */
-  .ph { position: relative; display: grid; place-items: center; border-radius: var(--radius); overflow: hidden; color: #8f8a83; font-size: 14px; text-align: center; padding: 16px;
-    background: repeating-linear-gradient(135deg, #efece7 0 14px, #e9e5df 14px 28px); }
-  .ph::before { content: 'PHOTO'; position: absolute; top: 14px; left: 16px; font-size: 11px; letter-spacing: .2em; opacity: .7; }
+  .photo { width: 100%; height: auto; object-fit: cover; border-radius: var(--radius); background: var(--soft); }
 
   .site-footer { background: var(--brand-deep); color: #aaa; padding: 64px 0 56px; font-size: 14px; }
   .footer-top { display: flex; flex-direction: column; gap: 16px; padding-bottom: 28px; border-bottom: 1px solid #3a3a3a; }

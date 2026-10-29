@@ -3,10 +3,10 @@ import Base from '../layouts/Base.astro';
 import { TEL, ADDRESS, NAVER_PLACE } from '../site.js';
 
 const features = [
-  { id: 'service', title: '1:1 장례지도사의 책임장례', photo: '장례지도사와 염습 사진', text: '모든 장례 절차에 반려동물 장례지도사가 1:1로 배정되어, 보호자와 함께 마지막까지 정성껏 진행합니다. 개별화장과 보호자 참관으로 모든 과정을 직접 지켜보실 수 있습니다.' },
-  { id: 'memorial', title: '100% 예약제, 여유로운 단독 추모', photo: '단독 추모실 사진', text: '예약제로 운영해 다른 가족과 겹치지 않는 단독 추모실에서, 서두르지 않고 충분히 작별 인사를 나누실 수 있습니다.' },
-  { id: 'lucete', title: '추억을 담은 영원한 빛, 루세떼', photo: '루세떼 스톤과 주얼리 사진', text: '"밝게 빛나라"는 뜻의 루세떼.\n아이의 유골분을 순도 99.99%의 보석으로 만들어, 반지와 목걸이로 언제나 곁에 두실 수 있습니다.', link: 'lucete.html' },
-  { id: 'house', title: '언제든 만날 수 있는 안식처, 헤븐 하우스', photo: '헤븐 하우스(납골당) 사진', text: '쾌적하고 아늑한 공간에서 아이가 편히 쉴 수 있도록 모십니다. 오전 9시부터 오후 6시까지 연중무휴로 찾아오실 수 있습니다.' },
+  { id: 'service', img: 'img/service.jpg', title: '1:1 장례지도사의 책임장례', photo: '장례지도사와 염습 사진', text: '모든 장례 절차에 반려동물 장례지도사가 1:1로 배정되어, 보호자와 함께 마지막까지 정성껏 진행합니다. 개별화장과 보호자 참관으로 모든 과정을 직접 지켜보실 수 있습니다.' },
+  { id: 'memorial', img: 'img/memorial.jpg', title: '100% 예약제, 여유로운 단독 추모', photo: '단독 추모실 사진', text: '예약제로 운영해 다른 가족과 겹치지 않는 단독 추모실에서, 서두르지 않고 충분히 작별 인사를 나누실 수 있습니다.' },
+  { id: 'lucete', img: 'img/lucete.jpg', title: '추억을 담은 영원한 빛, 루세떼', photo: '루세떼 스톤과 주얼리 사진', text: '"밝게 빛나라"는 뜻의 루세떼.\n아이의 유골분을 순도 99.99%의 보석으로 만들어, 반지와 목걸이로 언제나 곁에 두실 수 있습니다.', link: 'lucete.html' },
+  { id: 'house', img: 'img/house.jpg', title: '언제든 만날 수 있는 안식처, 헤븐 하우스', photo: '헤븐 하우스(납골당) 사진', text: '쾌적하고 아늑한 공간에서 아이가 편히 쉴 수 있도록 모십니다. 오전 9시부터 오후 6시까지 연중무휴로 찾아오실 수 있습니다.' },
 ];
 
 const plans = [
@@ -31,7 +31,7 @@ const mapQuery = encodeURIComponent(ADDRESS);
 <Base>
   <section class="hero">
     <div class="hero-media">
-      <span class="hero-photo-label">대표 사진 (시설 외관 또는 추모실)</span>
+      <img class="hero-img" src="img/hero.jpg" alt="" fetchpriority="high" />
       <div class="hero-copy">
         <h1>가족이었던 아이의 마지막 산책길, <br /><strong>아이헤븐</strong>이 함께합니다.</h1>
         <div class="hero-cta">
@@ -49,7 +49,7 @@ const mapQuery = encodeURIComponent(ADDRESS);
         const Tag = f.link ? 'a' : 'article';
         return (
           <Tag class:list={['feature', { 'feature--link': f.link }]} id={f.id} href={f.link}>
-            <div class="ph feature-photo">{f.photo}</div>
+            <img class="photo feature-photo" src={f.img} alt={f.photo} loading="lazy" />
             <h2>{f.title}</h2>
             <p>{f.text}</p>
             {f.link && <span class="feature-more">자세히 보기 →</span>}
@@ -145,9 +145,10 @@ const mapQuery = encodeURIComponent(ADDRESS);
 
 <style>
   .hero { padding: 0 clamp(0px, 3vw, 44px); }
-  .hero-media { position: relative; min-height: min(78vh, 760px); display: flex; align-items: flex-end; padding: clamp(32px, 6vw, 88px);
-    background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.5)), repeating-linear-gradient(135deg, #8a8278 0 16px, #837b71 16px 32px); }
-  .hero-photo-label { position: absolute; top: 24px; right: 28px; color: rgba(255,255,255,.7); font-size: 13px; letter-spacing: .04em; }
+  .hero-media { position: relative; isolation: isolate; overflow: hidden; min-height: min(78vh, 760px); display: flex; align-items: flex-end; padding: clamp(32px, 6vw, 88px); background: #2b2622; }
+  .hero-media::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.55)); }
+  /* 건물 간판이 제목 뒤에 겹치지 않게 사진 아래쪽을 맞춤 */
+  .hero-img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
   .hero-copy { display: grid; gap: 20px; color: #fff; }
   .hero h1 { color: #fff; font-size: clamp(30px, 4.4vw, 54px); font-weight: 600; letter-spacing: -.02em; }
   .hero h1 strong { color: var(--gold-light); font-weight: 700; }

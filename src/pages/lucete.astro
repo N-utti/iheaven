@@ -12,8 +12,8 @@ const patent = [
 ];
 
 const kinds = [
-  ['무빙 루세떼', '커팅이 들어간 루세떼 1-3개가 목걸이 안쪽에서 움직이는 형태입니다. 다이아 커팅 감정서를 동봉해 드립니다.'],
-  ['퀀텀 루세떼', '커팅, 연마 작업 없이 루세떼 1-2개를 작은 루세떼 90-110개로 변환한 사이즈로 제작해, 유골 손실이 없습니다.'],
+  ['무빙 루세떼', 'img/lucete-moving.jpg', '커팅이 들어간 루세떼 1-3개가 목걸이 안쪽에서 움직이는 형태입니다. 다이아 커팅 감정서를 동봉해 드립니다.'],
+  ['퀀텀 루세떼', 'img/lucete-quantum.jpg', '커팅, 연마 작업 없이 루세떼 1-2개를 작은 루세떼 90-110개로 변환한 사이즈로 제작해, 유골 손실이 없습니다.'],
 ];
 
 const jewelry = [
@@ -47,13 +47,13 @@ const plans = [
           <a class="intro-link" href="#price">비용 보기</a>
         </div>
       </div>
-      <div class="ph intro-photo">루세떼 스톤 사진</div>
+      <img class="photo intro-photo" src="img/lucete-intro.jpg" alt="루세떼 스톤" />
     </div>
   </section>
 
   <section class="section">
     <div class="wrap patent">
-      <div class="ph patent-photo">루세떼 공정 사진</div>
+      <img class="photo patent-photo" src="img/lucete-patent.jpg" alt="루세떼 스톤" loading="lazy" />
       <div class="patent-copy">
         <p class="eyebrow">특허 공정방식</p>
         <h2>특허청에 등록된 공정으로 만듭니다</h2>
@@ -70,9 +70,9 @@ const plans = [
         <h2>무빙 루세떼와 퀀텀 루세떼</h2>
       </div>
       <div class="kinds">
-        {kinds.map(([title, text]) => (
+        {kinds.map(([title, img, text]) => (
           <article>
-            <div class="ph kind-photo">{title} 사진</div>
+            <img class="photo kind-photo" src={img} alt={`${title} 사진`} loading="lazy" />
             <h3>{title}</h3>
             <p>{text}</p>
           </article>
@@ -88,10 +88,12 @@ const plans = [
         <h2>반지와 목걸이로, 언제나 함께</h2>
         <p>골드는 14K 옐로골드, 화이트골드, 로즈골드 중에서 고르실 수 있습니다.</p>
       </div>
+      <div class="jewelry-gallery">
+        {[1, 2, 3, 4, 5, 6].map((n) => <img class="photo" src={`img/jewelry-${n}.jpg`} alt="루세떼 주얼리" loading="lazy" />)}
+      </div>
       <ul class="jewelry">
         {jewelry.map((j) => (
           <li>
-            <div class="ph jewelry-photo">{j.name} 사진</div>
             <h3>{j.name}</h3>
             <p class="jewelry-price">{j.price}</p>
             <ul>{j.items.map((it) => <li>{it}</li>)}</ul>
@@ -174,9 +176,11 @@ const plans = [
   .kinds h3 { font-size: 18px; }
   .kinds p { font-size: 15px; }
 
+  /* 모델별 사진이 없어 주얼리 사진은 모델 이름 없이 따로 모아 보여 줌 */
+  .jewelry-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 48px; }
+  .jewelry-gallery .photo { aspect-ratio: 3 / 2; }
   .jewelry { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 20px; }
   .jewelry > li { display: grid; gap: 6px; align-content: start; }
-  .jewelry-photo { aspect-ratio: 1; margin-bottom: 10px; }
   .jewelry h3 { font-size: 17px; letter-spacing: .02em; }
   .jewelry-price { color: var(--gold-deep); font-weight: 600; }
   .jewelry ul { list-style: none; margin: 6px 0 0; padding: 10px 0 0; border-top: 1px solid var(--line); display: grid; gap: 4px; font-size: 14px; }
@@ -198,5 +202,6 @@ const plans = [
     .intro-photo { order: -1; aspect-ratio: 4 / 3; }
     .kinds, .plans { grid-template-columns: 1fr; }
     .jewelry { gap: 28px 14px; }
+    .jewelry-gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 36px; }
   }
 </style>
