@@ -13,8 +13,8 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
   <meta property="og:description" content={description} />
   <meta property="og:locale" content="ko_KR" />
   <!-- 옛 사이트(iheaven.kr) 심볼 그대로 — 건물 간판과 일치 -->
-  <link rel="icon" href="/favicon.png" type="image/png" />
-  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@600;700&display=swap" />
@@ -22,16 +22,16 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a href="/" class="brand" aria-label="아이헤븐 홈">
-        <img src="/logo.png" alt="" width="148" height="40" />
+      <a href="./" class="brand" aria-label="아이헤븐 홈">
+        <img src="logo.png" alt="" width="148" height="40" />
       </a>
       <nav class="nav" aria-label="주요 메뉴">
-        <a href="/#service">장례서비스</a>
-        <a href="/#price">장례비용</a>
-        <a href="/#lucete">루세떼</a>
-        <a href="/#house">납골당</a>
-        <a href="/#aftercare">사후 수습 방법</a>
-        <a href="/#location">오시는 길</a>
+        <a href="#service">장례서비스</a>
+        <a href="#price">장례비용</a>
+        <a href="#lucete">루세떼</a>
+        <a href="#house">납골당</a>
+        <a href="#aftercare">사후 수습 방법</a>
+        <a href="#location">오시는 길</a>
       </nav>
       <a class="header-cta" href={`tel:${TEL}`}>24시 장례상담 <strong>{TEL}</strong></a>
     </div>
@@ -42,13 +42,13 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-top">
-        <p class="brand brand--footer"><img src="/logo.png" alt="아이헤븐" width="133" height="36" /></p>
+        <p class="brand brand--footer"><img src="logo.png" alt="아이헤븐" width="133" height="36" /></p>
       </div>
       <dl class="biz">
         <div><dt>상호</dt><dd>주식회사 아이헤븐</dd></div>
         <div><dt>대표</dt><dd>임채윤</dd></div>
         <div><dt>사업자등록번호</dt><dd>757-88-03042</dd></div>
-        <div><dt>동물장묘업 허가번호</dt><dd>제 5350000-038-2018-0001호 <a class="biz-link" href="/license.jpg" target="_blank" rel="noopener" onclick="event.preventDefault(); document.getElementById('license').showModal()">허가증 보기</a></dd></div>
+        <div><dt>동물장묘업 허가번호</dt><dd>제 5350000-038-2018-0001호 <a class="biz-link" href="license.jpg" target="_blank" rel="noopener" onclick="event.preventDefault(); document.getElementById('license').showModal()">허가증 보기</a></dd></div>
         <div><dt>통신판매업 신고번호</dt><dd>제 2018-경남김해-0585호</dd></div>
         <div><dt>주소</dt><dd>{ADDRESS}</dd></div>
         <div><dt>24시 장례상담</dt><dd>{TEL}</dd></div>
@@ -60,7 +60,7 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
 
   <dialog id="license" class="license" aria-label="동물장묘업 허가증" onclick="if (event.target === this) this.close()">
     <form method="dialog"><button class="license-close" aria-label="닫기">×</button></form>
-    <img src="/license.jpg" alt="동물장묘업 허가증 (주식회사 아이헤븐, 제 5350000-038-2018-0001호)" width="524" height="720" loading="lazy" />
+    <img src="license.jpg" alt="동물장묘업 허가증 (주식회사 아이헤븐, 제 5350000-038-2018-0001호)" width="524" height="720" loading="lazy" />
   </dialog>
 
   <nav class="quick" aria-label="빠른 상담">
