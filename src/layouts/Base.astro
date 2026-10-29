@@ -5,6 +5,7 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
 const ogImage = new URL('og.png', Astro.url);
 // build.format 'file' 이라 메인이 index.html 로 잡힘. 대표 주소는 폴더 주소로
 const pageUrl = String(Astro.url).replace(/index\.html$/, '');
+const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
 ---
 <!doctype html>
 <html lang="ko">
@@ -41,7 +42,7 @@ const pageUrl = String(Astro.url).replace(/index\.html$/, '');
       <nav id="nav" class="nav" aria-label="주요 메뉴" onclick="if (event.target.closest('a')) { this.parentNode.parentNode.classList.remove('is-open'); document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false') }">
         <a href="./#service">장례서비스</a>
         <a href="./#price">장례비용</a>
-        <a href="./#lucete">루세떼</a>
+        <a href="lucete.html" aria-current={isLucete ? 'page' : undefined}>루세떼</a>
         <a href="./#house">납골당</a>
         <a href="./#aftercare">사후 수습 방법</a>
         <a href="./#location">오시는 길</a>
@@ -65,6 +66,7 @@ const pageUrl = String(Astro.url).replace(/index\.html$/, '');
         <p class="footer-contact">
           <span>24시 장례상담 <a href={`tel:${TEL}`}>{TEL}</a></span>
           <span>이메일 <a href="mailto:iheaven_official@naver.com">iheaven_official@naver.com</a></span>
+          <span>주소 <span class="footer-value">{ADDRESS}</span></span>
         </p>
       </div>
       <dl class="biz">
@@ -72,7 +74,6 @@ const pageUrl = String(Astro.url).replace(/index\.html$/, '');
         <div><dt>대표</dt><dd>임채윤</dd></div>
         <div><dt>사업자등록번호</dt><dd>757-88-03042</dd></div>
         <div><dt>동물장묘업 허가번호</dt><dd>제 5350000-038-2018-0001호 <a class="biz-link" href="license.jpg" target="_blank" rel="noopener" onclick="event.preventDefault(); document.getElementById('license').showModal()">허가증 보기</a></dd></div>
-        <div><dt>주소</dt><dd>{ADDRESS}</dd></div>
       </dl>
       <p class="footer-links"><a href="privacy.html">개인정보 처리방침</a></p>
       <p class="copy">© 아이헤븐. All rights reserved.</p>
@@ -107,24 +108,34 @@ const pageUrl = String(Astro.url).replace(/index\.html$/, '');
     --serif: 'Noto Serif KR', 'AppleMyungjo', 'Batang', serif;
   }
   * { box-sizing: border-box; }
+  /* 페이지 사이 이동을 브라우저 기본 전환으로. 헤더·하단 바는 그대로 두고 본문만 바뀜. 지원 안 하는 브라우저는 그냥 이동 */
+  @media (prefers-reduced-motion: no-preference) {
+    @view-transition { navigation: auto; }
+  }
+  .site-header { view-transition-name: site-header; }
+  .mobile-bar { view-transition-name: mobile-bar; }
   html { scroll-behavior: smooth; scroll-padding-top: 84px; }
   body { margin: 0; background: #fff; color: var(--text); font: 400 16px/1.75 var(--serif); word-break: keep-all; -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-decoration: none; }
+  a { color: inherit; text-decoration: none; transition: color .2s, opacity .2s, border-color .2s; }
   h1, h2, h3 { color: var(--ink); line-height: 1.35; margin: 0; font-weight: 700; text-wrap: balance; }
   p { margin: 0; }
   img { display: block; }
   .wrap { width: min(1180px, 100% - 40px); margin-inline: auto; }
 
   .brand { display: flex; align-items: center; gap: 10px; color: var(--brand); }
+  a.brand:hover { opacity: .65; }
 
   .site-header { position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
   .header-inner { --pad: clamp(20px, 3vw, 44px); display: flex; align-items: center; justify-content: space-between; gap: 0 32px; height: 84px; padding-inline: var(--pad); }
   .nav { display: flex; gap: clamp(20px, 2.4vw, 40px); font-size: 16px; font-weight: 500; color: var(--ink); }
-  .nav a:hover { color: var(--gold-deep); text-decoration: underline; text-underline-offset: 8px; }
+  .nav a:hover, .nav a[aria-current] { color: var(--gold-deep); text-decoration: underline; text-underline-offset: 8px; }
+  .nav a[aria-current] { font-weight: 700; }
   .header-actions { display: flex; align-items: center; gap: 20px; }
   .header-cta { font-size: 14px; color: var(--muted); }
-  .header-cta strong { display: block; font-size: 20px; color: var(--gold-deep); line-height: 1.2; }
-  .nav-toggle { display: none; padding: 10px; margin-right: -10px; border: 0; background: none; color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .header-cta strong { display: block; font-size: 20px; color: var(--gold-deep); line-height: 1.2; transition: color .2s; }
+  .header-cta:hover, .header-cta:hover strong { color: var(--ink); }
+  .nav-toggle { display: none; padding: 10px; margin-right: -10px; border: 0; background: none; color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; transition: color .2s; }
+  .nav-toggle:hover { color: var(--gold-deep); }
 
   .btn { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 22px; border-radius: 4px; font-weight: 600; font-size: 15px; background: var(--brand); color: #fff; transition: background .2s; }
   .btn:hover { background: var(--brand-deep); }
@@ -133,11 +144,25 @@ const pageUrl = String(Astro.url).replace(/index\.html$/, '');
   .btn--light { background: #fff; color: var(--brand); }
   .btn--light:hover { background: var(--soft); }
 
+  /* 글 속 링크 */
+  .text-link { color: var(--gold-deep); text-decoration: underline; text-underline-offset: 3px; transition: color .2s, text-underline-offset .2s; }
+  .text-link:hover { color: var(--ink); text-underline-offset: 5px; }
+
   .section { padding-block: 120px; }
   .section-head { display: grid; gap: 12px; margin-bottom: 56px; text-align: center; justify-items: center; }
   .section-head h2 { font-size: clamp(26px, 3vw, 36px); }
   .section-head p { color: var(--muted); max-width: 640px; text-wrap: pretty; }
   .eyebrow { font-size: 15px; color: var(--muted); }
+
+  /* 비용 카드. 메인 장례비용과 루세떼 비용이 같이 씀 */
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .plan { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 36px 32px; display: grid; gap: 14px; align-content: start; }
+  .plan--featured { border: 2px solid var(--gold); }
+  .plan h3 { font-size: 19px; }
+  .plan-price { color: var(--muted); }
+  .plan-price strong { font-size: 34px; font-weight: 700; color: var(--gold-deep); margin-right: 4px; }
+  .plan ul { list-style: none; margin: 0; padding: 18px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 15px; }
+  .plan li::before { content: '✓'; color: var(--gold-deep); margin-right: 10px; font-weight: 700; }
 
   /* ponytail: 사진 저작권 확인 전까지 쓰는 목업 칸. 실사진 받으면 <img>로 교체 */
   .ph { position: relative; display: grid; place-items: center; border-radius: var(--radius); overflow: hidden; color: #8f8a83; font-size: 14px; text-align: center; padding: 16px;
@@ -147,7 +172,7 @@ const pageUrl = String(Astro.url).replace(/index\.html$/, '');
   .site-footer { background: var(--brand-deep); color: #aaa; padding: 64px 0 56px; font-size: 14px; }
   .footer-top { display: flex; flex-direction: column; gap: 16px; padding-bottom: 28px; border-bottom: 1px solid #3a3a3a; }
   .footer-contact { display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 0; color: #777; }
-  .footer-contact a { margin-left: 8px; color: #ddd; }
+  .footer-contact a, .footer-value { margin-left: 8px; color: #ddd; }
   .footer-contact a:hover { color: #fff; }
   .brand--footer { color: #fff; }
   .brand--footer img { filter: brightness(0) invert(1); }
@@ -160,9 +185,11 @@ const pageUrl = String(Astro.url).replace(/index\.html$/, '');
   .license { padding: 0; border: 0; border-radius: 8px; overflow: visible; background: #fff; }
   .license::backdrop { background: rgba(0,0,0,.7); }
   .license img { width: auto; max-width: 90vw; max-height: 86vh; height: auto; }
-  .license-close { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border: 0; background: none; color: #fff; font-size: 34px; line-height: 1; cursor: pointer; }
+  .license-close { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border: 0; background: none; color: #fff; font-size: 34px; line-height: 1; cursor: pointer; transition: opacity .2s; }
+  .license-close:hover { opacity: .65; }
   .footer-links { margin-bottom: 8px; }
   .footer-links a { color: #fff; font-weight: 700; }
+  .footer-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .copy { color: #777; font-size: 13px; }
 
   .mobile-bar { display: none; }
@@ -192,6 +219,8 @@ const pageUrl = String(Astro.url).replace(/index\.html$/, '');
     .nav a + a { border-top: 1px solid var(--line); }
     .section { padding-block: 64px; }
     .section-head { margin-bottom: 36px; }
+    .plan-grid { grid-template-columns: 1fr; }
+    .plan { padding: 28px 24px; }
     .header-book { display: none; }
     .site-footer { padding-bottom: 110px; }
     .biz { flex-direction: column; }
@@ -199,5 +228,8 @@ const pageUrl = String(Astro.url).replace(/index\.html$/, '');
     .mobile-bar { display: grid; grid-template-columns: repeat(2, 1fr); position: fixed; inset: auto 0 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
     .mobile-bar a { text-align: center; padding: 16px 0; font-weight: 600; font-size: 15px; color: var(--brand); }
     .mobile-bar .is-primary { background: var(--brand); color: #fff; }
+    /* 터치 화면이라 호버 대신 누르는 순간 반응 */
+    .mobile-bar a:active { background: var(--soft); }
+    .mobile-bar .is-primary:active { background: var(--brand-deep); }
   }
 </style>
