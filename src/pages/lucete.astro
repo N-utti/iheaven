@@ -144,17 +144,15 @@ const plans = [
   .intro-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 12px; }
   .intro-link { color: var(--gold-light); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
   .intro-link:hover { color: #fff; }
-  /* 메인 루세떼 카드 사진에서 이어지는 전환 짝 (index.astro .feature--link .feature-photo) */
-  .intro-photo { view-transition-name: lucete-photo; }
-  /* 들어올 때 글이 차례로 떠오름 */
+  /* 들어올 때 글이 차례로 천천히 떠오름 (장례 사이트라 차분하게) */
   @media (prefers-reduced-motion: no-preference) {
-    .intro-copy > * { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
-    .intro-copy > :nth-child(2) { animation-delay: .08s; }
-    .intro-copy > :nth-child(3) { animation-delay: .16s; }
-    .intro-copy > :nth-child(4) { animation-delay: .24s; }
-    .intro-copy > :nth-child(5) { animation-delay: .32s; }
+    .intro-copy > * { animation: rise 1.6s ease-out both; }
+    .intro-copy > :nth-child(2) { animation-delay: .25s; }
+    .intro-copy > :nth-child(3) { animation-delay: .5s; }
+    .intro-copy > :nth-child(4) { animation-delay: .75s; }
+    .intro-copy > :nth-child(5) { animation-delay: 1s; }
   }
-  @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
   .badge { justify-self: start; padding: 4px 14px; border: 1px solid var(--gold); border-radius: 999px; color: var(--gold-light); font-size: 14px; }
   .btn--gold { background: var(--gold); color: var(--ink); }
   .btn--gold:hover { background: var(--gold-light); }
