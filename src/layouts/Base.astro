@@ -113,6 +113,8 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
   /* 페이지 사이 이동을 브라우저 기본 전환으로. 헤더·하단 바는 그대로 두고 본문만 바뀜. 지원 안 하는 브라우저는 그냥 이동 */
   @media (prefers-reduced-motion: no-preference) {
     @view-transition { navigation: auto; }
+    /* 기본 전환(0.25초)은 급해서 늘림. 사진도 따로 움직이지 않고 본문과 함께 서서히 바뀜 */
+    ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation-duration: .8s; animation-timing-function: ease-in-out; }
   }
   .site-header { view-transition-name: site-header; }
   .mobile-bar { view-transition-name: mobile-bar; }
