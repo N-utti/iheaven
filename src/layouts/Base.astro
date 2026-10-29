@@ -3,6 +3,8 @@ import { TEL, BOOKING, ADDRESS } from '../site.js';
 const { title = '아이헤븐 | 김해 반려동물 장례식장', description = '1:1 담당 장례지도사, 100% 예약제, 개별화장과 보호자 참관. 진실된 책임장례만을 약속하는 김해 반려동물 장례식장 아이헤븐입니다.' } = Astro.props;
 // 공유 미리보기는 절대 URL만 인식 — Astro.url 은 site+base 기준
 const ogImage = new URL('og.png', Astro.url);
+// build.format 'file' 이라 메인이 index.html 로 잡힘 — 대표 주소는 폴더 주소로
+const pageUrl = String(Astro.url).replace(/index\.html$/, '');
 ---
 <!doctype html>
 <html lang="ko">
@@ -16,13 +18,13 @@ const ogImage = new URL('og.png', Astro.url);
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="아이헤븐" />
-  <meta property="og:url" content={Astro.url} />
+  <meta property="og:url" content={pageUrl} />
   <meta property="og:image" content={ogImage} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="아이헤븐 김해 반려동물 장례식장, 24시 장례상담 1577-5474" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href={Astro.url} />
+  <link rel="canonical" href={pageUrl} />
   <!-- 옛 사이트(iheaven.kr) 심볼 그대로 — 건물 간판과 일치 -->
   <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="favicon.png" />
@@ -37,12 +39,12 @@ const ogImage = new URL('og.png', Astro.url);
         <img src="logo.svg" alt="" width="120" height="27" />
       </a>
       <nav id="nav" class="nav" aria-label="주요 메뉴" onclick="if (event.target.closest('a')) { this.parentNode.parentNode.classList.remove('is-open'); document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false') }">
-        <a href="#service">장례서비스</a>
-        <a href="#price">장례비용</a>
-        <a href="#lucete">루세떼</a>
-        <a href="#house">납골당</a>
-        <a href="#aftercare">사후 수습 방법</a>
-        <a href="#location">오시는 길</a>
+        <a href="./#service">장례서비스</a>
+        <a href="./#price">장례비용</a>
+        <a href="./#lucete">루세떼</a>
+        <a href="./#house">납골당</a>
+        <a href="./#aftercare">사후 수습 방법</a>
+        <a href="./#location">오시는 길</a>
       </nav>
       <div class="header-actions">
         <a class="header-cta" href={`tel:${TEL}`}>24시 장례상담 <strong>{TEL}</strong></a>
@@ -60,17 +62,19 @@ const ogImage = new URL('og.png', Astro.url);
     <div class="wrap">
       <div class="footer-top">
         <p class="brand brand--footer"><img src="logo.svg" alt="아이헤븐" width="108" height="24" /></p>
+        <p class="footer-contact">
+          <span>24시 장례상담 <a href={`tel:${TEL}`}>{TEL}</a></span>
+          <span>이메일 <a href="mailto:iheaven_official@naver.com">iheaven_official@naver.com</a></span>
+        </p>
       </div>
       <dl class="biz">
         <div><dt>상호</dt><dd>주식회사 아이헤븐</dd></div>
         <div><dt>대표</dt><dd>임채윤</dd></div>
         <div><dt>사업자등록번호</dt><dd>757-88-03042</dd></div>
         <div><dt>동물장묘업 허가번호</dt><dd>제 5350000-038-2018-0001호 <a class="biz-link" href="license.jpg" target="_blank" rel="noopener" onclick="event.preventDefault(); document.getElementById('license').showModal()">허가증 보기</a></dd></div>
-        <div><dt>통신판매업 신고번호</dt><dd>제 2018-경남김해-0585호</dd></div>
         <div><dt>주소</dt><dd>{ADDRESS}</dd></div>
-        <div><dt>24시 장례상담</dt><dd>{TEL}</dd></div>
-        <div><dt>이메일</dt><dd>iheaven_official@naver.com</dd></div>
       </dl>
+      <p class="footer-links"><a href="privacy.html">개인정보 처리방침</a></p>
       <p class="copy">© 아이헤븐. All rights reserved.</p>
     </div>
   </footer>
@@ -141,7 +145,10 @@ const ogImage = new URL('og.png', Astro.url);
   .ph::before { content: 'PHOTO'; position: absolute; top: 14px; left: 16px; font-size: 11px; letter-spacing: .2em; opacity: .7; }
 
   .site-footer { background: var(--brand-deep); color: #aaa; padding: 64px 0 56px; font-size: 14px; }
-  .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding-bottom: 28px; border-bottom: 1px solid #3a3a3a; }
+  .footer-top { display: flex; flex-direction: column; gap: 16px; padding-bottom: 28px; border-bottom: 1px solid #3a3a3a; }
+  .footer-contact { display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 0; color: #777; }
+  .footer-contact a { margin-left: 8px; color: #ddd; }
+  .footer-contact a:hover { color: #fff; }
   .brand--footer { color: #fff; }
   .brand--footer img { filter: brightness(0) invert(1); }
   .biz { display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 28px 0 20px; }
@@ -154,6 +161,8 @@ const ogImage = new URL('og.png', Astro.url);
   .license::backdrop { background: rgba(0,0,0,.7); }
   .license img { width: auto; max-width: 90vw; max-height: 86vh; height: auto; }
   .license-close { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border: 0; background: none; color: #fff; font-size: 34px; line-height: 1; cursor: pointer; }
+  .footer-links { margin-bottom: 8px; }
+  .footer-links a { color: #fff; font-weight: 700; }
   .copy { color: #777; font-size: 13px; }
 
   .mobile-bar { display: none; }

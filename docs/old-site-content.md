@@ -15,7 +15,7 @@
 - 블로그 https://blog.naver.com/iheaven1004 / 인스타 https://www.instagram.com/iheaven.official/ / 페이스북 https://www.facebook.com/profile.php?id=100028432577861 (새 사이트에선 SNS 전부 뺌, 외부 링크는 네이버 예약만)
 
 ## TODO
-- [ ] 통신판매업 신고번호(제2018-경남김해-0585호)가 법인 명의로 재신고됐는지 확인 — 바뀌었으면 `src/layouts/Base.astro` 하단 정보 수정
+- [x] 통신판매업 신고번호(제2018-경남김해-0585호)는 법인 명의 확인이 안 돼 하단에서 뺌 — 사이트에 결제가 없어 표시 의무 없음. 법인 신고증 받으면 다시 추가
 
 ## 메뉴 구조(기존)
 장례서비스(장례서비스·루세떼 장례서비스·아이헤븐 컬렉션) / 장례비용 / 루세떼 / 납골당 / HEAVEN COLLECTION /
