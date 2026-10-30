@@ -242,6 +242,13 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
   .btn--gold:hover { background: var(--gold-light); }
   .soft { background: var(--soft); }
   .note { margin-top: 28px; text-align: center; font-size: 15px; color: var(--muted); }
+  /* 아래로 스크롤 안내. 메인은 가운데, 상세페이지는 글 칸 왼쪽 선(격자 첫 열 minmax(20px,1fr) 과 같은 식)에 */
+  .hero-scroll { position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 2; display: grid; justify-items: center; gap: 10px; color: rgba(255,255,255,.8); font-size: 11px; letter-spacing: .3em; }
+  .hero-scroll i { display: block; width: 1px; height: 48px; background: rgba(255,255,255,.35); overflow: hidden; }
+  .hero-scroll i::after { content: ''; display: block; width: 100%; height: 50%; background: #fff; animation: scroll-cue 1.8s cubic-bezier(.4, 0, .2, 1) infinite; }
+  @keyframes scroll-cue { from { transform: translateY(-100%); } to { transform: translateY(200%); } }
+  @media (prefers-reduced-motion: reduce) { .hero-scroll i::after { animation: none; transform: translateY(100%); } }
+  .intro-inner .hero-scroll { left: max(20px, (100% - 1140px) / 2); transform: none; }
   .closing-inner { display: grid; gap: 16px; justify-items: center; text-align: center; }
   .closing h2 { font-size: clamp(24px, 2.8vw, 34px); }
 
@@ -318,6 +325,9 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
     .site-footer { padding-bottom: 110px; }
     .biz { flex-direction: column; }
     .biz dt { flex-shrink: 0; }
+    .hero-scroll { left: auto; right: 20px; bottom: 20px; transform: none; }
+    .intro-inner .hero-scroll { left: auto; }
+    .hero-scroll span { display: none; }
     .mobile-bar { display: grid; grid-template-columns: repeat(2, 1fr); position: fixed; inset: auto 0 0; z-index: 30; background: #fff; box-shadow: 0 -1px 0 rgba(0,0,0,.08); padding-bottom: env(safe-area-inset-bottom); transition: transform .3s; }
     /* 맨 위에선 아래로 내려 숨김. 스크롤하면 올라옴 */
     .mobile-bar.is-top { transform: translateY(100%); }

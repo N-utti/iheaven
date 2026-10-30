@@ -40,10 +40,11 @@ const photos = [
       <div class="intro-photo">
         {heroPhotos.map(([src, alt], i) => <img src={`images/${src}`} alt={alt} draggable="false" loading={i ? 'lazy' : 'eager'} />)}
       </div>
+      <a class="hero-scroll" href="#visit" aria-label="아래로 스크롤"><span>SCROLL</span><i aria-hidden="true"></i></a>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="visit">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">방문 안내</p>
