@@ -32,10 +32,10 @@ const mapQuery = encodeURIComponent(ADDRESS);
 <Base>
   <section class="hero">
     <div class="hero-media">
-      <!-- ponytail: CSS 키프레임만으로 5초 간격 크로스페이드. 음수 delay로 첫 장이 바로 보이게. 손으로 넘기는 버튼은 안 둠 -->
-      {heroPhotos.map((src, i) => (
-        <img class="hero-slide" src={`images/${src}`} alt="" style={`animation-delay: ${i * 5 - 20}s`} loading={i ? 'lazy' : 'eager'} />
-      ))}
+      <!-- 가로 스냅 슬라이더. 드래그·스와이프·5초 자동 넘김은 Base.astro script (상세페이지 히어로와 같음) -->
+      <div class="hero-track">
+        {heroPhotos.map((src, i) => <img class="hero-slide" src={`images/${src}`} alt="" draggable="false" loading={i ? 'lazy' : 'eager'} />)}
+      </div>
       <div class="hero-copy">
         <h1>가족이었던 아이의 마지막 산책길, <br /><strong>아이헤븐</strong>이 함께합니다.</h1>
         <div class="hero-cta">
@@ -165,13 +165,16 @@ const mapQuery = encodeURIComponent(ADDRESS);
 <style>
   .hero { margin-top: -84px; }
   .hero-media { position: relative; overflow: hidden; min-height: 100svh; display: flex; align-items: flex-end; padding: clamp(32px, 6vw, 88px); background: #2b2926; }
-  .hero-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: hero-fade 20s infinite; }
+  .hero-track { position: absolute; inset: 0; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; cursor: grab; }
+  .hero-track::-webkit-scrollbar { display: none; }
+  .hero-track.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+  .hero-slide { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; user-select: none; -webkit-user-drag: none; }
   /* 4장 x 5초. 4초 보이고 1초 동안 다음 장과 겹치며 바뀜 */
-  @keyframes hero-fade { 0%, 20% { opacity: 1; } 25%, 95% { opacity: 0; } 100% { opacity: 1; } }
-  @media (prefers-reduced-motion: reduce) { .hero-slide { animation: none; } .hero-slide:first-child { opacity: 1; } }
   /* 한 화면 꽉 찬 히어로라 더 있다는 표시. 선이 아래로 흘러내림 */
-  .hero-media::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,.05) 30%, rgba(0,0,0,.6)); }
-  .hero-copy { position: relative; z-index: 2; display: grid; gap: 28px; color: #fff; max-width: 920px; }
+  .hero-media::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,.05) 30%, rgba(0,0,0,.6)); pointer-events: none; }
+  /* 글 영역은 포인터를 통과시켜 사진 드래그가 되게. 버튼만 클릭 */
+  .hero-copy { position: relative; z-index: 2; display: grid; gap: 28px; color: #fff; max-width: 920px; pointer-events: none; }
+  .hero-copy a { pointer-events: auto; }
   .hero h1 { color: #fff; font-size: clamp(34px, 5.2vw, 68px); line-height: 1.3; font-weight: 600; letter-spacing: -.02em; }
   .hero h1 strong { color: var(--gold-light); font-weight: 700; }
   .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 16px; margin-top: 8px; }
