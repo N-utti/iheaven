@@ -181,16 +181,13 @@ const mapQuery = encodeURIComponent(ADDRESS);
   .feature-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); margin-bottom: 10px; }
   .feature h2 { font-size: 19px; color: var(--brand); }
   .feature p { font-size: 15px; white-space: pre-line; }
-  .feature-photo { transition: transform .35s ease, box-shadow .35s ease; }
   .feature h2 { transition: color .2s; }
   .feature-more { justify-self: start; font-size: 15px; color: var(--gold-deep); border-bottom: 1px solid currentColor; }
-  .feature-more span { display: inline-block; transition: transform .2s; }
   /* 상세페이지 첫 사진으로 이어지는 전환 짝은 카드 inline style 로 (lucete.astro·house.astro .intro-photo) */
   .feature--link[href="lucete.html"] .feature-photo { object-position: 25% center; /* 세로 크롭에서 강아지 조각이 잘리지 않게 */ }
+  /* 호버는 색 변화만. 사진 뜨기·화살표 밀기는 쓰지 않는다 */
   @media (hover: hover) {
-    .feature--link:hover .feature-photo { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(0,0,0,.12); }
     .feature--link:hover h2 { color: var(--gold-deep); }
-    .feature--link:hover .feature-more span { transform: translateX(4px); }
   }
 
   .price { background: var(--soft); }
