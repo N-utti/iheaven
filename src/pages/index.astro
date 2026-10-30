@@ -206,8 +206,9 @@ const mapQuery = encodeURIComponent(ADDRESS);
   .location-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
   .location h2 { font-size: clamp(24px, 2.5vw, 30px); color: var(--brand); margin: 8px 0 28px; }
   .map { aspect-ratio: 4 / 3; width: 100%; border: 0; border-radius: 0 var(--radius) 0 var(--radius); }
-  .info { margin: 0 0 32px; display: grid; gap: 14px; }
-  .info div { display: grid; grid-template-columns: 100px 1fr; }
+  /* 라벨 칸 너비를 가장 긴 라벨(헤븐 하우스 방문)에 맞춤 */
+  .info { margin: 0 0 32px; display: grid; grid-template-columns: max-content 1fr; gap: 14px 24px; }
+  .info div { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; }
   .info dt { color: var(--muted); }
   .info dd { margin: 0; color: var(--ink); }
   .info dd span { color: var(--muted); font-size: 14px; }
