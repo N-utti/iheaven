@@ -101,8 +101,8 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
       // 상세페이지는 히어로 구간(첫 본문 섹션 위, 또는 그 경계에서 위로)에서만
       const inZone = (dir: number) => paged || scrollY < stops()[1] - 1 || (dir < 0 && scrollY <= stops()[1] + 1);
       let animating = false, lastWheel = 0, settle = 0, touching = false;
-      const easeTo = (to: number) => {
-        const from = scrollY, dist = to - from, t0 = performance.now(), dur = 900;
+      const easeTo = (to: number, dur = 900) => {
+        const from = scrollY, dist = to - from, t0 = performance.now();
         if (Math.abs(dist) < 1) return;
         animating = true;
         const step = (t: number) => {
@@ -127,6 +127,17 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
         const dir = ['ArrowDown', 'PageDown', ' '].includes(e.key) ? 1 : ['ArrowUp', 'PageUp'].includes(e.key) ? -1 : 0;
         if (dir && inZone(dir)) { e.preventDefault(); easeTo(next(dir)); }
       });
+      // 같은 페이지 앵커(메뉴 장례비용·오시는 길, 비용 보기, SCROLL 표시)는 브라우저 기본 smooth 대신 같은 곡선으로 1.1초. 다른 페이지로 가는 링크는 그대로
+      const home = /\/(index\.html)?$/.test(location.pathname);
+      document.querySelectorAll<HTMLAnchorElement>('a[href^="#"], a[href^="./#"]').forEach((a) => a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href')!;
+        if (href.startsWith('./') && !home) return;
+        const target = document.getElementById(href.split('#')[1]);
+        if (!target) return;
+        e.preventDefault();
+        history.pushState(null, '', '#' + target.id);
+        easeTo(target.getBoundingClientRect().top + scrollY - header.offsetHeight, 1100);
+      }));
       addEventListener('touchstart', () => { touching = true; }, { passive: true });
       addEventListener('scroll', () => {
         // 히어로 글은 내릴수록 흐려짐
