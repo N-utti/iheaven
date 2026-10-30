@@ -189,7 +189,7 @@ const plans = [
   .patent { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: center; }
   .patent-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
   .patent-copy { display: grid; gap: 16px; }
-  .patent-cert { width: min(100%, 420px); height: auto; margin-top: 12px; border: 1px solid var(--line); }
+  .patent-cert { width: min(100%, clamp(240px, 36vh, 420px)); height: auto; margin-top: 12px; border: 1px solid var(--line); }
   .patent h2 { font-size: clamp(24px, 2.6vw, 32px); }
   .patent ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 10px; color: var(--ink); }
   .patent li { padding-left: 26px; text-indent: -26px; }
