@@ -185,27 +185,27 @@ const plans = [
   .intro-photo img { object-position: 35% center; }
 
   .patent { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: center; }
-  .patent-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); }
+  .patent-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
   .patent-copy { display: grid; gap: 16px; }
-  .patent-cert { width: min(100%, 420px); height: auto; margin-top: 12px; border: 1px solid var(--line); border-radius: 0 var(--radius) 0 var(--radius); }
+  .patent-cert { width: min(100%, 420px); height: auto; margin-top: 12px; border: 1px solid var(--line); }
   .patent h2 { font-size: clamp(24px, 2.6vw, 32px); }
   .patent ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 10px; color: var(--ink); }
   .patent li { padding-left: 26px; text-indent: -26px; }
   .patent li::before, .jewelry li li::before { content: '✓'; color: var(--gold-deep); font-weight: 700; display: inline-block; width: 26px; text-indent: 0; }
 
   .stones { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .stones img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); }
+  .stones img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 
   .kinds { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .kinds article { display: grid; gap: 10px; align-content: start; }
-  .kind-photo { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); margin-bottom: 10px; }
+  .kind-photo { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: 10px; }
   .kinds h3 { font-size: 18px; }
   .kinds p { font-size: 15px; }
 
   .jewelry { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 20px; }
   /* subgrid: 같은 줄 카드끼리 사진·이름·가격·설명·더 보기 행 높이를 공유해 가격이 두 줄이어도 아래가 나란히 */
   .jewelry > li { display: grid; grid-template-rows: subgrid; grid-row: span 5; row-gap: 6px; }
-  .jewelry-photo { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); margin-bottom: 10px; }
+  .jewelry-photo { width: 100%; aspect-ratio: 1; object-fit: cover; margin-bottom: 10px; }
   .jewelry h3 { font-size: 17px; letter-spacing: .02em; }
   .jewelry-price { color: var(--gold-deep); font-weight: 600; }
   .jewelry-price span + span::before { content: ' · '; }

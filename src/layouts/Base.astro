@@ -87,6 +87,25 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
       }, { passive: true });
     }
 
+    // 가격·정보 카드 캐러셀(비용 카드, 사후 기초 수습 단계)에만 아래 위치 점. 사진 슬라이드엔 안 붙임
+    if (matchMedia('(max-width: 860px)').matches) {
+      document.querySelectorAll<HTMLElement>('.plan-grid, .aftercare .wrap').forEach((track) => {
+        // .aftercare 는 ol 이 display: contents 라 li 가 카드
+        const n = [...track.children].flatMap((c) => c.tagName === 'OL' ? [...c.children] : [c]).length;
+        if (n < 2) return;
+        const dots = document.createElement('div');
+        dots.className = 'dots'; dots.setAttribute('aria-hidden', 'true');
+        for (let i = 0; i < n; i++) dots.appendChild(document.createElement('i'));
+        track.after(dots);
+        const sync = () => {
+          const i = Math.round(track.scrollLeft / Math.max(1, track.scrollWidth - track.clientWidth) * (n - 1));
+          dots.childNodes.forEach((d, k) => (d as HTMLElement).classList.toggle('is-on', k === i));
+        };
+        sync();
+        track.addEventListener('scroll', sync, { passive: true });
+      });
+    }
+
     // 상세페이지 히어로 슬라이더: 마우스 드래그로 넘기기 + 5초 자동 넘김. 손대면 8초 쉼. 터치 스와이프는 브라우저 기본 스크롤
     const slider = document.querySelector<HTMLElement>('.intro-photo');
     if (slider && slider.children.length > 1) {
@@ -321,7 +340,7 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
     html { scroll-padding-top: 60px; }
     /* 모바일 사진 줄: 격자 대신 한 장씩 크게 보는 가로 스와이프. .wrap 여백까지 끌어와 화면 끝에서 끝으로, 다음 장이 살짝 보이게.
        선택자를 세 번 겹친 건 각 페이지의 scoped 격자 규칙(특이도 0,2,0)보다 앞서기 위함 */
-    .swipe.swipe.swipe { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; gap: 14px; width: auto; margin-inline: -20px; padding-inline: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
+    .swipe.swipe.swipe { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 80%; gap: 14px; width: auto; margin-inline: -20px; padding-inline: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
     .swipe::-webkit-scrollbar { display: none; }
     .swipe > * { scroll-snap-align: start; }
     .intro:has(.intro-inner) { margin-top: -60px; }
@@ -353,9 +372,13 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
     @media (max-height: 700px) { main > .section:not(.intro) { padding-block: 24px; } }
     .section-head { margin-bottom: 24px; }
     /* 비용 카드(메인 장례비용·루세떼 비용)는 한 장씩 가운데 스냅으로 좌우 넘김. 셋 겹친 선택자는 페이지 scoped 격자 규칙보다 앞서기 위함 */
-    .plan-grid.plan-grid.plan-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84vw; gap: 14px; margin-inline: -20px; padding-inline: 8vw; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .plan-grid.plan-grid.plan-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 80vw; gap: 14px; margin-inline: -20px; padding-inline: 10vw; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
     .plan-grid::-webkit-scrollbar { display: none; }
     .plan { scroll-snap-align: center; }
+    /* 캐러셀 아래 위치 점. script 가 만들어 붙임 */
+    .dots { display: flex; justify-content: center; gap: 7px; margin-top: 10px; }
+    .dots i { width: 7px; height: 7px; border-radius: 50%; background: #d9d4cc; transition: background .2s, transform .2s; }
+    .dots i.is-on { background: var(--gold-deep); transform: scale(1.3); }
     .plan { padding: 24px 22px; gap: 10px; }
     .plan-price strong { font-size: 28px; }
     .plan ul { gap: 6px; font-size: 14px; padding-top: 14px; }

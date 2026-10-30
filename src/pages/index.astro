@@ -182,7 +182,7 @@ const mapQuery = encodeURIComponent(ADDRESS);
   .features .section-head { padding-inline: 20px; }
   .features .wrap { width: min(1400px, 100% - 40px); display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .feature { display: grid; gap: 10px; grid-template-rows: auto auto 1fr auto; }
-  .feature-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); margin-bottom: 10px; }
+  .feature-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; margin-bottom: 10px; }
   .feature h2 { font-size: 19px; color: var(--brand); }
   .feature p { font-size: 15px; white-space: pre-line; }
   .feature h2 { transition: color .2s; }
@@ -229,17 +229,17 @@ const mapQuery = encodeURIComponent(ADDRESS);
     .hero h1 br { display: none; }
     .location-inner { grid-template-columns: 1fr; gap: 28px; }
     /* .wrap 의 20px 여백까지 끌어와 화면 끝에서 끝으로 스크롤, 다음 카드가 살짝 보이게 */
-    .features .wrap { width: 100%; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 78%; gap: 14px; padding-inline: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
+    .features .wrap { width: 100%; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 80%; gap: 14px; padding-inline: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
     .feature { scroll-snap-align: start; }
     .features .section-head { margin-bottom: 24px; }
     /* 장례비용도 한 장씩 가운데 맞춰 좌우로 넘기는 캐러셀. 첫 화면은 아래 script 가 헤븐 고급 장례(가운데 카드)로 맞춤 */
-    .price .section-head { margin-bottom: 20px; }
+    .price .section-head { margin-bottom: 12px; }
     .price .section-head h2 { font-size: 22px; }
     .price-note { margin-top: 16px; font-size: 13px; }
     /* 비용 카드 캐러셀 자체는 Base.astro. 첫 화면은 위 script 가 헤븐 고급 장례(가운데 카드)로 맞춤 */
     /* 7단계 + 안내 카드를 서비스 카드처럼 한 장씩 가로로 넘김. 세로로 쌓으면 화면 세 장 길이라 */
     .aftercare .section-head { margin-bottom: 24px; }
-    .aftercare .wrap { width: 100%; min-width: 0; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84vw; gap: 14px; padding-inline: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
+    .aftercare .wrap { width: 100%; min-width: 0; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 80vw; gap: 14px; padding-inline: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
     .aftercare .wrap::-webkit-scrollbar { display: none; }
     .steps li, .aftercare-note { scroll-snap-align: start; }
     /* 번호와 제목을 한 줄에, 본문은 카드 폭 전체로 */
@@ -256,7 +256,7 @@ const mapQuery = encodeURIComponent(ADDRESS);
   }
   /* 낮은 화면(아이폰 SE 등)에선 여백을 줄이고 안내문을 접어야 비용 카드가 한 화면에 들어옴 */
   @media (max-width: 860px) and (max-height: 700px) {
-    .price.section { padding-block: 24px; }
+    .price.section { padding-block: 20px; }
     .price-note { display: none; }
   }
 </style>
