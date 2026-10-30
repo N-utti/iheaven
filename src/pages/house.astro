@@ -105,6 +105,8 @@ const photos = [
 
   @media (max-width: 860px) {
     .gallery { grid-template-columns: 1fr; }
+    /* 제목 + 사진 한 장 + 안내문이 낮은 화면에도 한 화면에 */
+    .gallery img { aspect-ratio: 2 / 1; }
     .tiers th, .tiers td { padding: 14px 16px; }
     .tiers td { font-size: 18px; }
   }
