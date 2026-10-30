@@ -17,10 +17,14 @@ const heroPhotos = [
   ['house-hall.jpg', '안치실로 이어지는 복도'],
 ];
 
+// 보내주신 사진 6장 중 다섯은 기존 사진과 같은 원본(갤러리 3장·히어로 2장)이라 새로 넣은 건 house-4 하나. 라운지·전경은 히어로에도 있지만 갤러리에서도 보이게
 const photos = [
   ['house-1.jpg', '흰색 안치단이 벽면을 채운 헤븐 하우스'],
   ['house-2.jpg', '안치단 사이로 이어지는 헤븐 하우스 복도'],
   ['house-3.jpg', '가족이 머무를 수 있는 원목 테이블이 놓인 헤븐 하우스'],
+  ['house-4.jpg', '안치단 벽과 가족 테이블이 함께 보이는 헤븐 하우스'],
+  ['house.jpg', '밝은 흰색 안치단이 늘어선 헤븐 하우스 전경'],
+  ['house-lounge.jpg', '소파와 안락의자가 놓인 가족 대기 라운지'],
 ];
 ---
 <Base title="헤븐 하우스 | 아이헤븐" description="언제든 만날 수 있는 반려동물 안식처, 아이헤븐 납골당 헤븐 하우스. 오전 9시부터 오후 6시까지 연중무휴 방문, 1년 약정 200,000원부터.">
@@ -96,7 +100,9 @@ const photos = [
   .intro-photo { view-transition-name: house-photo; }
 
   .gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  /* 데스크톱은 3열 2줄이라 16:9 로 낮춰 한 화면에. 모바일은 한 장씩 크게 4:3 */
+  .gallery img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  #visit .section-head { margin-bottom: 40px; }
 
   .tiers { width: min(720px, 100%); margin-inline: auto; border-collapse: collapse; background: #fff; border: 1px solid var(--line); }
   /* 모든 칸 한 줄. 머리글은 가운데, 금액은 오른쪽 정렬로 자릿수를 맞춤 */
@@ -110,14 +116,13 @@ const photos = [
 
   @media (max-width: 860px) {
     .gallery { grid-template-columns: 1fr; }
-    /* 제목 + 사진 한 장 + 안내문이 낮은 화면에도 한 화면에 */
-    .gallery img { aspect-ratio: 2 / 1; }
+    .gallery img { aspect-ratio: 4 / 3; }
     .tiers th, .tiers td { padding: 12px 14px; }
     .tiers td { font-size: 17px; }
   }
-  /* 낮은 화면에선 설명 문장을 접어 표까지 한 화면에 */
+  /* 낮은 화면에선 설명 문장을 접어 표까지, 갤러리 안내문을 접어 사진까지 한 화면에 */
   @media (max-width: 860px) and (max-height: 700px) {
-    #price .section-head p { display: none; }
+    #price .section-head p, #visit .note { display: none; }
   }
   /* 320px 급 작은 화면에서 표가 화면을 넘지 않게 */
   @media (max-width: 360px) {
