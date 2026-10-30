@@ -133,6 +133,8 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
     --serif: 'Noto Serif KR', 'AppleMyungjo', 'Batang', serif;
   }
   * { box-sizing: border-box; }
+  /* 모바일에서 링크·버튼을 누를 때 생기는 회색 깜빡임을 사이트 전체에서 끔 (상속돼서 새 링크에도 적용) */
+  html { -webkit-tap-highlight-color: transparent; }
   /* 페이지 사이 이동을 브라우저 기본 전환으로. 헤더·하단 바는 그대로 두고 본문만 바뀜. 지원 안 하는 브라우저는 그냥 이동 */
   @media (prefers-reduced-motion: no-preference) {
     @view-transition { navigation: auto; }
@@ -150,7 +152,6 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
   .wrap { width: min(1180px, 100% - 40px); margin-inline: auto; }
 
   .brand { display: flex; align-items: center; gap: 10px; color: var(--brand); }
-  a.brand:hover { opacity: .65; }
 
   /* 애플식 글래스: 반투명 + 블러·채도 올림 + 얇은 하이라이트 선. 블러 미지원 브라우저는 불투명 흰색으로 */
   .site-header { position: sticky; top: 0; z-index: 30; background: #fff; border-bottom: 1px solid rgba(0,0,0,.08); box-shadow: inset 0 1px 0 rgba(255,255,255,.6); }
@@ -170,7 +171,7 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
   .header-cta { font-size: 14px; color: var(--muted); }
   .header-cta strong { display: block; font-size: 20px; color: var(--gold-deep); line-height: 1.2; transition: color .2s; }
   .header-cta:hover, .header-cta:hover strong { color: var(--ink); }
-  .nav-toggle { display: none; padding: 10px; margin-right: -10px; border: 0; background: none; color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; transition: color .2s; }
+  .nav-toggle { display: none; padding: 10px; margin-right: -10px; border: 0; background: none; color: var(--ink); cursor: pointer; transition: color .2s; }
   .nav-toggle:hover { color: var(--gold-deep); }
 
   .btn { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 22px; border-radius: 4px; font-weight: 600; font-size: 15px; background: var(--brand); color: #fff; transition: background .2s; }
@@ -219,10 +220,10 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
   /* 들어올 때 글이 차례로 떠오름 */
   @media (prefers-reduced-motion: no-preference) {
     .intro-copy > * { animation: rise 1.6s ease-out both; }
-    .intro-copy > :nth-child(2) { animation-delay: .08s; }
-    .intro-copy > :nth-child(3) { animation-delay: .16s; }
-    .intro-copy > :nth-child(4) { animation-delay: .24s; }
-    .intro-copy > :nth-child(5) { animation-delay: .32s; }
+    .intro-copy > :nth-child(2) { animation-delay: .25s; }
+    .intro-copy > :nth-child(3) { animation-delay: .5s; }
+    .intro-copy > :nth-child(4) { animation-delay: .75s; }
+    .intro-copy > :nth-child(5) { animation-delay: 1s; }
   }
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
   /* 강조 아님. 연한 작은 글씨로 제목에 바짝 붙임 */
