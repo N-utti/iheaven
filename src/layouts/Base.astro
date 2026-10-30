@@ -87,9 +87,9 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
       }, { passive: true });
     }
 
-    // 가격·정보 카드 캐러셀(비용 카드, 사후 기초 수습 단계)에만 아래 위치 점. 사진 슬라이드엔 안 붙임
+    // 카드 캐러셀 아래 위치 점: 비용 카드, 사후 기초 수습 단계, 상세페이지 .swipe 줄. 메인 서비스 사진 카드엔 안 붙임
     if (matchMedia('(max-width: 860px)').matches) {
-      document.querySelectorAll<HTMLElement>('.plan-grid, .aftercare .wrap').forEach((track) => {
+      document.querySelectorAll<HTMLElement>('.plan-grid, .aftercare .wrap, .swipe').forEach((track) => {
         // .aftercare 는 ol 이 display: contents 라 li 가 카드
         const n = [...track.children].flatMap((c) => c.tagName === 'OL' ? [...c.children] : [c]).length;
         if (n < 2) return;
@@ -110,6 +110,17 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
     const slider = document.querySelector<HTMLElement>('.hero-track, .intro-photo');
     if (slider && slider.children.length > 1) {
       let pausedUntil = 0, dragging = false, startX = 0, startLeft = 0;
+      // 양 끝에 복제 장(맨 앞엔 마지막 장, 맨 뒤엔 첫 장)을 두어 양방향으로 되감기 없이 순환(1→2→3→1, 3→2→1→3).
+      // 복제 장에 멈추면 같은 그림의 진짜 장으로 순간 이동. 시작은 진짜 첫 장(index 1)
+      const head = slider.lastElementChild!.cloneNode(true) as HTMLElement, tail = slider.firstElementChild!.cloneNode(true) as HTMLElement;
+      head.setAttribute('aria-hidden', 'true'); tail.setAttribute('aria-hidden', 'true');
+      slider.prepend(head); slider.append(tail);
+      const count = slider.children.length;
+      const goto = (i: number) => slider.scrollTo({ left: i * slider.clientWidth, behavior: 'instant' });
+      goto(1);
+      let loopTimer = 0;
+      const loop = () => { if (dragging) return; const i = Math.round(slider.scrollLeft / slider.clientWidth); if (i <= 0) goto(count - 2); else if (i >= count - 1) goto(1); };
+      slider.addEventListener('scroll', () => { clearTimeout(loopTimer); loopTimer = setTimeout(loop, 150); }, { passive: true });
       const snap = () => { const w = slider.clientWidth; slider.scrollTo({ left: Math.round(slider.scrollLeft / w) * w, behavior: 'smooth' }); };
       slider.addEventListener('pointerdown', (e) => {
         pausedUntil = Date.now() + 8000;
@@ -124,9 +135,8 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
         setInterval(() => {
           if (dragging || document.hidden || Date.now() < pausedUntil) return;
-          const w = slider.clientWidth;
-          const atEnd = slider.scrollLeft + w >= slider.scrollWidth - 2;
-          slider.scrollTo({ left: atEnd ? 0 : slider.scrollLeft + w, behavior: 'smooth' });
+          // 끝 복제 장까지 앞으로만 넘김. 되돌리기는 위 loop 가 순간 이동으로
+          slider.scrollTo({ left: slider.scrollLeft + slider.clientWidth, behavior: 'smooth' });
         }, 5000);
       }
     }

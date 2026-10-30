@@ -5,8 +5,8 @@ import { TEL, BOOKING } from '../site.js';
 // 내용은 옛 사이트 납골당(ossuary) 페이지 원문에서 옮김. 금액은 1년 약정, 부가세 별도
 const tiers = [
   ['1단', '250,000', '200,000'],
-  ['2단 · 3단 · 6단', '350,000', '250,000'],
-  ['4단 · 5단', '550,000', '350,000'],
+  ['2·3·6단', '350,000', '250,000'],
+  ['4·5단', '550,000', '350,000'],
   ['가족당 2칸', '650,000', '450,000'],
   ['가족당 3칸', '850,000', '650,000'],
 ];
@@ -96,8 +96,11 @@ const photos = [
   .gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 
-  .tiers { width: min(720px, 100%); margin-inline: auto; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-  .tiers th, .tiers td { padding: 18px 24px; text-align: left; border-top: 1px solid var(--line); }
+  .tiers { width: min(720px, 100%); margin-inline: auto; border-collapse: collapse; background: #fff; border: 1px solid var(--line); }
+  /* 모든 칸 한 줄. 머리글은 가운데, 금액은 오른쪽 정렬로 자릿수를 맞춤 */
+  .tiers th, .tiers td { padding: 18px 24px; text-align: left; border-top: 1px solid var(--line); white-space: nowrap; }
+  .tiers thead th { text-align: center; }
+  .tiers td { text-align: right; }
   .tiers thead th { border-top: 0; background: var(--brand-deep); color: #fff; font-weight: 500; font-size: 15px; }
   .tiers tbody th { font-weight: 500; color: var(--ink); }
   .tiers td { font-size: 22px; font-weight: 700; color: var(--gold-deep); font-variant-numeric: tabular-nums; }
@@ -107,8 +110,12 @@ const photos = [
     .gallery { grid-template-columns: 1fr; }
     /* 제목 + 사진 한 장 + 안내문이 낮은 화면에도 한 화면에 */
     .gallery img { aspect-ratio: 2 / 1; }
-    .tiers th, .tiers td { padding: 14px 16px; }
-    .tiers td { font-size: 18px; }
+    .tiers th, .tiers td { padding: 12px 14px; }
+    .tiers td { font-size: 17px; }
+  }
+  /* 낮은 화면에선 설명 문장을 접어 표까지 한 화면에 */
+  @media (max-width: 860px) and (max-height: 700px) {
+    #price .section-head p { display: none; }
   }
   /* 320px 급 작은 화면에서 표가 화면을 넘지 않게 */
   @media (max-width: 360px) {
