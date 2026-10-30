@@ -3,10 +3,10 @@ import Base from '../layouts/Base.astro';
 import { TEL, ADDRESS, NAVER_PLACE } from '../site.js';
 
 const features = [
-  { id: 'service', title: '1:1 장례지도사의 책임장례', photo: '장례지도사와 염습 사진', text: '모든 장례 절차에 반려동물 장례지도사가 1:1로 배정되어, 보호자와 함께 마지막까지 정성껏 진행합니다. 개별화장과 보호자 참관으로 모든 과정을 직접 지켜보실 수 있습니다.' },
-  { id: 'memorial', title: '100% 예약제, 여유로운 단독 추모', photo: '단독 추모실 사진', text: '예약제로 운영해 다른 가족과 겹치지 않는 단독 추모실에서, 서두르지 않고 충분히 작별 인사를 나누실 수 있습니다.' },
-  { id: 'lucete', title: '추억을 담은 영원한 빛, 루세떼', photo: '루세떼 스톤과 주얼리 사진', text: '"밝게 빛나라"는 뜻의 루세떼.\n아이의 유골분을 순도 99.99%의 보석으로 만들어, 반지와 목걸이로 언제나 곁에 두실 수 있습니다.', link: 'lucete.html' },
-  { id: 'house', title: '언제든 만날 수 있는 안식처, 헤븐 하우스', photo: '헤븐 하우스(납골당) 사진', text: '쾌적하고 아늑한 공간에서 아이가 편히 쉴 수 있도록 모십니다. 오전 9시부터 오후 6시까지 연중무휴로 찾아오실 수 있습니다.' },
+  { id: 'service', title: '1:1 책임장례, 100% 예약제 단독 추모', photo: 'service.jpg', alt: '장례지도사 두 명이 흰 장갑을 끼고 염습하는 모습', text: '모든 장례 절차에 장례지도사가 1:1로 배정되고, 예약제로 운영해 다른 가족과 겹치지 않는 단독 추모실에서 서두르지 않고 작별 인사를 나누실 수 있습니다. 개별화장과 보호자 참관으로 모든 과정을 직접 지켜보실 수 있습니다.', link: 'service.html' },
+  { id: 'lucete', title: '추억을 담은 영원한 빛, 루세떼', photo: 'lucete.jpg', alt: '원목 함에 담긴 초록빛 루세떼 스톤과 강아지 조각', text: '"밝게 빛나라"는 뜻의 루세떼.\n아이의 유골분을 순도 99.99%의 보석으로 만들어, 반지와 목걸이로 언제나 곁에 두실 수 있습니다.', link: 'lucete.html' },
+  { id: 'house', title: '언제든 만날 수 있는 안식처, 헤븐 하우스', photo: 'house.jpg', alt: '밝은 흰색 안치단이 늘어선 헤븐 하우스 내부', text: '쾌적하고 아늑한 공간에서 아이가 편히 쉴 수 있도록 모십니다. 오전 9시부터 오후 6시까지 연중무휴로 찾아오실 수 있습니다.', link: 'house.html' },
+  { id: 'aftercare', title: '아이가 떠났을 때, 이렇게 해 주세요', photo: 'aftercare.jpg', alt: '흰 국화 옆에 놓인 강아지 조각', text: '당황스러운 순간이지만 서두르지 않으셔도 됩니다. 집에서 할 수 있는 사후 기초 수습 방법을 안내해 드립니다.', link: '#aftercare' },
 ];
 
 const plans = [
@@ -26,30 +26,34 @@ const aftercare = [
   ['예약한 시간에 방문해 주세요', '담요나 큰 수건으로 감싸 안거나, 상자에 넣고 흔들리지 않게 빈 곳을 채워 이동해 주세요. 직접 이동이 어렵다면 비대면 픽업 가능 여부를 문의해 주세요.'],
 ];
 
+const heroPhotos = ['hero-1.jpg', 'hero-2.jpg', 'hero-3.jpg', 'hero-4.jpg'];
 const mapQuery = encodeURIComponent(ADDRESS);
 ---
 <Base>
   <section class="hero">
     <div class="hero-media">
-      <span class="hero-photo-label">대표 사진 (시설 외관 또는 추모실)</span>
+      <!-- ponytail: CSS 키프레임만으로 5초 간격 크로스페이드. 음수 delay로 첫 장이 바로 보이게. 손으로 넘기는 버튼은 안 둠 -->
+      {heroPhotos.map((src, i) => (
+        <img class="hero-slide" src={`images/${src}`} alt="" style={`animation-delay: ${i * 5 - 20}s`} loading={i ? 'lazy' : 'eager'} />
+      ))}
       <div class="hero-copy">
         <h1>가족이었던 아이의 마지막 산책길, <br /><strong>아이헤븐</strong>이 함께합니다.</h1>
         <div class="hero-cta">
           <a class="btn btn--light" href={`tel:${TEL}`}>24시 장례상담 {TEL}</a>
-          <a class="hero-link" href="#aftercare">아이가 방금 떠났다면 → 사후 수습 방법</a>
         </div>
       </div>
+      <a class="hero-scroll" href="#service" aria-label="아래로 스크롤"><span>SCROLL</span><i aria-hidden="true"></i></a>
     </div>
   </section>
 
-  <section class="section features">
+  <section class="section features" id="service">
     <div class="wrap">
       {features.map((f) => {
         // 상세페이지가 있는 카드는 카드 전체를 링크로
         const Tag = f.link ? 'a' : 'article';
         return (
-          <Tag class:list={['feature', { 'feature--link': f.link }]} id={f.id} href={f.link}>
-            <div class="ph feature-photo">{f.photo}</div>
+          <Tag class:list={['feature', { 'feature--link': f.link }]} href={f.link}>
+            <img class="feature-photo" src={`images/${f.photo}`} alt={f.alt} loading="lazy" style={f.link && `view-transition-name: ${f.id}-photo`} />
             <h2>{f.title}</h2>
             <p>{f.text}</p>
             {f.link && <span class="feature-more">자세히 보기 <span aria-hidden="true">→</span></span>}
@@ -75,7 +79,7 @@ const mapQuery = encodeURIComponent(ADDRESS);
           </div>
         ))}
       </div>
-      <p class="price-note"><a class="text-link" href="lucete.html#price">루세떼 장례 800,000원부터</a> · 루세떼 제작만 600,000원 · 납골당 안치 1년 200,000원부터</p>
+      <p class="price-note"><a class="text-link" href="lucete.html#price">루세떼 장례 800,000원부터</a> · 루세떼 제작만 600,000원 · <a class="text-link" href="house.html#price">헤븐 하우스 안치 1년 200,000원부터</a></p>
     </div>
   </section>
 
@@ -114,7 +118,7 @@ const mapQuery = encodeURIComponent(ADDRESS);
           <div><dt>주차</dt><dd>주차장 있음 (장애인 주차구역 포함)</dd></div>
           <div><dt>장례 예약</dt><dd>24시간, {TEL}</dd></div>
           <div><dt>운영 시간</dt><dd>오전 9시 - 오후 9시</dd></div>
-          <div><dt>납골당 방문</dt><dd>오전 9시 - 오후 6시, 연중무휴</dd></div>
+          <div><dt>헤븐 하우스 방문</dt><dd>오전 9시 - 오후 6시, 연중무휴</dd></div>
         </dl>
         <div class="map-links">
           <a class="btn btn--line" href={NAVER_PLACE} target="_blank" rel="noopener">네이버 지도</a>
@@ -126,6 +130,12 @@ const mapQuery = encodeURIComponent(ADDRESS);
 </Base>
 
 <script>
+  // 히어로 위에 있을 때만 헤더 투명 (Base.astro .site-header.is-top)
+  const header = document.querySelector('.site-header')!;
+  const syncHeader = () => header.classList.toggle('is-top', scrollY < 10);
+  syncHeader();
+  addEventListener('scroll', syncHeader, { passive: true });
+
   // 모바일 서비스 카드 자동 넘김. 화면에 보일 때만, 손대면 마지막 터치 후 6초간 쉼, 동작 줄이기 설정이면 안 함
   const track = document.querySelector<HTMLElement>('.features .wrap');
   const mobile = matchMedia('(max-width: 860px)');
@@ -144,29 +154,39 @@ const mapQuery = encodeURIComponent(ADDRESS);
 </script>
 
 <style>
-  .hero { padding: 0 clamp(0px, 3vw, 44px); }
-  .hero-media { position: relative; min-height: min(78vh, 760px); display: flex; align-items: flex-end; padding: clamp(32px, 6vw, 88px);
-    background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.5)), repeating-linear-gradient(135deg, #8a8278 0 16px, #837b71 16px 32px); }
-  .hero-photo-label { position: absolute; top: 24px; right: 28px; color: rgba(255,255,255,.7); font-size: 13px; letter-spacing: .04em; }
-  .hero-copy { display: grid; gap: 20px; color: #fff; }
-  .hero h1 { color: #fff; font-size: clamp(30px, 4.4vw, 54px); font-weight: 600; letter-spacing: -.02em; }
+  .hero { margin-top: -84px; }
+  .hero-media { position: relative; overflow: hidden; min-height: 100svh; display: flex; align-items: flex-end; padding: clamp(32px, 6vw, 88px); background: #2b2926; }
+  .hero-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: hero-fade 20s infinite; }
+  /* 4장 x 5초. 4초 보이고 1초 동안 다음 장과 겹치며 바뀜 */
+  @keyframes hero-fade { 0%, 20% { opacity: 1; } 25%, 95% { opacity: 0; } 100% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .hero-slide { animation: none; } .hero-slide:first-child { opacity: 1; } }
+  /* 한 화면 꽉 찬 히어로라 더 있다는 표시. 선이 아래로 흘러내림 */
+  .hero-scroll { position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 2; display: grid; justify-items: center; gap: 10px; color: rgba(255,255,255,.8); font-size: 11px; letter-spacing: .3em; }
+  .hero-scroll i { display: block; width: 1px; height: 48px; background: rgba(255,255,255,.35); overflow: hidden; }
+  .hero-scroll i::after { content: ''; display: block; width: 100%; height: 50%; background: #fff; animation: scroll-cue 1.8s cubic-bezier(.4, 0, .2, 1) infinite; }
+  @keyframes scroll-cue { from { transform: translateY(-100%); } to { transform: translateY(200%); } }
+  @media (prefers-reduced-motion: reduce) { .hero-scroll i::after { animation: none; transform: translateY(100%); } }
+  .hero-media::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,.05) 30%, rgba(0,0,0,.6)); }
+  .hero-copy { position: relative; z-index: 2; display: grid; gap: 28px; color: #fff; max-width: 920px; }
+  .hero h1 { color: #fff; font-size: clamp(34px, 5.2vw, 68px); line-height: 1.3; font-weight: 600; letter-spacing: -.02em; }
   .hero h1 strong { color: var(--gold-light); font-weight: 700; }
-  .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-top: 8px; }
-  .hero-link { font-size: 15px; color: rgba(255,255,255,.9); border-bottom: 1px solid rgba(255,255,255,.5); padding-bottom: 2px; }
-  .hero-link:hover { color: #fff; border-color: #fff; }
+  .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 16px; margin-top: 8px; }
+  .hero-cta .btn { font-size: 17px; height: 56px; padding: 0 32px; }
+
+  .section { min-height: calc(100svh - 84px); padding-block: 80px; display: grid; align-content: center; }
 
   /* 사진 카드 한 줄, 다른 섹션보다 조금 넓게. 모바일은 가로 스크롤 */
   .features .wrap { width: min(1400px, 100% - 40px); display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .feature { display: grid; gap: 10px; align-content: start; }
-  .feature-photo { aspect-ratio: 4 / 5; margin-bottom: 10px; }
+  .feature-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); margin-bottom: 10px; }
   .feature h2 { font-size: 19px; color: var(--brand); }
   .feature p { font-size: 15px; white-space: pre-line; }
   .feature-photo { transition: transform .35s ease, box-shadow .35s ease; }
   .feature h2 { transition: color .2s; }
   .feature-more { justify-self: start; font-size: 15px; color: var(--gold-deep); border-bottom: 1px solid currentColor; }
   .feature-more span { display: inline-block; transition: transform .2s; }
-  /* 루세떼 페이지 첫 사진으로 이어지는 전환 짝 (lucete.astro .intro-photo) */
-  .feature--link .feature-photo { view-transition-name: lucete-photo; }
+  /* 상세페이지 첫 사진으로 이어지는 전환 짝은 카드 inline style 로 (lucete.astro·house.astro .intro-photo) */
+  .feature--link[href="lucete.html"] .feature-photo { object-position: 25% center; /* 세로 크롭에서 강아지 조각이 잘리지 않게 */ }
   @media (hover: hover) {
     .feature--link:hover .feature-photo { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(0,0,0,.12); }
     .feature--link:hover h2 { color: var(--gold-deep); }
@@ -176,17 +196,19 @@ const mapQuery = encodeURIComponent(ADDRESS);
   .price { background: var(--soft); }
   .price-note { margin-top: 28px; text-align: center; font-size: 15px; color: var(--muted); }
 
-  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .steps li { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; display: grid; gap: 10px; align-content: start; }
+  .aftercare .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .aftercare .section-head { grid-column: 1 / -1; margin-bottom: 24px; }
+  .steps { list-style: none; margin: 0; padding: 0; display: contents; }
+  .steps li { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 20px; display: grid; gap: 8px; align-content: start; }
   .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; font-weight: 600; font-size: 15px; }
-  .steps h3 { font-size: 17px; }
-  .steps p { font-size: 15px; }
-  .aftercare-note { margin-top: 40px; padding: 36px 40px; border-radius: var(--radius); background: var(--soft); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; color: var(--ink); }
+  .steps h3 { font-size: 16px; }
+  .steps p { font-size: 14px; line-height: 1.65; }
+  .aftercare-note { padding: 22px 20px; border-radius: var(--radius); background: var(--soft); display: grid; gap: 14px; align-content: center; justify-items: start; font-size: 14px; line-height: 1.65; color: var(--ink); }
+  .aftercare-note br { display: none; }
 
-  .location { padding-top: 0; scroll-margin-top: 24px; }
   .location-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
   .location h2 { font-size: clamp(24px, 2.5vw, 30px); color: var(--brand); margin: 8px 0 28px; }
-  .map { aspect-ratio: 4 / 3; width: 100%; border: 0; border-radius: var(--radius); }
+  .map { aspect-ratio: 4 / 3; width: 100%; border: 0; border-radius: 0 var(--radius) 0 var(--radius); }
   .info { margin: 0 0 32px; display: grid; gap: 14px; }
   .info div { display: grid; grid-template-columns: 100px 1fr; }
   .info dt { color: var(--muted); }
@@ -195,24 +217,26 @@ const mapQuery = encodeURIComponent(ADDRESS);
   .map-links { display: flex; flex-wrap: wrap; gap: 10px; }
 
   @media (max-width: 1080px) {
-    .steps, .features .wrap { grid-template-columns: repeat(2, 1fr); }
+    .aftercare .wrap, .features .wrap { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 860px) {
-    .hero { padding: 0; }
-    .hero-media { min-height: 72svh; }
+    .section { min-height: calc(100svh - 60px); }
+    .hero { margin-top: -60px; }
+    .hero-media { min-height: calc(100svh - 58px - env(safe-area-inset-bottom)); }
+    .hero-cta .btn { font-size: 16px; height: 50px; padding: 0 26px; }
+    .hero-scroll { left: auto; right: 20px; bottom: 20px; transform: none; }
+    .hero-scroll span { display: none; }
     .hero h1 br { display: none; }
     .location-inner { grid-template-columns: 1fr; gap: 28px; }
     /* .wrap 의 20px 여백까지 끌어와 화면 끝에서 끝으로 스크롤, 다음 카드가 살짝 보이게 */
     .features .wrap { width: auto; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 78%; gap: 14px; padding-inline: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
     .feature { scroll-snap-align: start; }
-    .steps { grid-template-columns: 1fr; }
+    .aftercare .wrap { grid-template-columns: 1fr; }
     /* 번호를 왼쪽에 붙여 7단계 세로 길이를 줄임 */
     .steps li { grid-template-columns: 32px 1fr; gap: 6px 14px; padding: 22px 20px; }
     .step-num { grid-row: span 2; }
     .steps h3 { align-self: center; }
     /* 제목 먼저, 지도는 버튼 아래. 터치 시 스크롤을 가로채지 않게. 지도 앱은 아래 버튼으로 */
     .map { order: 2; aspect-ratio: 16 / 11; pointer-events: none; }
-    .aftercare-note { padding: 28px 24px; }
-    .aftercare-note br { display: none; }
   }
 </style>
