@@ -233,6 +233,8 @@ const plans = [
     .jewelry-price span { display: block; }
     .jewelry-price span + span::before { content: none; }
     /* 설명은 3줄까지, 나머지는 더 보기로 */
+    /* 스톤 사진은 한 장씩 크게(정사각형). 작게 두면 한 화면 섹션의 위아래가 비어 보임 */
+    .stones img { aspect-ratio: 1; }
     .jewelry > li:not(.is-open) > ul { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
     .jewelry-more { display: block; justify-self: start; padding: 0; border: 0; background: none; font: inherit; font-size: 14px; color: var(--gold-deep); border-bottom: 1px solid currentColor; cursor: pointer; }
     .jewelry-more span:last-child, .jewelry > li.is-open .jewelry-more span:first-child { display: none; }
@@ -241,6 +243,6 @@ const plans = [
   }
   /* 낮은 화면(아이폰 SE 등)에선 비용 섹션의 설명 문장을 접어 카드까지 한 화면에 */
   @media (max-width: 860px) and (max-height: 700px) {
-    #price .section-head p { display: none; }
+    #price .section-head p, .section:has(.stones) .section-head p { display: none; }
   }
 </style>
