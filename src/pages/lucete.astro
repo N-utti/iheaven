@@ -128,8 +128,10 @@ const plans = [
           <li>
             <img class="jewelry-photo" src={`images/${j.photo}`} alt={`${j.name} 주얼리`} loading="lazy" />
             <h3>{j.name}</h3>
-            <p class="jewelry-price">{j.price}</p>
+            <p class="jewelry-price">{j.price.split(' · ').map((t) => <span>{t}</span>)}</p>
             <ul>{j.items.map((it) => <li>{it}</li>)}</ul>
+            <!-- 모바일에서 설명이 3줄 넘으면 접힘. 넘치지 않는 카드의 버튼은 아래 script 가 숨김 -->
+            <button class="jewelry-more" type="button" aria-expanded="false" onclick="const c = this.closest('.jewelry > li'); c.classList.toggle('is-open'); this.setAttribute('aria-expanded', c.classList.contains('is-open'))"><span>더 보기</span><span>접기</span></button>
           </li>
         ))}
       </ul>
@@ -169,6 +171,14 @@ const plans = [
   </section>
 </Base>
 
+<script>
+  // 모바일에서 설명이 3줄 안에 다 들어가는 카드는 더 보기 버튼을 숨김 (CSS 만으론 넘침을 알 수 없어서)
+  document.querySelectorAll<HTMLButtonElement>('.jewelry-more').forEach((b) => {
+    const ul = b.previousElementSibling as HTMLElement;
+    if (ul.scrollHeight <= ul.clientHeight + 1) b.hidden = true;
+  });
+</script>
+
 <style>
   /* 인트로 공통 꼴·슬라이더는 Base.astro. 여기선 메인 카드와 잇는 전환 이름만 */
   .intro-photo { view-transition-name: lucete-photo; }
@@ -193,10 +203,13 @@ const plans = [
   .kinds p { font-size: 15px; }
 
   .jewelry { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 20px; }
-  .jewelry > li { display: grid; gap: 6px; align-content: start; }
+  /* subgrid: 같은 줄 카드끼리 사진·이름·가격·설명·더 보기 행 높이를 공유해 가격이 두 줄이어도 아래가 나란히 */
+  .jewelry > li { display: grid; grid-template-rows: subgrid; grid-row: span 5; row-gap: 6px; }
   .jewelry-photo { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); margin-bottom: 10px; }
   .jewelry h3 { font-size: 17px; letter-spacing: .02em; }
   .jewelry-price { color: var(--gold-deep); font-weight: 600; }
+  .jewelry-price span + span::before { content: ' · '; }
+  .jewelry-more { display: none; }
   .jewelry ul { list-style: none; margin: 6px 0 0; padding: 10px 0 0; border-top: 1px solid var(--line); display: grid; gap: 4px; font-size: 14px; }
   .jewelry li li { padding-left: 20px; text-indent: -20px; }
   .jewelry li li::before { width: 20px; }
@@ -208,8 +221,20 @@ const plans = [
     .jewelry, .plans, .stones { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 860px) {
-    .patent { grid-template-columns: 1fr; gap: 28px; }
-    .kinds, .plans { grid-template-columns: 1fr; }
+    /* 특허 섹션이 한 화면에 들어가게 사진은 빼고(히어로에 이미 사진) 특허증만 작게 */
+    .patent { grid-template-columns: 1fr; gap: 20px; }
+    .patent-photo { display: none; }
+    .patent-cert { width: 150px; }
+    .kinds { grid-template-columns: 1fr; }
     .jewelry { gap: 28px 14px; }
+    /* 실버·골드 가격을 두 줄로 */
+    .jewelry-price span { display: block; }
+    .jewelry-price span + span::before { content: none; }
+    /* 설명은 3줄까지, 나머지는 더 보기로 */
+    .jewelry > li:not(.is-open) > ul { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+    .jewelry-more { display: block; justify-self: start; padding: 0; border: 0; background: none; font: inherit; font-size: 14px; color: var(--gold-deep); border-bottom: 1px solid currentColor; cursor: pointer; }
+    .jewelry-more span:last-child, .jewelry > li.is-open .jewelry-more span:first-child { display: none; }
+    .jewelry > li.is-open .jewelry-more span:last-child { display: inline; }
+    .jewelry-more[hidden] { display: none; }
   }
 </style>
