@@ -3,10 +3,10 @@ import Base from '../layouts/Base.astro';
 import { TEL, ADDRESS, NAVER_PLACE } from '../site.js';
 
 const features = [
-  { id: 'service', title: '1:1 책임장례, 100% 예약제 단독 추모', photo: 'service.jpg', alt: '장례지도사 두 명이 흰 장갑을 끼고 염습하는 모습', text: '모든 장례 절차에 장례지도사가 1:1로 배정되고, 예약제로 운영해 다른 가족과 겹치지 않는 단독 추모실에서 서두르지 않고 작별 인사를 나누실 수 있습니다. 개별화장과 보호자 참관으로 모든 과정을 직접 지켜보실 수 있습니다.', link: 'service.html' },
-  { id: 'lucete', title: '추억을 담은 영원한 빛, 루세떼', photo: 'lucete.jpg', alt: '원목 함에 담긴 초록빛 루세떼 스톤과 강아지 조각', text: '"밝게 빛나라"는 뜻의 루세떼.\n아이의 유골분을 순도 99.99%의 보석으로 만들어, 반지와 목걸이로 언제나 곁에 두실 수 있습니다.', link: 'lucete.html' },
-  { id: 'house', title: '언제든 만날 수 있는 안식처, 헤븐 하우스', photo: 'house.jpg', alt: '밝은 흰색 안치단이 늘어선 헤븐 하우스 내부', text: '쾌적하고 아늑한 공간에서 아이가 편히 쉴 수 있도록 모십니다. 오전 9시부터 오후 6시까지 연중무휴로 찾아오실 수 있습니다.', link: 'house.html' },
-  { id: 'aftercare', title: '아이가 떠났을 때, 이렇게 해 주세요', photo: 'aftercare.jpg', alt: '흰 국화 옆에 놓인 강아지 조각', text: '당황스러운 순간이지만 서두르지 않으셔도 됩니다. 집에서 할 수 있는 사후 기초 수습 방법을 안내해 드립니다.', link: '#aftercare' },
+  { id: 'service', title: '1:1 책임장례, 단독 추모', photo: 'service.jpg', alt: '장례지도사 두 명이 흰 장갑을 끼고 염습하는 모습', text: '장례지도사 1:1 배정과 100% 예약제, 개별화장과 보호자 참관으로 서두르지 않는 작별을 드립니다.', link: 'service.html' },
+  { id: 'lucete', title: '영원한 빛, 루세떼', photo: 'lucete.jpg', alt: '원목 함에 담긴 초록빛 루세떼 스톤과 강아지 조각', text: '유골분을 순도 99.99%의 보석으로 만들어 반지와 목걸이로 언제나 곁에 두실 수 있습니다.', link: 'lucete.html' },
+  { id: 'house', title: '안식처, 헤븐 하우스', photo: 'house.jpg', alt: '밝은 흰색 안치단이 늘어선 헤븐 하우스 내부', text: '편히 쉴 수 있는 쾌적한 공간. 오전 9시부터 오후 6시까지 연중무휴로 찾아오실 수 있습니다.', link: 'house.html' },
+  { id: 'aftercare', title: '아이가 떠났을 때', photo: 'aftercare.jpg', alt: '흰 국화 옆에 놓인 강아지 조각', text: '서두르지 않으셔도 됩니다. 집에서 할 수 있는 사후 기초 수습 방법을 안내해 드립니다.', link: '#aftercare' },
 ];
 
 const plans = [
@@ -130,12 +130,6 @@ const mapQuery = encodeURIComponent(ADDRESS);
 </Base>
 
 <script>
-  // 히어로 위에 있을 때만 헤더 투명 (Base.astro .site-header.is-top)
-  const header = document.querySelector('.site-header')!;
-  const syncHeader = () => header.classList.toggle('is-top', scrollY < 10);
-  syncHeader();
-  addEventListener('scroll', syncHeader, { passive: true });
-
   // 모바일 서비스 카드 자동 넘김. 화면에 보일 때만, 손대면 마지막 터치 후 6초간 쉼, 동작 줄이기 설정이면 안 함
   const track = document.querySelector<HTMLElement>('.features .wrap');
   const mobile = matchMedia('(max-width: 860px)');
@@ -177,7 +171,7 @@ const mapQuery = encodeURIComponent(ADDRESS);
 
   /* 사진 카드 한 줄, 다른 섹션보다 조금 넓게. 모바일은 가로 스크롤 */
   .features .wrap { width: min(1400px, 100% - 40px); display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .feature { display: grid; gap: 10px; align-content: start; }
+  .feature { display: grid; gap: 10px; grid-template-rows: auto auto 1fr auto; }
   .feature-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); margin-bottom: 10px; }
   .feature h2 { font-size: 19px; color: var(--brand); }
   .feature p { font-size: 15px; white-space: pre-line; }
@@ -219,7 +213,8 @@ const mapQuery = encodeURIComponent(ADDRESS);
   @media (max-width: 860px) {
     .section { min-height: calc(100svh - 60px); }
     .hero { margin-top: -60px; }
-    .hero-media { min-height: calc(100svh - 58px - env(safe-area-inset-bottom)); }
+    /* 맨 위에선 하단 바가 숨으므로 화면 전체 */
+    .hero-media { min-height: 100svh; }
     .hero-cta .btn { font-size: 16px; height: 50px; padding: 0 26px; }
     .hero-scroll { left: auto; right: 20px; bottom: 20px; transform: none; }
     .hero-scroll span { display: none; }

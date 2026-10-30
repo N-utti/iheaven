@@ -58,6 +58,14 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
 
   <main><slot /></main>
   <script>
+    // 맨 위(히어로 위)에선 헤더 투명 + 하단 바 숨김 (.is-top). 히어로가 없는 페이지(개인정보 처리방침)는 그대로
+    if (document.querySelector('.hero-media, .intro-inner')) {
+      const chrome = document.querySelectorAll('.site-header, .mobile-bar');
+      const syncTop = () => chrome.forEach((el) => el.classList.toggle('is-top', scrollY < 10));
+      syncTop();
+      addEventListener('scroll', syncTop, { passive: true });
+    }
+
     // 상세페이지 히어로 슬라이더: 마우스 드래그로 넘기기 + 5초 자동 넘김. 손대면 8초 쉼. 터치 스와이프는 브라우저 기본 스크롤
     const slider = document.querySelector<HTMLElement>('.intro-photo');
     if (slider && slider.children.length > 1) {
@@ -158,7 +166,7 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
   @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
     .site-header { background: rgba(255,255,255,.62); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
   }
-  /* 메인 맨 위(히어로 위)에선 투명 + 흰 글씨. index.astro 가 스크롤 위치로 is-top 을 토글. 모바일 메뉴가 열리면 해제 */
+  /* 맨 위(히어로 위)에선 투명 + 흰 글씨. 위 script 가 스크롤 위치로 is-top 을 토글. 모바일 메뉴가 열리면 해제 */
   .site-header { transition: background .3s, box-shadow .3s, border-color .3s; }
   .site-header.is-top:not(.is-open) { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; border-bottom-color: transparent; }
   .site-header.is-top:not(.is-open) :is(.nav a, .header-cta, .header-cta strong, .nav-toggle) { color: #fff; }
@@ -204,9 +212,11 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
   /* 상세페이지 공통: 인트로(사진이 오른쪽·위·아래 화면 끝에 붙는 꼴, 왼쪽 글은 .wrap 왼쪽 선)·마무리 CTA. 사진 크로스페이드 keyframes 는 장 수가 달라 각 페이지에 */
   .intro { background: var(--brand-deep); color: #bdb7af; }
   .intro h1, .intro h2 { color: #fff; }
-  .intro:has(.intro-inner) { padding-block: 0; }
-  .intro-inner { display: grid; grid-template-columns: minmax(20px, 1fr) minmax(0, 570px) minmax(0, 570px) minmax(0, 1fr); align-items: center; min-height: calc(100svh - 84px); }
-  .intro-copy { grid-column: 2; display: grid; gap: 20px; padding-block: 120px; padding-right: clamp(40px, 6vw, 88px); }
+  /* 메인 히어로처럼 헤더 밑으로 끌어올려 투명 헤더가 사진 위에 얹힘. 위쪽 그라데이션은 밝은 사진에서도 흰 로고·메뉴가 읽히게 */
+  .intro:has(.intro-inner) { padding-block: 0; margin-top: -84px; }
+  .intro-inner { position: relative; display: grid; grid-template-columns: minmax(20px, 1fr) minmax(0, 570px) minmax(0, 570px) minmax(0, 1fr); align-items: center; min-height: 100svh; }
+  .intro-inner::after { content: ''; position: absolute; inset: 0 0 auto; height: 160px; z-index: 1; background: linear-gradient(rgba(0,0,0,.5), transparent); pointer-events: none; }
+  .intro-copy { grid-column: 2; display: grid; gap: 20px; padding-block: 164px 120px; padding-right: clamp(40px, 6vw, 88px); }
   .intro h1 { font-size: clamp(32px, 4.2vw, 52px); }
   /* 사진 슬라이더: 가로 스크롤 스냅. 터치는 그대로 스와이프, 마우스 드래그와 5초 자동 넘김은 아래 script */
   /* contain: size 로 사진 원본 높이가 틀을 키우지 못하게. 높이는 데스크톱 = 글 쪽 행 높이, 모바일 = 3:2 비율 */
@@ -278,7 +288,9 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
     .swipe.swipe.swipe { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; gap: 14px; width: auto; margin-inline: -20px; padding-inline: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
     .swipe::-webkit-scrollbar { display: none; }
     .swipe > * { scroll-snap-align: start; }
-    .intro-inner { grid-template-columns: 1fr; gap: 0; grid-template-rows: auto 1fr; min-height: calc(100svh - 60px - 58px - env(safe-area-inset-bottom)); }
+    .intro:has(.intro-inner) { margin-top: -60px; }
+    .intro-inner { grid-template-columns: 1fr; gap: 0; grid-template-rows: auto 1fr; min-height: 100svh; }
+    .intro-inner::after { height: 120px; }
     .intro h1 br { display: none; }
     .intro-copy { grid-column: 1; padding: 20px 20px 48px; }
     /* 폭은 화면에 고정, 높이는 3:2 비율. stretch 로 두면 긴 화면에서 행 높이를 따라 커진 사진이 비율대로 가로로도 넓어져 화면을 넘침 */
@@ -302,7 +314,9 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
     .site-footer { padding-bottom: 110px; }
     .biz { flex-direction: column; }
     .biz dt { flex-shrink: 0; }
-    .mobile-bar { display: grid; grid-template-columns: repeat(2, 1fr); position: fixed; inset: auto 0 0; z-index: 30; background: #fff; box-shadow: 0 -1px 0 rgba(0,0,0,.08); padding-bottom: env(safe-area-inset-bottom); }
+    .mobile-bar { display: grid; grid-template-columns: repeat(2, 1fr); position: fixed; inset: auto 0 0; z-index: 30; background: #fff; box-shadow: 0 -1px 0 rgba(0,0,0,.08); padding-bottom: env(safe-area-inset-bottom); transition: transform .3s; }
+    /* 맨 위에선 아래로 내려 숨김. 스크롤하면 올라옴 */
+    .mobile-bar.is-top { transform: translateY(100%); }
     .mobile-bar a { text-align: center; line-height: 58px; font-weight: 600; font-size: 15px; color: var(--brand); }
     .mobile-bar .is-primary { background: var(--brand); color: #fff; }
     /* 터치 화면이라 호버 대신 누르는 순간 반응 */
