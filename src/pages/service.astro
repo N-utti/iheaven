@@ -10,10 +10,10 @@ const heroPhotos = [
 ];
 
 const pillars = [
-  { title: '장례·추모 서비스', sub: '책임장례, 여유로운 추모 시간', photo: 'memorial.jpg', alt: '단독 추모실', text: '1:1 담당 장례지도사가 처음부터 끝까지 함께합니다. 100% 예약제로 다른 가족과 겹치지 않는 독립적이고 여유로운 추모 시간을 드립니다.' },
-  { title: '개별화장', sub: '보호자 참관', photo: 'service-cremation.jpg', alt: '개별 화장로 두 기', text: '아이 한 마리씩 개별로 화장하며, 보호자께서 참관실에서 모든 과정을 직접 지켜보실 수 있습니다.' },
-  { title: '루세떼 서비스', sub: '메모리얼 스톤 제작', photo: 'lucete.jpg', alt: '원목 함에 담긴 루세떼 스톤', text: '유골분을 순도 99.99%의 보석으로 만들어 반지와 목걸이로 간직하실 수 있습니다.', link: 'lucete.html' },
-  { title: '납골당 안치', sub: '펫로스 치유', photo: 'house.jpg', alt: '헤븐 하우스 내부', text: '언제든 찾아올 수 있는 헤븐 하우스에 아이를 모십니다. 오전 9시부터 오후 6시까지 연중무휴 방문하실 수 있습니다.', link: 'house.html' },
+  { title: '장례·추모 서비스', sub: '책임장례, 여유로운 추모 시간', photo: 'memorial.jpg', alt: '단독 추모실', text: '장례지도사 1:1 배정, 100% 예약제로 가족만의 추모 시간.' },
+  { title: '개별화장', sub: '보호자 참관', photo: 'service-cremation.jpg', alt: '개별 화장로 두 기', text: '한 마리씩 개별 화장, 보호자가 참관실에서 지켜보실 수 있습니다.' },
+  { title: '루세떼 서비스', sub: '메모리얼 스톤 제작', photo: 'lucete.jpg', alt: '원목 함에 담긴 루세떼 스톤', text: '유골분을 99.99% 보석으로 만들어 반지·목걸이로 간직합니다.', link: 'lucete.html' },
+  { title: '납골당 안치', sub: '펫로스 치유', photo: 'house.jpg', alt: '헤븐 하우스 내부', text: '언제든 찾아올 수 있는 안식처. 오전 9시~오후 6시 연중무휴.', link: 'house.html' },
 ];
 
 const basic = [
@@ -54,8 +54,10 @@ const collection = [
         </div>
       </div>
       <!-- 슬라이더 동작은 Base.astro. 자동 5초 넘김, 드래그·스와이프 -->
-      <div class="intro-photo">
-        {heroPhotos.map(([src, alt], i) => <img src={`images/${src}`} alt={alt} draggable="false" loading={i ? 'lazy' : 'eager'} />)}
+      <div class="intro-media">
+        <div class="intro-photo">
+          {heroPhotos.map(([src, alt], i) => <img src={`images/${src}`} alt={alt} draggable="false" loading={i ? 'lazy' : 'eager'} />)}
+        </div>
       </div>
       <a class="hero-scroll" href="#guide" aria-label="아래로 스크롤"><span>SCROLL</span><i aria-hidden="true"></i></a>
     </div>
@@ -65,7 +67,7 @@ const collection = [
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">HEAVEN FUNERAL SERVICE</p>
-        <h2>아이헤븐 장례서비스를 안내합니다</h2>
+        <h2>아이헤븐 장례서비스</h2>
       </div>
       <div class="swipe pillars">
         {pillars.map((p) => {
@@ -145,7 +147,7 @@ const collection = [
   .intro-photo { view-transition-name: service-photo; }
 
   .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .pillar { display: grid; gap: 8px; align-content: start; }
+  .pillar { display: grid; gap: 8px; grid-template-rows: auto auto auto 1fr auto; }
   .pillar img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 8px; }
   .pillar-sub { font-size: 14px; color: var(--gold-deep); }
   .pillar h3 { font-size: 19px; color: var(--brand); transition: color .2s; }
@@ -177,6 +179,8 @@ const collection = [
     .pillars, .collection { grid-template-columns: 1fr; gap: 32px; }
     /* 제목 + 카드 한 장이 한 화면에 들어가게 사진을 낮춤 */
     .pillar img { aspect-ratio: 2 / 1; }
+    /* 구성 제목 옆 보조 문구는 좁은 화면에선 아래 줄로 (제목이 두 줄로 꺾이지 않게) */
+    .group small { display: block; margin: 2px 0 0; }
     .items { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   }
 </style>
