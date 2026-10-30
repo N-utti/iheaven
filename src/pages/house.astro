@@ -101,22 +101,22 @@ const photos = [
 
   .gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   /* 데스크톱은 3열 2줄이라 16:9 로 낮춰 한 화면에. 모바일은 한 장씩 크게 4:3 */
-  .gallery img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .gallery img { width: 100%; height: clamp(120px, 24vh, 260px); object-fit: cover; }
   #visit .section-head { margin-bottom: 40px; }
 
   .tiers { width: min(720px, 100%); margin-inline: auto; border-collapse: collapse; background: #fff; border: 1px solid var(--line); }
   /* 모든 칸 한 줄. 머리글은 가운데, 금액은 오른쪽 정렬로 자릿수를 맞춤 */
-  .tiers th, .tiers td { padding: 18px 24px; text-align: left; border-top: 1px solid var(--line); white-space: nowrap; }
+  .tiers th, .tiers td { padding: clamp(10px, 2vh, 18px) 24px; text-align: left; border-top: 1px solid var(--line); white-space: nowrap; }
   .tiers thead th { text-align: center; }
   .tiers td { text-align: right; }
   .tiers thead th { border-top: 0; background: var(--brand-deep); color: #fff; font-weight: 500; font-size: 15px; }
   .tiers tbody th { font-weight: 500; color: var(--ink); }
-  .tiers td { font-size: 22px; font-weight: 700; color: var(--gold-deep); font-variant-numeric: tabular-nums; }
+  .tiers td { font-size: clamp(18px, 2.8vh, 22px); font-weight: 700; color: var(--gold-deep); font-variant-numeric: tabular-nums; }
   .tiers td span { font-size: 14px; font-weight: 400; color: var(--muted); margin-left: 3px; }
 
   @media (max-width: 860px) {
     .gallery { grid-template-columns: 1fr; }
-    .gallery img { aspect-ratio: 4 / 3; }
+    .gallery img { aspect-ratio: 4 / 3; height: auto; }
     .tiers th, .tiers td { padding: 12px 14px; }
     .tiers td { font-size: 17px; }
   }

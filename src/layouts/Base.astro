@@ -421,6 +421,16 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
 
   /* 데스크톱 한 화면 맞춤: 낮은 노트북 화면(768·864)에서도 섹션이 넘치지 않게 여백·카드·글자를 화면 높이(vh)에 따라 줄임 */
   @media (min-width: 861px) {
+    /* 섹션 위·아래 여백을 전부 같게(슬라이드 레이아웃): 제목은 위 여백에, 마지막 요소는 아래 여백에 붙고 남는 공간은 그 사이.
+       안내문이 있으면 본문은 제목과 안내문 사이 가운데, 없으면 본문이 아래 여백에 붙음 */
+    main > .section:not(.intro) { grid-template-rows: auto 1fr auto; align-content: stretch; align-items: start; }
+    main > .section:not(.intro) > .section-head + .wrap { align-self: end; }
+    /* 제목·본문·안내문이 .wrap 안에 있는 섹션은 .wrap 이 같은 행 구조를 맡음 */
+    main > .section:not(.intro) > .wrap:only-child { grid-row: 1 / -1; align-self: stretch; display: grid; grid-template-rows: auto 1fr auto; align-content: stretch; align-items: start; }
+    main > .section:not(.intro) > .wrap:only-child > :nth-child(2) { align-self: center; }
+    main > .section:not(.intro) > .wrap:only-child > :nth-child(2):last-child { align-self: end; }
+    /* 제목 없이 2열 격자인 섹션(루세떼 특허)은 격자 그대로 가운데 */
+    main > .section:not(.intro) > .wrap.patent { grid-template-rows: none; align-content: center; align-items: center; }
     .section-head { margin-bottom: clamp(20px, 3.5vh, 56px); }
     .section-head h2 { font-size: clamp(22px, 3.2vh, 36px); }
     .plan { padding: clamp(16px, 3vh, 36px) 28px; gap: clamp(6px, 1.4vh, 14px); }
