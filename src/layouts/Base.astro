@@ -106,8 +106,8 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
       });
     }
 
-    // 상세페이지 히어로 슬라이더: 마우스 드래그로 넘기기 + 5초 자동 넘김. 손대면 8초 쉼. 터치 스와이프는 브라우저 기본 스크롤
-    const slider = document.querySelector<HTMLElement>('.intro-photo');
+    // 히어로 슬라이더(메인 .hero-track, 상세 .intro-photo): 마우스 드래그로 넘기기 + 5초 자동 넘김. 손대면 8초 쉼. 터치 스와이프는 브라우저 기본 스크롤
+    const slider = document.querySelector<HTMLElement>('.hero-track, .intro-photo');
     if (slider && slider.children.length > 1) {
       let pausedUntil = 0, dragging = false, startX = 0, startLeft = 0;
       const snap = () => { const w = slider.clientWidth; slider.scrollTo({ left: Math.round(slider.scrollLeft / w) * w, behavior: 'smooth' }); };
