@@ -289,12 +289,16 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
     .swipe::-webkit-scrollbar { display: none; }
     .swipe > * { scroll-snap-align: start; }
     .intro:has(.intro-inner) { margin-top: -60px; }
-    .intro-inner { grid-template-columns: 1fr; gap: 0; grid-template-rows: auto 1fr; min-height: 100svh; }
+    /* 한 화면 = 사진 + 글 + 상담 버튼. 글·버튼 행은 내용만큼, 사진은 남는 높이 전부(최소 200px). 기기 높이가 달라도 버튼까지 첫 화면에 들어옴 */
+    .intro-inner { grid-template-columns: 1fr; gap: 0; grid-template-rows: minmax(200px, 1fr) auto; min-height: 100svh; }
     .intro-inner::after { height: 120px; }
+    .intro h1 { font-size: 26px; }
     .intro h1 br { display: none; }
-    .intro-copy { grid-column: 1; padding: 20px 20px 48px; }
-    /* 폭은 화면에 고정, 높이는 3:2 비율. stretch 로 두면 긴 화면에서 행 높이를 따라 커진 사진이 비율대로 가로로도 넓어져 화면을 넘침 */
-    .intro-photo { grid-column: 1; order: -1; align-self: start; width: 100%; min-height: 0; height: auto; aspect-ratio: 3 / 2; }
+    .intro-copy { grid-column: 1; gap: 12px; padding: 16px 20px 24px; font-size: 15px; }
+    /* 폭은 화면에 고정(비율로 두면 긴 화면에서 가로로 넘침), 높이는 행을 꽉 채움 */
+    .intro-photo { grid-column: 1; order: -1; width: 100%; min-height: 0; height: auto; }
+    /* 낮은 화면(아이폰 SE 가로 등)에선 둘째 문단을 접어 버튼이 첫 화면에 남게 */
+    @media (max-height: 640px) { .intro-copy > h1 + p + p { display: none; } }
     html { scroll-padding-top: 60px; }
     .brand, .header-actions { height: 60px; }
     /* 하단 고정 바의 전화 상담과 중복이라 그 자리에 햄버거 */
