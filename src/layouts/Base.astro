@@ -1,6 +1,7 @@
 ---
 import { TEL, BOOKING, ADDRESS } from '../site.js';
-const { title = '아이헤븐 | 김해 반려동물 장례식장', description = '1:1 담당 장례지도사, 100% 예약제, 개별화장과 보호자 참관. 진실된 책임장례만을 약속하는 김해 반려동물 장례식장 아이헤븐입니다.' } = Astro.props;
+// paged: 메인처럼 휠 한 번에 한 섹션씩 넘기는 페이지(index.astro script). 그 페이지에선 아래 히어로 자동 스크롤을 끔
+const { title = '아이헤븐 | 김해 반려동물 장례식장', description = '1:1 담당 장례지도사, 100% 예약제, 개별화장과 보호자 참관. 진실된 책임장례만을 약속하는 김해 반려동물 장례식장 아이헤븐입니다.', paged = false } = Astro.props;
 // 공유 미리보기는 절대 URL만 인식. Astro.url 은 site+base 기준
 const ogImage = new URL('og.png', Astro.url);
 // build.format 'file' 이라 메인이 index.html 로 잡힘. 대표 주소는 폴더 주소로
@@ -56,7 +57,7 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
     </div>
   </header>
 
-  <main><slot /></main>
+  <main data-paged={paged ? '' : undefined}><slot /></main>
   <script>
     // 맨 위(히어로 위)에선 헤더 투명 + 하단 바 숨김 (.is-top). 히어로가 없는 페이지(개인정보 처리방침)는 그대로
     if (document.querySelector('.hero-media, .intro-inner')) {
@@ -71,24 +72,77 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
       document.querySelectorAll<HTMLAnchorElement>('a[href="./"]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); scrollTo({ top: 0, behavior: 'smooth' }); }));
     }
 
-    // 히어로(.hero / .intro)는 sticky 로 고정돼 다음 섹션이 덮으며 올라옴. 글은 내릴수록 흐려지고,
-    // 손으로 스크롤하다 멈췄을 때 히어로의 15% 넘게 내렸으면 다음 섹션(헤더 아래 딱 맞게)으로, 아니면 맨 위로.
-    // 메뉴 앵커 이동 같은 프로그램 스크롤엔 끼어들지 않게 휠·터치·키 입력이 있었을 때만
+    // 가로 스크롤 이징(캐러셀 공용): 세로 페이징과 같은 곡선으로 900ms. 이동 중엔 스냅을 꺼서 브라우저가 중간에 끌어당기지 않게
+    const glide = (el: HTMLElement, left: number, dur = 900) => {
+      const from = el.scrollLeft, dist = left - from, t0 = performance.now();
+      if (Math.abs(dist) < 1) return;
+      el.style.scrollSnapType = 'none';
+      const step = (t: number) => {
+        const p = Math.min(1, (t - t0) / dur), e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+        el.scrollTo({ left: from + dist * e, behavior: 'instant' });
+        if (p < 1) requestAnimationFrame(step); else el.style.scrollSnapType = '';
+      };
+      requestAnimationFrame(step);
+    };
+    (window as any).glide = glide;
+
+    // 섹션 페이징(레퍼런스의 세로 Swiper 느낌): 휠·키 한 번 = 한 멈춤 위치로 900ms 이징 이동.
+    // 메인(main[data-paged])은 모든 섹션 + 문서 끝, 상세페이지는 히어로 ↔ 첫 본문 섹션 구간만 가로채고 그 아래는 자연 스크롤.
+    // 터치는 자연 스크롤 뒤 멈추면 가까운 멈춤 위치로. 히어로 구간은 15% 넘게 내렸으면 다음, 아니면 맨 위. 동작 줄이기 설정이면 끔
     const heroEl = document.querySelector<HTMLElement>('main > :first-child:is(.hero, .intro)');
-    const next = heroEl?.nextElementSibling as HTMLElement | null;
-    if (heroEl && next && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (heroEl && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const header = document.querySelector<HTMLElement>('.site-header')!;
-      let settle = 0, byUser = false;
-      const arm = () => { byUser = true; };
-      addEventListener('wheel', arm, { passive: true });
-      addEventListener('touchmove', arm, { passive: true });
-      addEventListener('keydown', arm);
+      const paged = !!document.querySelector('main[data-paged]');
+      const sections = [...document.querySelectorAll<HTMLElement>('main > section')];
+      const stops = () => {
+        const tops = sections.slice(1).map((el) => el.getBoundingClientRect().top + scrollY - header.offsetHeight);
+        return paged ? [0, ...tops, document.documentElement.scrollHeight - innerHeight] : [0, tops[0]];
+      };
+      // 상세페이지는 히어로 구간(첫 본문 섹션 위, 또는 그 경계에서 위로)에서만
+      const inZone = (dir: number) => paged || scrollY < stops()[1] - 1 || (dir < 0 && scrollY <= stops()[1] + 1);
+      let animating = false, lastWheel = 0, settle = 0, touching = false;
+      const easeTo = (to: number) => {
+        const from = scrollY, dist = to - from, t0 = performance.now(), dur = 900;
+        if (Math.abs(dist) < 1) return;
+        animating = true;
+        const step = (t: number) => {
+          const p = Math.min(1, (t - t0) / dur), e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+          scrollTo({ top: from + dist * e, behavior: 'instant' });
+          if (p < 1) requestAnimationFrame(step); else animating = false;
+        };
+        requestAnimationFrame(step);
+      };
+      const next = (dir: number) => { const s = stops(), y = scrollY; return dir > 0 ? (s.find((v) => v > y + 2) ?? s[s.length - 1]) : ([...s].reverse().find((v) => v < y - 2) ?? 0); };
+      addEventListener('wheel', (e) => {
+        const dir = Math.sign(e.deltaY);
+        if (!inZone(dir)) return;
+        e.preventDefault();
+        const now = performance.now(), gap = now - lastWheel; lastWheel = now;
+        // 애니메이션 중이거나 트랙패드 관성(연속 이벤트)이면 무시. 150ms 이상 쉬었다 온 입력만 새 제스처
+        if (animating || gap < 150 || Math.abs(e.deltaY) < 4) return;
+        easeTo(next(dir));
+      }, { passive: false });
+      addEventListener('keydown', (e) => {
+        if (animating || (e.target as HTMLElement).closest('input, textarea, button, a, dialog')) return;
+        const dir = ['ArrowDown', 'PageDown', ' '].includes(e.key) ? 1 : ['ArrowUp', 'PageUp'].includes(e.key) ? -1 : 0;
+        if (dir && inZone(dir)) { e.preventDefault(); easeTo(next(dir)); }
+      });
+      addEventListener('touchstart', () => { touching = true; }, { passive: true });
       addEventListener('scroll', () => {
-        const limit = next.getBoundingClientRect().top + scrollY - header.offsetHeight;
-        heroEl.style.setProperty('--hero-p', String(Math.min(1, scrollY / (limit * 0.5))));
+        // 히어로 글은 내릴수록 흐려짐
+        heroEl.style.setProperty('--hero-p', String(Math.min(1, scrollY / (stops()[1] * 0.5))));
+        if (!touching || animating) return;
         clearTimeout(settle);
-        if (!byUser || scrollY <= 0 || scrollY >= limit - 1) return;
-        settle = setTimeout(() => { byUser = false; if (scrollY > 0 && scrollY < limit - 1) scrollTo({ top: scrollY > limit * 0.15 ? limit : 0, behavior: 'smooth' }); }, 120);
+        settle = setTimeout(() => {
+          touching = false;
+          const y = scrollY, s = stops(), limit = s[1];
+          if (y <= 0) return;
+          if (y < limit - 1) { easeTo(y > limit * 0.15 ? limit : 0); return; }
+          if (!paged) return;
+          // 본문 구간: 화면의 40% 안에 있는 가까운 멈춤 위치로만 (한 화면 넘는 섹션의 아랫부분도 볼 수 있게)
+          const near = s.reduce((a, b) => Math.abs(b - y) < Math.abs(a - y) ? b : a);
+          if (Math.abs(near - y) < innerHeight * 0.4) easeTo(near);
+        }, 150);
       }, { passive: true });
     }
 
@@ -125,14 +179,14 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
       const goto = (i: number) => slider.scrollTo({ left: i * slider.clientWidth, behavior: 'instant' });
       goto(1);
       let loopTimer = 0;
-      const loop = () => { if (dragging) return; const i = Math.round(slider.scrollLeft / slider.clientWidth); if (i <= 0) goto(count - 2); else if (i >= count - 1) goto(1); };
+      const loop = () => { if (dragging || slider.style.scrollSnapType === 'none') return; const i = Math.round(slider.scrollLeft / slider.clientWidth); if (i <= 0) goto(count - 2); else if (i >= count - 1) goto(1); };
       slider.addEventListener('scroll', () => { clearTimeout(loopTimer); loopTimer = setTimeout(loop, 150); }, { passive: true });
       // 상세페이지 히어로 사진 위 점. 복제 장은 같은 그림의 진짜 장 번호로
       if (slider.classList.contains('intro-photo')) {
         const n = count - 2;
         makeDots(slider, n, (dots) => slider.parentElement!.append(dots), () => (Math.round(slider.scrollLeft / slider.clientWidth) - 1 + n) % n);
       }
-      const snap = () => { const w = slider.clientWidth; slider.scrollTo({ left: Math.round(slider.scrollLeft / w) * w, behavior: 'smooth' }); };
+      const snap = () => { const w = slider.clientWidth; glide(slider, Math.round(slider.scrollLeft / w) * w, 600); };
       slider.addEventListener('pointerdown', (e) => {
         pausedUntil = Date.now() + 8000;
         if (e.pointerType !== 'mouse') return;
@@ -147,7 +201,7 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
         setInterval(() => {
           if (dragging || document.hidden || Date.now() < pausedUntil) return;
           // 끝 복제 장까지 앞으로만 넘김. 되돌리기는 위 loop 가 순간 이동으로
-          slider.scrollTo({ left: slider.scrollLeft + slider.clientWidth, behavior: 'smooth' });
+          glide(slider, slider.scrollLeft + slider.clientWidth);
         }, 5000);
       }
     }

@@ -29,7 +29,7 @@ const aftercare = [
 const heroPhotos = ['hero-1.jpg', 'hero-2.jpg', 'hero-3.jpg', 'hero-4.jpg'];
 const mapQuery = encodeURIComponent(ADDRESS);
 ---
-<Base>
+<Base paged>
   <section class="hero">
     <div class="hero-media">
       <!-- 가로 스냅 슬라이더. 드래그·스와이프·5초 자동 넘김은 Base.astro script (상세페이지 히어로와 같음) -->
@@ -138,7 +138,6 @@ const mapQuery = encodeURIComponent(ADDRESS);
 <script>
   const mobile = matchMedia('(max-width: 860px)');
 
-
   // 모바일 장례비용 캐러셀: 들어오면 헤븐 고급 장례(가운데 카드)가 가운데 오게. 스냅이 있어 대략 맞춰도 정확히 붙음
   const plans = document.querySelector<HTMLElement>('.price .plan-grid');
   const featured = plans?.querySelector<HTMLElement>('.plan--featured');
@@ -157,7 +156,9 @@ const mapQuery = encodeURIComponent(ADDRESS);
       if (!mobile.matches || !visible || Date.now() < pausedUntil) return;
       const step = (track.firstElementChild as HTMLElement).offsetWidth + parseFloat(getComputedStyle(track).columnGap);
       const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
-      track.scrollTo({ left: atEnd ? 0 : track.scrollLeft + step, behavior: 'smooth' });
+      // Base 의 가로 이징(glide). 없으면 브라우저 smooth
+      const glide = (window as any).glide as ((el: HTMLElement, left: number) => void) | undefined;
+      glide ? glide(track, atEnd ? 0 : track.scrollLeft + step) : track.scrollTo({ left: atEnd ? 0 : track.scrollLeft + step, behavior: 'smooth' });
     }, 3500);
   }
 </script>
