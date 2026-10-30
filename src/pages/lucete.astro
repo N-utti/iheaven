@@ -5,26 +5,42 @@ import { TEL, BOOKING } from '../site.js';
 // 내용은 모두 옛 사이트 루세떼·루세떼 장례서비스·장례비용 페이지 원문에서 옮김
 const patent = [
   '순수 100% 반려동물 유골분으로 제작됩니다.',
-  '루세떼 공정 시 유골의 손실이 없습니다. 단 1%의 유골 손실도 없는 공정을 원칙으로 합니다.',
-  '영구 보존이 목적이며 변질되지 않습니다.',
+  '루세떼 공정 시 유골의 손실이 없습니다.',
+  '영구보존이 목적이며 변질되지 않습니다.',
   '순수 100% 유골분의 원 상태로 복구(리스토어 서비스)가 가능합니다.',
-  '루세떼 공정보증서를 발급해 드립니다.',
 ];
 
 const kinds = [
-  ['무빙 루세떼', 'img/lucete-moving.jpg', '커팅이 들어간 루세떼 1-3개가 목걸이 안쪽에서 움직이는 형태입니다. 다이아 커팅 감정서를 동봉해 드립니다.'],
-  ['퀀텀 루세떼', 'img/lucete-quantum.jpg', '커팅, 연마 작업 없이 루세떼 1-2개를 작은 루세떼 90-110개로 변환한 사이즈로 제작해, 유골 손실이 없습니다.'],
+  ['무빙 루세떼', 'lucete-moving.jpg', '커팅이 들어간 루세떼 1-3개가 목걸이 안쪽에서 움직이는 형태입니다. 다이아 커팅 감정서를 동봉해 드립니다.'],
+  ['퀀텀 루세떼', 'lucete-quantum.jpg', '커팅, 연마 작업 없이 루세떼 1-2개를 작은 루세떼 90-110개로 변환한 사이즈로 제작해, 유골 손실이 없습니다.'],
 ];
 
+// ponytail: 제품 코드와 사진 짝은 옛 갤러리에서 보고 고른 추정. 틀리면 photo 값만 바꾸면 됨
 const jewelry = [
-  { name: 'SIMPLEX JSB-01', price: '700,000원', items: ['커팅 디자인 선택 가능', '다이아 커팅 감정서 동봉', '반지 테두리 안쪽에 각인', '12호 이상 반지는 추가 금액 발생'] },
-  { name: 'SIMPLEX JST-01', price: '700,000원', items: ['연마 작업 최소', '반지 테두리 안쪽에 각인', '12호 이상 반지는 추가 금액 발생'] },
-  { name: 'SIMPLEX JST-02', price: '700,000원', items: ['연마 작업 최소', '펜던트 외곽에 각인', '42cm 체인 포함 (길이에 따라 추가 비용 발생)'] },
-  { name: 'ORBIS JO-01', price: '실버 700,000원 · 골드 1,000,000원', items: ['루세떼 2-4개로 JO-01 전용 루세떼 제작', '펜던트 테두리에 각인', '체인 별도 구매'] },
-  { name: 'ORBIS JOM-01', price: '실버 800,000원 · 골드 1,200,000원', items: ['무빙 루세떼 또는 퀀텀 루세떼 3개', '무빙 루세떼 사용 시 바닥면에 pawHeart 문구 각인', '체인 별도 구매'] },
-  { name: 'ASTRO JTS-01', price: '900,000원', items: ['연마 작업 없이 제작', '각인 시 추가 비용 발생', '체인 별도 구매'] },
-  { name: 'ASTRO JTM-01', price: '실버 800,000원 · 골드 1,000,000원', items: ['퀀텀 루세떼 작은 개체 1-200개로 제작 (연마 없음)', '체인 별도 구매'] },
-  { name: 'CROSS JCM-01', price: '실버 1,300,000원 · 골드 1,600,000원', items: ['무빙 루세떼 또는 퀀텀 루세떼 3개', '십자가 바닥면에 각인', '체인 별도 구매'] },
+  { name: 'SIMPLEX JSB-01', photo: 'jewelry-03.jpg', price: '700,000원', items: ['커팅 디자인 선택 가능', '다이아 커팅 감정서 동봉', '반지 테두리 안쪽에 각인', '12호 이상 반지는 추가 금액 발생'] },
+  { name: 'SIMPLEX JST-01', photo: 'jewelry-06.jpg', price: '700,000원', items: ['연마 작업 최소', '반지 테두리 안쪽에 각인', '12호 이상 반지는 추가 금액 발생'] },
+  { name: 'SIMPLEX JST-02', photo: 'jewelry-10.jpg', price: '700,000원', items: ['연마 작업 최소', '펜던트 외곽에 각인', '42cm 체인 포함 (길이에 따라 추가 비용 발생)'] },
+  { name: 'ORBIS JO-01', photo: 'jewelry-09.jpg', price: '실버 700,000원 · 골드 1,000,000원', items: ['루세떼 2-4개로 JO-01 전용 루세떼 제작', '펜던트 테두리에 각인', '체인 별도 구매'] },
+  { name: 'ORBIS JOM-01', photo: 'jewelry-13.jpg', price: '실버 800,000원 · 골드 1,200,000원', items: ['무빙 루세떼 또는 퀀텀 루세떼 3개', '무빙 루세떼 사용 시 바닥면에 pawHeart 문구 각인', '체인 별도 구매'] },
+  { name: 'ASTRO JTS-01', photo: 'jewelry-12.jpg', price: '900,000원', items: ['연마 작업 없이 제작', '각인 시 추가 비용 발생', '체인 별도 구매'] },
+  { name: 'ASTRO JTM-01', photo: 'jewelry-07.jpg', price: '실버 800,000원 · 골드 1,000,000원', items: ['퀀텀 루세떼 작은 개체 1-200개로 제작 (연마 없음)', '체인 별도 구매'] },
+  { name: 'CROSS JCM-01', photo: 'jewelry-cross.jpg', price: '실버 1,300,000원 · 골드 1,600,000원', items: ['무빙 루세떼 또는 퀀텀 루세떼 3개', '십자가 바닥면에 각인', '체인 별도 구매'] },
+];
+
+const heroPhotos = [
+  ['lucete.jpg', '원목 함에 담긴 초록빛 루세떼 스톤과 강아지 조각'],
+  ['lucete-hero-2.jpg', '원목 함 가득 담긴 루세떼 스톤과 유리구'],
+  ['lucete-hero-3.jpg', '아크릴 큐브 위의 루세떼 스톤과 이름이 새겨진 원목 함'],
+  ['lucete-hero-4.jpg', '흰 꽃과 석고상 옆에 모아 놓은 루세떼 스톤'],
+];
+
+const stones = [
+  ['stone-1.jpg', '조약돌 위에 올린 초록 루세떼 스톤'],
+  ['stone-2.jpg', '레이스 위에 흩어진 루세떼 스톤'],
+  ['stone-3.jpg', '새틴 천 위의 루세떼 스톤'],
+  ['stone-4.jpg', '모래 위의 유골 조각과 나무 틀, 그 곁에 놓인 루세떼 스톤'],
+  ['stone-5.jpg', '아크릴 큐브에 놓인 루세떼 스톤'],
+  ['stone-6.jpg', '흰 꽃과 함께 놓인 루세떼 스톤'],
 ];
 
 const plans = [
@@ -36,7 +52,7 @@ const plans = [
 ---
 <Base title="루세떼 | 아이헤븐" description="반려동물 유골분으로 만드는 순도 99.99%의 유골 보석, 루세떼. 특허(제10-1124873호) 공정으로 유골 손실 없이 제작합니다.">
   <section class="section intro">
-    <div class="wrap intro-inner">
+    <div class="intro-inner">
       <div class="intro-copy">
         <p class="badge">특허 제10-1124873호</p>
         <h1>추억을 담은 영원한 빛, <br />루세떼</h1>
@@ -47,18 +63,23 @@ const plans = [
           <a class="intro-link" href="#price">비용 보기</a>
         </div>
       </div>
-      <img class="photo intro-photo" src="img/lucete-intro.jpg" alt="루세떼 스톤" />
+      <!-- 슬라이더 동작은 Base.astro. 자동 5초 넘김, 드래그·스와이프 -->
+      <div class="intro-photo">
+        {heroPhotos.map(([src, alt], i) => <img src={`images/${src}`} alt={alt} draggable="false" loading={i ? 'lazy' : 'eager'} />)}
+      </div>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap patent">
-      <img class="photo patent-photo" src="img/lucete-patent.jpg" alt="루세떼 스톤" loading="lazy" />
+      <img class="patent-photo" src="images/lucete-process.jpg" alt="유리 벽 너머로 제작 장비가 보이는 루세떼 별관 내부" loading="lazy" />
       <div class="patent-copy">
-        <p class="eyebrow">특허 공정방식</p>
-        <h2>특허청에 등록된 공정으로 만듭니다</h2>
+        <p class="eyebrow">LUCETE PATENT</p>
+        <h2>루세떼 특허 공정방식</h2>
         <p>아이헤븐 루세떼의 공정방식은 특허청(제10-1124873호)에 등록되어 제작 방식의 안정성이 입증되었습니다.</p>
         <ul>{patent.map((t) => <li>{t}</li>)}</ul>
+        <!-- 옛 사이트 특허증 사진 원본이 490px 라 작게 -->
+        <img class="patent-cert" src="images/lucete-patent.jpg" alt="특허청 특허증 제10-1124873호" width="490" height="342" loading="lazy" />
       </div>
     </div>
   </section>
@@ -69,10 +90,10 @@ const plans = [
         <p class="eyebrow">루세떼 종류</p>
         <h2>무빙 루세떼와 퀀텀 루세떼</h2>
       </div>
-      <div class="kinds">
-        {kinds.map(([title, img, text]) => (
+      <div class="swipe kinds">
+        {kinds.map(([title, photo, text]) => (
           <article>
-            <img class="photo kind-photo" src={img} alt={`${title} 사진`} loading="lazy" />
+            <img class="kind-photo" src={`images/${photo}`} alt={`${title} 주얼리`} loading="lazy" />
             <h3>{title}</h3>
             <p>{text}</p>
           </article>
@@ -84,16 +105,27 @@ const plans = [
   <section class="section">
     <div class="wrap">
       <div class="section-head">
+        <p class="eyebrow">루세떼 스톤</p>
+        <h2>아이의 빛을 담은 작은 보석</h2>
+        <p>유골분으로 만든 루세떼는 하나하나 색과 투명도가 조금씩 다릅니다. 그대로 간직하셔도, 주얼리에 담으셔도 됩니다.</p>
+      </div>
+      <ul class="swipe stones">
+        {stones.map(([src, alt]) => <li><img src={`images/${src}`} alt={alt} loading="lazy" /></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="wrap">
+      <div class="section-head">
         <p class="eyebrow">루세떼 주얼리</p>
         <h2>반지와 목걸이로, 언제나 함께</h2>
         <p>골드는 14K 옐로골드, 화이트골드, 로즈골드 중에서 고르실 수 있습니다.</p>
       </div>
-      <div class="jewelry-gallery">
-        {[1, 2, 3, 4, 5, 6].map((n) => <img class="photo" src={`img/jewelry-${n}.jpg`} alt="루세떼 주얼리" loading="lazy" />)}
-      </div>
       <ul class="jewelry">
         {jewelry.map((j) => (
           <li>
+            <img class="jewelry-photo" src={`images/${j.photo}`} alt={`${j.name} 주얼리`} loading="lazy" />
             <h3>{j.name}</h3>
             <p class="jewelry-price">{j.price}</p>
             <ul>{j.items.map((it) => <li>{it}</li>)}</ul>
@@ -104,7 +136,7 @@ const plans = [
     </div>
   </section>
 
-  <section class="section soft" id="price">
+  <section class="section" id="price">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">루세떼 비용</p>
@@ -137,50 +169,31 @@ const plans = [
 </Base>
 
 <style>
-  .intro { background: var(--brand-deep); color: #bdb7af; }
-  .intro h1, .intro h2 { color: #fff; }
-  .intro-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: center; }
-  .intro-copy { display: grid; gap: 20px; }
-  .intro h1 { font-size: clamp(32px, 4.2vw, 52px); }
-  .intro-photo { aspect-ratio: 1; }
-  .intro-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 12px; }
-  .intro-link { color: var(--gold-light); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
-  .intro-link:hover { color: #fff; }
-  /* 들어올 때 글이 차례로 천천히 떠오름 (장례 사이트라 차분하게) */
-  @media (prefers-reduced-motion: no-preference) {
-    .intro-copy > * { animation: rise 1.6s ease-out both; }
-    .intro-copy > :nth-child(2) { animation-delay: .25s; }
-    .intro-copy > :nth-child(3) { animation-delay: .5s; }
-    .intro-copy > :nth-child(4) { animation-delay: .75s; }
-    .intro-copy > :nth-child(5) { animation-delay: 1s; }
-  }
-  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
-  .badge { justify-self: start; padding: 4px 14px; border: 1px solid var(--gold); border-radius: 999px; color: var(--gold-light); font-size: 14px; }
-  .btn--gold { background: var(--gold); color: var(--ink); }
-  .btn--gold:hover { background: var(--gold-light); }
-
-  .soft { background: var(--soft); }
-  .note { margin-top: 28px; text-align: center; font-size: 15px; color: var(--muted); }
+  /* 인트로 공통 꼴·슬라이더는 Base.astro. 여기선 메인 카드와 잇는 전환 이름만 */
+  .intro-photo { view-transition-name: lucete-photo; }
+  .intro-photo img { object-position: 35% center; }
 
   .patent { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: center; }
-  .patent-photo { aspect-ratio: 4 / 3; }
+  .patent-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); }
   .patent-copy { display: grid; gap: 16px; }
+  .patent-cert { width: min(100%, 420px); height: auto; margin-top: 12px; border: 1px solid var(--line); border-radius: 0 var(--radius) 0 var(--radius); }
   .patent h2 { font-size: clamp(24px, 2.6vw, 32px); }
   .patent ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 10px; color: var(--ink); }
   .patent li { padding-left: 26px; text-indent: -26px; }
   .patent li::before, .jewelry li li::before { content: '✓'; color: var(--gold-deep); font-weight: 700; display: inline-block; width: 26px; text-indent: 0; }
 
+  .stones { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .stones img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); }
+
   .kinds { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .kinds article { display: grid; gap: 10px; align-content: start; }
-  .kind-photo { aspect-ratio: 16 / 10; margin-bottom: 10px; }
+  .kind-photo { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); margin-bottom: 10px; }
   .kinds h3 { font-size: 18px; }
   .kinds p { font-size: 15px; }
 
-  /* 모델별 사진이 없어 주얼리 사진은 모델 이름 없이 따로 모아 보여 줌 */
-  .jewelry-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 48px; }
-  .jewelry-gallery .photo { aspect-ratio: 3 / 2; }
   .jewelry { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 20px; }
   .jewelry > li { display: grid; gap: 6px; align-content: start; }
+  .jewelry-photo { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); margin-bottom: 10px; }
   .jewelry h3 { font-size: 17px; letter-spacing: .02em; }
   .jewelry-price { color: var(--gold-deep); font-weight: 600; }
   .jewelry ul { list-style: none; margin: 6px 0 0; padding: 10px 0 0; border-top: 1px solid var(--line); display: grid; gap: 4px; font-size: 14px; }
@@ -190,18 +203,12 @@ const plans = [
   .plans { grid-template-columns: repeat(4, 1fr); }
   .plans .plan { padding: 32px 24px; }
 
-  .closing-inner { display: grid; gap: 16px; justify-items: center; text-align: center; }
-  .closing h2 { font-size: clamp(24px, 2.8vw, 34px); }
-
   @media (max-width: 1080px) {
-    .jewelry, .plans { grid-template-columns: repeat(2, 1fr); }
+    .jewelry, .plans, .stones { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 860px) {
-    .intro-inner, .patent { grid-template-columns: 1fr; gap: 28px; }
-    .intro h1 br { display: none; }
-    .intro-photo { order: -1; aspect-ratio: 4 / 3; }
+    .patent { grid-template-columns: 1fr; gap: 28px; }
     .kinds, .plans { grid-template-columns: 1fr; }
     .jewelry { gap: 28px 14px; }
-    .jewelry-gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 36px; }
   }
 </style>

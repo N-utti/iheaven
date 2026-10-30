@@ -5,7 +5,7 @@ const { title = '아이헤븐 | 김해 반려동물 장례식장', description =
 const ogImage = new URL('og.png', Astro.url);
 // build.format 'file' 이라 메인이 index.html 로 잡힘. 대표 주소는 폴더 주소로
 const pageUrl = String(Astro.url).replace(/index\.html$/, '');
-const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
+const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathname) ? 'page' : undefined;
 ---
 <!doctype html>
 <html lang="ko">
@@ -40,11 +40,10 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
         <img src="logo.svg" alt="" width="120" height="27" />
       </a>
       <nav id="nav" class="nav" aria-label="주요 메뉴" onclick="if (event.target.closest('a')) { this.parentNode.parentNode.classList.remove('is-open'); document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false') }">
-        <a href="./#service">장례서비스</a>
+        <a href="service.html" aria-current={current('service')}>장례서비스</a>
         <a href="./#price">장례비용</a>
-        <a href="lucete.html" aria-current={isLucete ? 'page' : undefined}>루세떼</a>
-        <a href="./#house">납골당</a>
-        <a href="./#aftercare">사후 수습 방법</a>
+        <a href="lucete.html" aria-current={current('lucete')}>루세떼</a>
+        <a href="house.html" aria-current={current('house')}>헤븐 하우스</a>
         <a href="./#location">오시는 길</a>
       </nav>
       <div class="header-actions">
@@ -58,6 +57,32 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
   </header>
 
   <main><slot /></main>
+  <script>
+    // 상세페이지 히어로 슬라이더: 마우스 드래그로 넘기기 + 5초 자동 넘김. 손대면 8초 쉼. 터치 스와이프는 브라우저 기본 스크롤
+    const slider = document.querySelector<HTMLElement>('.intro-photo');
+    if (slider && slider.children.length > 1) {
+      let pausedUntil = 0, dragging = false, startX = 0, startLeft = 0;
+      const snap = () => { const w = slider.clientWidth; slider.scrollTo({ left: Math.round(slider.scrollLeft / w) * w, behavior: 'smooth' }); };
+      slider.addEventListener('pointerdown', (e) => {
+        pausedUntil = Date.now() + 8000;
+        if (e.pointerType !== 'mouse') return;
+        dragging = true; startX = e.clientX; startLeft = slider.scrollLeft;
+        slider.classList.add('is-dragging'); slider.setPointerCapture(e.pointerId);
+      });
+      slider.addEventListener('pointermove', (e) => { if (dragging) slider.scrollLeft = startLeft - (e.clientX - startX); });
+      const release = () => { if (!dragging) return; dragging = false; slider.classList.remove('is-dragging'); snap(); };
+      slider.addEventListener('pointerup', release);
+      slider.addEventListener('pointercancel', release);
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setInterval(() => {
+          if (dragging || document.hidden || Date.now() < pausedUntil) return;
+          const w = slider.clientWidth;
+          const atEnd = slider.scrollLeft + w >= slider.scrollWidth - 2;
+          slider.scrollTo({ left: atEnd ? 0 : slider.scrollLeft + w, behavior: 'smooth' });
+        }, 5000);
+      }
+    }
+  </script>
 
   <footer class="site-footer">
     <div class="wrap">
@@ -113,11 +138,11 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
   /* 페이지 사이 이동을 브라우저 기본 전환으로. 헤더·하단 바는 그대로 두고 본문만 바뀜. 지원 안 하는 브라우저는 그냥 이동 */
   @media (prefers-reduced-motion: no-preference) {
     @view-transition { navigation: auto; }
-    /* 기본 전환(0.25초)은 급해서 늘림. 사진도 따로 움직이지 않고 본문과 함께 서서히 바뀜 */
-    ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation-duration: .8s; animation-timing-function: ease-in-out; }
   }
   .site-header { view-transition-name: site-header; }
   .mobile-bar { view-transition-name: mobile-bar; }
+  /* 배포본(n-utti.github.io/iheaven)과 같은 느린 페이드. 헤더 버튼 이동도 같은 전환을 탐 */
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation-duration: .8s; animation-timing-function: ease-in-out; }
   html { scroll-behavior: smooth; scroll-padding-top: 84px; }
   body { margin: 0; background: #fff; color: var(--text); font: 400 16px/1.75 var(--serif); word-break: keep-all; -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; transition: color .2s, opacity .2s, border-color .2s; }
@@ -128,12 +153,21 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
 
   .brand { display: flex; align-items: center; gap: 10px; color: var(--brand); }
 
-  .site-header { position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  /* 애플식 글래스: 반투명 + 블러·채도 올림 + 얇은 하이라이트 선. 블러 미지원 브라우저는 불투명 흰색으로 */
+  .site-header { position: sticky; top: 0; z-index: 30; background: #fff; border-bottom: 1px solid rgba(0,0,0,.08); box-shadow: inset 0 1px 0 rgba(255,255,255,.6); }
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    .site-header { background: rgba(255,255,255,.62); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+  }
+  /* 메인 맨 위(히어로 위)에선 투명 + 흰 글씨. index.astro 가 스크롤 위치로 is-top 을 토글. 모바일 메뉴가 열리면 해제 */
+  .site-header { transition: background .3s, box-shadow .3s, border-color .3s; }
+  .site-header.is-top:not(.is-open) { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; border-bottom-color: transparent; }
+  .site-header.is-top:not(.is-open) :is(.nav a, .header-cta, .header-cta strong, .nav-toggle) { color: #fff; }
+  .site-header.is-top:not(.is-open) .brand img { filter: brightness(0) invert(1); }
   .header-inner { --pad: clamp(20px, 3vw, 44px); display: flex; align-items: center; justify-content: space-between; gap: 0 32px; height: 84px; padding-inline: var(--pad); }
-  .nav { display: flex; gap: clamp(20px, 2.4vw, 40px); font-size: 16px; font-weight: 500; color: var(--ink); }
+  .nav { display: flex; gap: clamp(25px, 2.4vw + 5px, 45px); font-size: 16px; font-weight: 500; color: var(--ink); }
   .nav a:hover, .nav a[aria-current] { color: var(--gold-deep); text-decoration: underline; text-underline-offset: 8px; }
   .nav a[aria-current] { font-weight: 700; }
-  .header-actions { display: flex; align-items: center; gap: 20px; }
+  .header-actions { display: flex; align-items: center; gap: 25px; }
   .header-cta { font-size: 14px; color: var(--muted); }
   .header-cta strong { display: block; font-size: 20px; color: var(--gold-deep); line-height: 1.2; transition: color .2s; }
   .header-cta:hover, .header-cta:hover strong { color: var(--ink); }
@@ -167,7 +201,39 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
   .plan ul { list-style: none; margin: 0; padding: 18px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 15px; }
   .plan li::before { content: '✓'; color: var(--gold-deep); margin-right: 10px; font-weight: 700; }
 
-  .photo { width: 100%; height: auto; object-fit: cover; border-radius: var(--radius); background: var(--soft); }
+  /* 상세페이지 공통: 인트로(사진이 오른쪽·위·아래 화면 끝에 붙는 꼴, 왼쪽 글은 .wrap 왼쪽 선)·마무리 CTA. 사진 크로스페이드 keyframes 는 장 수가 달라 각 페이지에 */
+  .intro { background: var(--brand-deep); color: #bdb7af; }
+  .intro h1, .intro h2 { color: #fff; }
+  .intro:has(.intro-inner) { padding-block: 0; }
+  .intro-inner { display: grid; grid-template-columns: minmax(20px, 1fr) minmax(0, 570px) minmax(0, 570px) minmax(0, 1fr); align-items: center; min-height: calc(100svh - 84px); }
+  .intro-copy { grid-column: 2; display: grid; gap: 20px; padding-block: 120px; padding-right: clamp(40px, 6vw, 88px); }
+  .intro h1 { font-size: clamp(32px, 4.2vw, 52px); }
+  /* 사진 슬라이더: 가로 스크롤 스냅. 터치는 그대로 스와이프, 마우스 드래그와 5초 자동 넘김은 아래 script */
+  /* contain: size 로 사진 원본 높이가 틀을 키우지 못하게. 높이는 데스크톱 = 글 쪽 행 높이, 모바일 = 3:2 비율 */
+  .intro-photo { grid-column: 3 / -1; align-self: stretch; min-height: 520px; contain: size; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; cursor: grab; }
+  .intro-photo::-webkit-scrollbar { display: none; }
+  .intro-photo.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+  .intro-photo img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; user-select: none; -webkit-user-drag: none; }
+  .intro-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 12px; }
+  .intro-link { color: var(--gold-light); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  .intro-link:hover { color: #fff; }
+  /* 들어올 때 글이 차례로 떠오름 */
+  @media (prefers-reduced-motion: no-preference) {
+    .intro-copy > * { animation: rise 1.6s ease-out both; }
+    .intro-copy > :nth-child(2) { animation-delay: .25s; }
+    .intro-copy > :nth-child(3) { animation-delay: .5s; }
+    .intro-copy > :nth-child(4) { animation-delay: .75s; }
+    .intro-copy > :nth-child(5) { animation-delay: 1s; }
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+  /* 강조 아님. 연한 작은 글씨로 제목에 바짝 붙임 */
+  .badge { font-size: 14px; color: #8f8a83; margin-bottom: -8px; }
+  .btn--gold { background: var(--gold); color: var(--ink); }
+  .btn--gold:hover { background: var(--gold-light); }
+  .soft { background: var(--soft); }
+  .note { margin-top: 28px; text-align: center; font-size: 15px; color: var(--muted); }
+  .closing-inner { display: grid; gap: 16px; justify-items: center; text-align: center; }
+  .closing h2 { font-size: clamp(24px, 2.8vw, 34px); }
 
   .site-footer { background: var(--brand-deep); color: #aaa; padding: 64px 0 56px; font-size: 14px; }
   .footer-top { display: flex; flex-direction: column; gap: 16px; padding-bottom: 28px; border-bottom: 1px solid #3a3a3a; }
@@ -207,13 +273,23 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
   }
   @media (max-width: 860px) {
     html { scroll-padding-top: 60px; }
+    /* 모바일 사진 줄: 격자 대신 한 장씩 크게 보는 가로 스와이프. .wrap 여백까지 끌어와 화면 끝에서 끝으로, 다음 장이 살짝 보이게.
+       선택자를 세 번 겹친 건 각 페이지의 scoped 격자 규칙(특이도 0,2,0)보다 앞서기 위함 */
+    .swipe.swipe.swipe { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; gap: 14px; width: auto; margin-inline: -20px; padding-inline: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
+    .swipe::-webkit-scrollbar { display: none; }
+    .swipe > * { scroll-snap-align: start; }
+    .intro-inner { grid-template-columns: 1fr; gap: 0; grid-template-rows: 1fr auto; min-height: calc(100svh - 60px - 58px - env(safe-area-inset-bottom)); }
+    .intro h1 br { display: none; }
+    .intro-copy { grid-column: 1; padding: 20px 20px 48px; }
+    .intro-photo { grid-column: 1; order: -1; min-height: 0; height: auto; aspect-ratio: 3 / 2; }
+    html { scroll-padding-top: 60px; }
     .brand, .header-actions { height: 60px; }
     /* 하단 고정 바의 전화 상담과 중복이라 그 자리에 햄버거 */
     .header-cta { display: none; }
     .nav-toggle { display: block; }
     /* 헤더 아래로 겹쳐 펼침. 문서 흐름에 넣으면 sticky 헤더가 커지며 본문이 밀림 */
     /* display:none 은 전환이 안 돼서 visibility + clip-path 로 숨김 (visibility 가 탭 이동·스크린리더에서도 빼 줌) */
-    .nav { visibility: hidden; clip-path: inset(0 0 100% 0); transition: clip-path .25s ease, visibility .25s; position: absolute; top: 100%; left: 0; right: 0; width: auto; margin: 0; padding-inline: var(--pad); flex-direction: column; gap: 0; overflow: visible; white-space: normal; background: #fff; border-bottom: 1px solid var(--line); -webkit-mask-image: none; mask-image: none; }
+    .nav { visibility: hidden; clip-path: inset(0 0 100% 0); transition: clip-path .25s ease, visibility .25s; position: absolute; top: 100%; left: 0; right: 0; width: auto; margin: 0; padding-inline: var(--pad); flex-direction: column; gap: 0; overflow: visible; white-space: normal; background: rgba(255,255,255,.92); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0,0,0,.08); -webkit-mask-image: none; mask-image: none; }
     .site-header.is-open .nav { visibility: visible; clip-path: inset(0); }
     .nav a { padding-block: 14px; }
     .nav a + a { border-top: 1px solid var(--line); }
@@ -225,8 +301,8 @@ const isLucete = /\/lucete(\.html)?$/.test(Astro.url.pathname);
     .site-footer { padding-bottom: 110px; }
     .biz { flex-direction: column; }
     .biz dt { flex-shrink: 0; }
-    .mobile-bar { display: grid; grid-template-columns: repeat(2, 1fr); position: fixed; inset: auto 0 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
-    .mobile-bar a { text-align: center; padding: 16px 0; font-weight: 600; font-size: 15px; color: var(--brand); }
+    .mobile-bar { display: grid; grid-template-columns: repeat(2, 1fr); position: fixed; inset: auto 0 0; z-index: 30; background: #fff; box-shadow: 0 -1px 0 rgba(0,0,0,.08); padding-bottom: env(safe-area-inset-bottom); }
+    .mobile-bar a { text-align: center; line-height: 58px; font-weight: 600; font-size: 15px; color: var(--brand); }
     .mobile-bar .is-primary { background: var(--brand); color: #fff; }
     /* 터치 화면이라 호버 대신 누르는 순간 반응 */
     .mobile-bar a:active { background: var(--soft); }

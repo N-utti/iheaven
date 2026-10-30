@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+import { TEL, BOOKING } from '../site.js';
+
+// 내용은 옛 사이트 장례서비스(service) 페이지 원문에서 옮김. 금액은 메인 장례비용 섹션으로 연결
+const heroPhotos = [
+  ['service.jpg', '장례지도사 두 명이 흰 장갑을 끼고 염습하는 모습'],
+  ['service-hero-2.jpg', '유리창 너머로 화장 과정을 지켜볼 수 있는 참관실'],
+  ['memorial.jpg', '꽃과 조명으로 꾸민 단독 추모실'],
+];
+
+const pillars = [
+  { title: '장례·추모 서비스', sub: '책임장례, 여유로운 추모 시간', photo: 'memorial.jpg', alt: '단독 추모실', text: '1:1 담당 장례지도사가 처음부터 끝까지 함께합니다. 100% 예약제로 다른 가족과 겹치지 않는 독립적이고 여유로운 추모 시간을 드립니다.' },
+  { title: '개별화장', sub: '보호자 참관', photo: 'service-cremation.jpg', alt: '개별 화장로 두 기', text: '아이 한 마리씩 개별로 화장하며, 보호자께서 참관실에서 모든 과정을 직접 지켜보실 수 있습니다.' },
+  { title: '루세떼 서비스', sub: '메모리얼 스톤 제작', photo: 'lucete.jpg', alt: '원목 함에 담긴 루세떼 스톤', text: '유골분을 순도 99.99%의 보석으로 만들어 반지와 목걸이로 간직하실 수 있습니다.', link: 'lucete.html' },
+  { title: '납골당 안치', sub: '펫로스 치유', photo: 'house.jpg', alt: '헤븐 하우스 내부', text: '언제든 찾아올 수 있는 헤븐 하우스에 아이를 모십니다. 오전 9시부터 오후 6시까지 연중무휴 방문하실 수 있습니다.', link: 'house.html' },
+];
+
+const basic = [
+  ['item-shroud.jpg', '염습', 'service.jpg'],
+  ['item-room.jpg', '단독 추모실'],
+  ['service-cremation.jpg', '개별화장'],
+  ['item-urn-celadon.jpg', '청자 유골함'],
+];
+const premium = [
+  ['item-shroud.jpg', '최고급 수의'],
+  ['item-coffin.jpg', '최고급 오동나무관'],
+  ['item-urn-clay.jpg', '황토 유골함'],
+  ['item-housing.jpg', '하우징'],
+  ['item-frame.jpg', '액자'],
+];
+
+// 옛 사이트 아이헤븐 컬렉션 페이지 원문에서 옮김
+const collection = [
+  ['col-shroud.jpg', '수의', '명주와 인견 소재로, 재단부터 이음까지 모든 과정을 손으로 지은 수의입니다.'],
+  ['col-coffin.jpg', '관', '최고급 오동나무를 목공 장인이 손으로 짠 전용 관입니다. 천판 "The Letter to Heaven"에 보호자가 직접 추모글을 쓰실 수 있습니다.'],
+  ['col-urns.jpg', '유골함', '장례 구성에 맞춘 도자 유골함입니다.'],
+  ['col-woodbox.jpg', '목함', '호두나무와 참나무로 만든 봉안함입니다. 신주 명패에 아이의 이름과 태생, 전하고 싶은 글귀를 각인해 드립니다.'],
+  ['col-housing.jpg', '하우징', '자작나무로 만든 봉안함으로, 유골분을 외부 습기와 충격으로부터 보호합니다. 명패 각인은 목함과 같습니다.'],
+  ['item-frame.jpg', '액자', '예식 후 아이를 기억하기 위한 레드오크 원목 액자입니다.'],
+];
+---
+<Base title="장례서비스 | 아이헤븐" description="1:1 담당 장례지도사, 100% 예약제 단독 추모실, 개별화장과 보호자 참관. 아름다운 이별의 예식, 아이헤븐 장례서비스를 안내합니다.">
+  <section class="section intro">
+    <div class="intro-inner">
+      <div class="intro-copy">
+        <p class="badge">아이헤븐 장례서비스</p>
+        <h1>아름다운 이별의 예식, <br />책임장례</h1>
+        <p>모든 장례 절차에 반려동물 장례지도사가 1:1로 배정되어, 보호자와 함께 마지막까지 정성껏 진행합니다.</p>
+        <p>100% 예약제로 운영되어 다른 가족과 겹치지 않는 독립적이고 여유로운 추모 시간을 드리며, 개별화장과 보호자 참관으로 모든 과정을 직접 지켜보실 수 있습니다.</p>
+        <div class="intro-cta">
+          <a class="btn btn--gold" href={`tel:${TEL}`}>24시 장례상담 {TEL}</a>
+          <a class="intro-link" href="./#price">장례비용 보기</a>
+        </div>
+      </div>
+      <!-- 슬라이더 동작은 Base.astro. 자동 5초 넘김, 드래그·스와이프 -->
+      <div class="intro-photo">
+        {heroPhotos.map(([src, alt], i) => <img src={`images/${src}`} alt={alt} draggable="false" loading={i ? 'lazy' : 'eager'} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">HEAVEN FUNERAL SERVICE</p>
+        <h2>아이헤븐 장례서비스를 안내합니다</h2>
+      </div>
+      <div class="pillars">
+        {pillars.map((p) => {
+          const Tag = p.link ? 'a' : 'article';
+          return (
+            <Tag class:list={['pillar', { 'pillar--link': p.link }]} href={p.link}>
+              <img src={`images/${p.photo}`} alt={p.alt} loading="lazy" />
+              <p class="pillar-sub">{p.sub}</p>
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
+              {p.link && <span class="pillar-more">자세히 보기 <span aria-hidden="true">→</span></span>}
+            </Tag>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="composition">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">장례 서비스 구성</p>
+        <h2>헤븐 장례와 프리미엄 장례</h2>
+        <p>헤븐 장례는 염습부터 유골함까지 기본을 갖춘 구성이고, 프리미엄 장례는 여기에 최고급 수의와 관, 안식처까지 더한 구성입니다.</p>
+      </div>
+      <div class="groups">
+        <div class="group">
+          <h3>헤븐 장례 구성</h3>
+          <ul class="swipe items">
+            {basic.map(([src, name, alt]) => <li><img src={`images/${alt ?? src}`} alt={name} loading="lazy" /><span>{name}</span></li>)}
+          </ul>
+        </div>
+        <div class="group">
+          <h3>프리미엄 장례 추가 구성 <small>헤븐 장례 구성 전체 포함</small></h3>
+          <ul class="swipe items">
+            {premium.map(([src, name]) => <li><img src={`images/${src}`} alt={name} loading="lazy" /><span>{name}</span></li>)}
+          </ul>
+        </div>
+      </div>
+      <p class="note">구성별 금액은 <a class="text-link" href="./#price">장례비용</a>에서 확인하실 수 있습니다. 체중 5kg 이하 기준, 부가세 별도입니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">HEAVEN COLLECTION</p>
+        <h2>아이헤븐 컬렉션</h2>
+        <p>사랑하는 반려동물을 위한 특별한 선물. 아이헤븐 컬렉션은 최고급 소재로 제작되었습니다.</p>
+      </div>
+      <ul class="swipe collection">
+        {collection.map(([src, name, text]) => (
+          <li>
+            <img src={`images/${src}`} alt={name} loading="lazy" />
+            <h3>{name}</h3>
+            <p>{text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section intro closing">
+    <div class="wrap closing-inner">
+      <h2>24시간 장례 예약</h2>
+      <p>아이가 떠난 직후라면 서두르지 않으셔도 됩니다. 언제든 전화 주시면 절차를 차분히 안내해 드립니다.</p>
+      <div class="intro-cta">
+        <a class="btn btn--gold" href={`tel:${TEL}`}>24시 장례상담 {TEL}</a>
+        <a class="btn btn--light" href={BOOKING} target="_blank" rel="noopener">예약하기</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* 인트로 공통 꼴·슬라이더는 Base.astro. 여기선 메인 카드와 잇는 전환 이름만 */
+  .intro-photo { view-transition-name: service-photo; }
+
+  .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .pillar { display: grid; gap: 8px; align-content: start; }
+  .pillar img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); margin-bottom: 8px; transition: transform .35s ease, box-shadow .35s ease; }
+  .pillar-sub { font-size: 14px; color: var(--gold-deep); }
+  .pillar h3 { font-size: 19px; color: var(--brand); transition: color .2s; }
+  .pillar p { font-size: 15px; }
+  .pillar-more { justify-self: start; font-size: 15px; color: var(--gold-deep); border-bottom: 1px solid currentColor; }
+  .pillar-more span { display: inline-block; transition: transform .2s; }
+  @media (hover: hover) {
+    .pillar--link:hover img { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(0,0,0,.12); }
+    .pillar--link:hover h3 { color: var(--gold-deep); }
+    .pillar--link:hover .pillar-more span { transform: translateX(4px); }
+  }
+
+  .groups { display: grid; gap: 40px; }
+  .group h3 { font-size: 20px; margin-bottom: 20px; }
+  .group small { font-size: 14px; font-weight: 400; color: var(--muted); margin-left: 10px; }
+  .items { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  /* 다른 사진 틀과 같은 꼴. 이름은 사진 안 오른쪽 아래에 어두운 칩으로 (배경이 밝은 제품 사진·어두운 화장로 둘 다 읽히게) */
+  .items li { position: relative; }
+  .items img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); }
+  .items span { position: absolute; right: 10px; bottom: 10px; padding: 5px 12px; border-radius: 4px; background: rgba(43,41,38,.78); color: #fff; font-size: 14px; letter-spacing: .01em; }
+
+  .collection { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 20px; }
+  .collection li { display: grid; gap: 6px; align-content: start; }
+  .collection img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0 var(--radius) 0 var(--radius); margin-bottom: 8px; }
+  .collection h3 { font-size: 18px; color: var(--brand); }
+  .collection p { font-size: 15px; }
+
+  @media (max-width: 1080px) {
+    .pillars, .collection { grid-template-columns: repeat(2, 1fr); }
+    .items { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .pillars, .collection { grid-template-columns: 1fr; gap: 32px; }
+    .items { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  }
+</style>
