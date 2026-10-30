@@ -107,4 +107,9 @@ const photos = [
     .tiers th, .tiers td { padding: 14px 16px; }
     .tiers td { font-size: 18px; }
   }
+  /* 320px 급 작은 화면에서 표가 화면을 넘지 않게 */
+  @media (max-width: 360px) {
+    .tiers th, .tiers td { padding: 12px 10px; }
+    .tiers td { font-size: 16px; }
+  }
 </style>

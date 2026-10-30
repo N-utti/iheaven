@@ -278,10 +278,11 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
     .swipe.swipe.swipe { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; gap: 14px; width: auto; margin-inline: -20px; padding-inline: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
     .swipe::-webkit-scrollbar { display: none; }
     .swipe > * { scroll-snap-align: start; }
-    .intro-inner { grid-template-columns: 1fr; gap: 0; grid-template-rows: 1fr auto; min-height: calc(100svh - 60px - 58px - env(safe-area-inset-bottom)); }
+    .intro-inner { grid-template-columns: 1fr; gap: 0; grid-template-rows: auto 1fr; min-height: calc(100svh - 60px - 58px - env(safe-area-inset-bottom)); }
     .intro h1 br { display: none; }
     .intro-copy { grid-column: 1; padding: 20px 20px 48px; }
-    .intro-photo { grid-column: 1; order: -1; min-height: 0; height: auto; aspect-ratio: 3 / 2; }
+    /* 폭은 화면에 고정, 높이는 3:2 비율. stretch 로 두면 긴 화면에서 행 높이를 따라 커진 사진이 비율대로 가로로도 넓어져 화면을 넘침 */
+    .intro-photo { grid-column: 1; order: -1; align-self: start; width: 100%; min-height: 0; height: auto; aspect-ratio: 3 / 2; }
     html { scroll-padding-top: 60px; }
     .brand, .header-actions { height: 60px; }
     /* 하단 고정 바의 전화 상담과 중복이라 그 자리에 햄버거 */
