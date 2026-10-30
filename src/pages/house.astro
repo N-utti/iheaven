@@ -37,8 +37,10 @@ const photos = [
         </div>
       </div>
       <!-- 슬라이더 동작은 Base.astro. 자동 5초 넘김, 드래그·스와이프 -->
-      <div class="intro-photo">
-        {heroPhotos.map(([src, alt], i) => <img src={`images/${src}`} alt={alt} draggable="false" loading={i ? 'lazy' : 'eager'} />)}
+      <div class="intro-media">
+        <div class="intro-photo">
+          {heroPhotos.map(([src, alt], i) => <img src={`images/${src}`} alt={alt} draggable="false" loading={i ? 'lazy' : 'eager'} />)}
+        </div>
       </div>
       <a class="hero-scroll" href="#visit" aria-label="아래로 스크롤"><span>SCROLL</span><i aria-hidden="true"></i></a>
     </div>
