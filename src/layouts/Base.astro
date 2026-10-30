@@ -311,7 +311,7 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
 
   .section { padding-block: 120px; }
   /* 히어로 다음 본문 섹션들은 한 화면: 헤더 아래부터 바닥까지, 내용은 가운데 */
-  main > .section:not(.intro) { min-height: calc(100svh - 84px); padding-block: 56px; display: grid; align-content: center; }
+  main > .section:not(.intro) { min-height: calc(100svh - 84px); padding-block: clamp(16px, 3.5vh, 56px); display: grid; align-content: center; }
   /* 히어로(.hero / .intro)는 화면에 고정. 내리면 다음 섹션이 사진 위로 덮이며 올라오고 글은 흐려짐(--hero-p 는 script). 일정 이상 내리면 script 가 다음 섹션에 맞춰 줌 */
   main > :first-child:is(.hero, .intro) { position: sticky; top: 0; z-index: 0; }
   main > .section { position: relative; z-index: 1; }
@@ -408,6 +408,15 @@ const current = (name) => new RegExp(`/${name}(\\.html)?$`).test(Astro.url.pathn
 
   .mobile-bar { display: none; }
 
+  /* 데스크톱 한 화면 맞춤: 낮은 노트북 화면(768·864)에서도 섹션이 넘치지 않게 여백·카드·글자를 화면 높이(vh)에 따라 줄임 */
+  @media (min-width: 861px) {
+    .section-head { margin-bottom: clamp(20px, 3.5vh, 56px); }
+    .section-head h2 { font-size: clamp(22px, 3.2vh, 36px); }
+    .plan { padding: clamp(16px, 3vh, 36px) 28px; gap: clamp(6px, 1.4vh, 14px); }
+    .plan-price { line-height: 1.2; }
+    .plan-price strong { font-size: clamp(24px, 3.6vh, 34px); }
+    .plan ul { gap: clamp(2px, .8vh, 8px); padding-top: clamp(8px, 1.6vh, 18px); font-size: clamp(12.5px, 1.9vh, 15px); line-height: 1.5; }
+  }
   @media (max-width: 1080px) {
     html { scroll-padding-top: 132px; }
     /* 메뉴를 숨기지 않고 헤더 아래 가로 스크롤 줄로 */
