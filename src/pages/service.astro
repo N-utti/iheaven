@@ -78,7 +78,6 @@ const collection = [
               <p class="pillar-sub">{p.sub}</p>
               <h3>{p.title}</h3>
               <p>{p.text}</p>
-              {p.link && <span class="pillar-more">자세히 보기 <span aria-hidden="true">→</span></span>}
             </Tag>
           );
         })}
@@ -147,14 +146,16 @@ const collection = [
   .intro-photo { view-transition-name: service-photo; }
 
   .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .pillar { display: grid; gap: 8px; grid-template-rows: auto auto auto 1fr auto; }
+  .pillar { display: grid; gap: 8px; align-content: start; }
   .pillar img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 8px; }
   .pillar-sub { font-size: 14px; color: var(--gold-deep); }
   .pillar h3 { font-size: 19px; color: var(--brand); transition: color .2s; }
   .pillar p { font-size: 15px; }
-  .pillar-more { justify-self: start; font-size: 15px; color: var(--gold-deep); border-bottom: 1px solid currentColor; }
+  /* 상세페이지가 있는 카드는 '자세히 보기' 줄 대신 제목 뒤 화살표 (줄이 하나 더 생겨 카드가 길어 보이지 않게) */
+  .pillar--link h3::after { content: '→'; display: inline-block; margin-left: 6px; color: var(--gold-deep); transition: transform .2s; }
   @media (hover: hover) {
     .pillar--link:hover h3 { color: var(--gold-deep); }
+    .pillar--link:hover h3::after { transform: translateX(4px); }
   }
 
   .groups { display: grid; gap: 40px; }
