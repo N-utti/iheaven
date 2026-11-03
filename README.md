@@ -6,7 +6,7 @@ Astro 정적 사이트. `main` 에 푸시하면 GitHub Actions(`.github/workflow
 
 ## 화면
 
-![메인 스크롤](docs/readme/scroll.gif)
+<p align="center"><img src="docs/readme/scroll.gif" alt="메인 스크롤"></p>
 
 | 메인 | 장례서비스 |
 |------|-----------|
