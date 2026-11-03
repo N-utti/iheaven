@@ -4,6 +4,22 @@
 
 Astro 정적 사이트. `main` 에 푸시하면 GitHub Actions(`.github/workflows/deploy.yml`)가 빌드해 GitHub Pages 로 배포한다.
 
+## 화면
+
+![메인 스크롤](docs/readme/scroll.gif)
+
+| 메인 | 장례서비스 |
+|------|-----------|
+| ![메인](docs/readme/desktop-index.jpg) | ![장례서비스](docs/readme/desktop-service.jpg) |
+| **루세떼** | **납골당(헤븐 하우스)** |
+| ![루세떼](docs/readme/desktop-lucete.jpg) | ![납골당](docs/readme/desktop-house.jpg) |
+
+모바일 메인:
+
+<img src="docs/readme/mobile-index.jpg" width="300" alt="모바일 메인">
+
+README 이미지는 `docs/readme/` 에 있다. 실제 사이트(i-heaven.kr)를 데스크톱 1440×900, 모바일 390×844, 영상은 1280×800 으로 찍었다.
+
 ## 실행
 
 ```sh
