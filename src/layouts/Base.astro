@@ -29,8 +29,8 @@ const business = {
   sameAs: [NAVER_PLACE],
   priceRange: '250,000원~',
   currenciesAccepted: 'KRW',
-  // ponytail: 요일은 사이트에 없어 연중무휴로 둠. 쉬는 날이 있으면 dayOfWeek 만 고치면 됨
-  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '09:00', closes: '21:00' }],
+  // 네이버 플레이스 영업시간 기준(매일 09:00-22:00). 바뀌면 메인 오시는 길·llms.txt 도 같이
+  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '09:00', closes: '22:00' }],
   potentialAction: { '@type': 'ReserveAction', target: BOOKING },
 };
 ---
