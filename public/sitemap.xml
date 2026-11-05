@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ponytail: 페이지 5개라 손으로 씀. 페이지를 늘리면 여기도 한 줄 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://i-heaven.kr/</loc></url>
+  <url><loc>https://i-heaven.kr/service.html</loc></url>
+  <url><loc>https://i-heaven.kr/lucete.html</loc></url>
+  <url><loc>https://i-heaven.kr/house.html</loc></url>
+  <url><loc>https://i-heaven.kr/privacy.html</loc></url>
+</urlset>
