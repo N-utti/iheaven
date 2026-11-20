@@ -101,6 +101,8 @@ for (const [url, rel] of Object.entries(manifest.pages)) {
   const name = (u.pathname === "/" ? "index" : u.pathname.replace(/^\/|\.php$/g, "").replaceAll("/", "__")) + (idx ? `-${idx}` : "") + ".html";
   // 법인 정보로 바꾼다 (사업자등록증 2026-07-02: 대표자 임채윤 / 대표 전화 1577-5474). 원본 글자 간격 표기는 유지한다.
   html = html.replaceAll("010-5773-2119", "1577-5474").replaceAll("정 이 찬", "임 채 윤");
+  // 네이버 서치어드바이저 소유 확인 태그
+  html = html.replace(/<meta charset="UTF-8">/i, (m) => `${m}\n\t<meta name="naver-site-verification" content="d469350708569523a48875194527494c01b6256e" />`);
   fs.writeFileSync(path.join(PAGES_OUT, name), html);
   routes[key] = name;
 }

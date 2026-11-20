@@ -24,6 +24,8 @@ for (const key of Object.keys(routes)) {
   pages++;
   if (/googletagmanager|smlog\.co\.kr|onetag\.co\.kr|wcs\.naver\.net/.test(html)) fails.push(`통계코드 남음 ${key}`);
   // 법인 정보(사업자등록증 2026-07-02): 대표자 임채윤, 대표 전화 1577-5474
+  // 네이버 서치어드바이저 소유 확인 태그는 <head> 안에 있어야 네이버가 읽는다
+  if (!/<meta name="naver-site-verification" content="d469350708569523a48875194527494c01b6256e" \/>[\s\S]*<\/head>/.test(html)) fails.push(`네이버 확인 태그 없음 ${key}`);
   if (/5773[-. ]?2119/.test(html)) fails.push(`옛 전화번호 남음 ${key}`);
   if (/정\s*이\s*찬/.test(html)) fails.push(`옛 대표자명 남음 ${key}`);
   if (!html.includes("tel:1577-5474")) fails.push(`새 전화번호 없음 ${key}`);
