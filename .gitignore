@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+build/
+dist/
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
+
+# Local settings (not project config)
+.claude/settings.local.json
+
+# User-specific skills (not part of the template)
+.claude/skills/customize/
+.claude/skills/release/
+
+# Local temp files
+temp/
+
+# 원본 홈페이지 수집본 중 public/ 과 내용이 같은 사본, 외부 CDN 사본, 임시 자료
+docs/research/iheaven/mirror/_ext/
+docs/research/iheaven/mirror/css/
+docs/research/iheaven/mirror/font/
+docs/research/iheaven/mirror/images/
+docs/research/iheaven/mirror/js/
+docs/research/iheaven/mirror/js_lib/
+docs/research/iheaven/mirror/upload/
+docs/research/iheaven/mirror/video/
+docs/research/iheaven/raw/
+docs/research/iheaven/mirror.log
+.playwright-mcp/

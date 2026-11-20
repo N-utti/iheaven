@@ -1,0 +1,686 @@
+.section{
+	background-image:  url('/images/iheaven-collection/top-back-image.jpg');
+	height: 100vh;
+	text-align: center;
+	color: white;
+}
+.section .sec-bot-info li {
+	margin:0 8px;
+}
+.section .sec-bot-info li a {
+	font-size:20px;
+	/*text-decoration: underline;*/
+	border-bottom:1px solid #fff;
+	padding-bottom:-8px;
+	/*padding:5px 0 !important;	*/
+	margin-left:5px;
+}
+.section .content{
+	height: 100vh;
+}
+.section .content .text-top {
+	position:relative;
+}
+.section .content .text-top > img {
+	position:absolute;
+	left:50%;
+	top:-130px;
+	transform:translateX(-50%);
+}
+.section .content .line{
+	background-color: white;
+	width: 75px;
+	height: 2px;
+}
+.section .content .text-top p{
+	font-size: 44px;
+	color:#ccc;
+}
+.section .content .text-mid h1{
+	font-size: 44px;
+	color: #b8a07f;
+}
+.section .content .text-bot p{
+	font-size: 15px;
+	font-family:"Campton-LightDEMO" !important;
+	font-weight:bold;
+}
+
+.title .title-top > h2 {
+	font-size:35px !important;
+}
+
+.title >  h2 {
+	font-size:45px !important;
+}
+
+.section2{
+	height: 100vh;
+	position: relative;
+}
+/*.section2 .porest-collection{
+	position: absolute;
+	top: 27%;
+}*/
+.section2 .content {
+	height:100%;
+}
+.section2 .content .content-area {
+	width:100%;
+}
+.section2 .content .content-area .porest-collection {
+	margin-bottom:-5px;
+}
+.section2 .content .content-area .porest-collection h2:before {
+	content:"";
+	position:absolute;
+	left:0;
+	bottom:45px;
+	background-color:#222;
+	height:2px;
+	width:100%;
+}
+.section2 .content .content-area .porest-collection h2 {
+	width:60vw;
+	text-align:center;
+	display:inline-block;
+	font-size:200px;
+	font-weight:normal;
+	position:relative;
+}
+.section2 .content .content-area p {
+	font-size:20px;
+	line-height:35px;
+}
+.section2 .content .img{
+	width: 100%;
+	overflow: hidden;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+.section2 .content .img img{
+	width: 130%;
+}
+.section2 .sec-image {
+	padding-left:10%;
+	margin: 50px 0px 150px 0px;
+}
+
+.section2 .sec-image .img {
+	height:250px;
+}
+
+.section3 .content > div > p,
+.section4 .content > div > p,
+.section5 .content > div > p,
+.section6 .content > div > p,
+.section7 .content > div > p
+ {
+	font-size:20px;
+	line-height:35px;
+}
+
+.section3{
+	background-image: url('/images/iheaven-collection/back-image.jpg');
+	height: 100vh;
+	position: relative;
+}
+.section3 .content .title {
+	position:relative;
+}
+.section3 .content .title:before {
+	content:"";
+	position:absolute;
+	bottom:-15px;
+	right:0;
+	margin-right:20vw;
+	width:100vw;
+	height:2px;
+	background-color:#222;
+}
+.section3 .content{
+	height: 100vh;
+}
+.section3 .content .row {
+	margin:0 -5px;
+}
+
+.section3 .content .row > .col-md-3 {
+	padding:0 5px;
+}
+.section3 .content .row > .col-md-3 .image{ 
+	height:280px;
+}
+
+.section3 .content .row > .col-md-3 .image img{ 
+	width:180%;
+}
+.section3 .content .title .title-top h2{
+	font-size: 24px;
+	font-family:"Campton-BoldDEMO" !important;
+}
+.section3 .content .title > h2{
+	font-size: 30px;
+}
+
+.section4{
+	height: 100vh;
+	text-align: center;
+	background-image: url('/images/iheaven-collection/back-image2.jpg');
+}
+.section4 .content{
+	height: 100vh;
+}
+.section4 .content .title .title-top h2{
+	font-size: 24px;
+	font-family:"Campton-BoldDEMO" !important;
+}
+.section4 .content .title > h2{
+	font-size: 30px;
+}
+.section4 .content .line{
+	width: 80px;
+	background-color: #000;
+	height: 1px;
+}
+
+.section4 .content .row > div {
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.section4 .content .row > .col-4 .image-3 {
+	height:280px;
+}
+
+.section5{
+	background-image:url('/images/iheaven-collection/back-image5.jpg');
+	height: 100vh;
+	position: relative;
+}
+.section5 .line{
+	position: absolute;
+	top: 32.5%;
+	background-color: #000;
+	height: 2px;
+	width: 70%;
+}
+.section5 .content{
+	height: 100vh;
+}
+.section5 .content .row {
+	margin:0 -5px;
+}
+.section5 .content .row > .col-md-3 {
+	padding:0 5px;
+}
+.section5 .content .row > .col-md-3 .image-3 {
+	height:260px;
+}
+.section5 .content .title .title-top h2{
+	font-size: 24px;
+	font-family:"Campton-BoldDEMO" !important;
+}
+.section5 .content .title > h2{
+	font-size: 30px;
+}
+
+.section6{
+	height: 100vh;
+	background-image:url('/images/iheaven-collection/back-image3.jpg');
+	text-align: center;
+	color: white;
+}
+.section6 .content{
+	height: 100vh;
+}
+.section6 .content .title .title-top h2{
+	font-family:"Campton-BoldDEMO" !important;
+	font-size: 20px;
+}
+.section4 .content .title > h2{
+	font-size: 30px;
+}
+.section6 .content .line{
+	background-color: white;
+	width: 80px;
+	height: 1px;
+}
+.section6 .sec-list .image {
+	height:350px;
+}
+.section7{
+	background-image:url('/images/iheaven-collection/back-image4.jpg');
+	height: 100vh;
+	position: relative;
+}
+.section7 .line{
+	position: absolute;
+	top: 53.5%;
+	background-color: #000;
+	height: 2px;
+	width: 60%;
+}
+.section7 .content{
+	height: 100vh;
+}
+
+.section7 .content > div > div {
+	padding-bottom:25px !important;
+}
+
+.section7 .content > div > p {
+	padding-top:25px !important;
+}
+.section7 .content .title .title-top h2{
+	font-family:"Campton-BoldDEMO" !important;
+	font-size: 20px;
+}
+.section7 .content .title > h2{
+	font-weight:bold;
+	font-size: 32px;
+}
+
+@media(max-width:991px) {
+	/*
+	.section2 .content .img img {
+		width: 280%;
+	}*/
+}
+
+@media(max-width:767px) {
+	.section5 .content .row {
+		margin:30px -5px 0;
+	}
+	.section .content .text-mid h1 {
+		font-size:23px;
+	}
+	.section .content .text-top p{
+		font-size: 23px;
+	}
+	.section .content .text-bot p {
+		font-size:7px;
+		letter-spacing: 0;
+	}
+	.section .content .text-top > img {
+		width:50%;
+		top:-50px;
+	}
+	.section2 .content .content-area p {
+		font-size:16px;
+	}
+	.section2,
+	.section3,
+	.section4,
+	.section5,
+	.section7 {
+		height:auto;
+		padding:80px 0;
+	}
+
+	.section2 .content,
+	.section4 .content {
+		height:auto;
+	}
+
+	.section7 .content .title .title-top h2 {
+		font-size:14px;
+	}
+
+	.section2 .sec-image {
+		padding-left:0;
+	}
+
+	.section2 .sec-image .img {
+		height:30vw;
+	}
+
+	.section2 .content .content-area .porest-collection {
+		margin-bottom:0;
+		margin-left:45px;
+	}
+
+	.section2 .content .content-area .porest-collection span {
+		margin-left:0 !important;
+	}
+	.section2 .content .content-area .porest-collection span:nth-child(1) {
+		margin-left:10px !important;
+	}
+
+	.section2 .content .content-area .porest-collection span:nth-child(2) {
+		margin-left:10px !important;
+	}
+
+	.section2 .content .content-area .porest-collection span:nth-child(3) {
+		margin-left:17px !important;
+	}
+
+	.section2 .content .content-area .porest-collection span:nth-child(4) {
+		margin-left:-10px !important;
+	}
+
+	.section2 .content .content-area p {
+		font-size:13px;
+		line-height:21px;
+		letter-spacing: -0.05em;
+		display:inline-block;
+		width:auto;
+		position:relative;
+	}
+
+	.section2 .content .content-area .porest-collection h2 {
+		text-align:left;
+		width:100%;
+		font-size:100px;
+	}
+
+	.section2 .content .content-area .porest-collection h2:before {
+		display:none;
+	}
+
+	.section2 .content .content-area p:before {
+		content:"";
+		position:absolute;
+		top:-30px;
+		right:0;
+		width:100vw;
+		height:2px;
+		background-color:#222;
+	}
+
+	.section2 .content .content-area .container > div {
+		display:flex;
+		justify-content:center;
+		flex-wrap:wrap;
+	}
+
+	.section2 .content .content-area .container > div > div {
+		width:100%;
+		display:flex;
+		justify-content:center;
+	}
+
+	.section2 .content .content-area .container > div > div:nth-child(1) {
+		margin-top:15px;
+		margin-bottom:60px;
+	}
+
+	.section2 .sec-image {
+		width:100%;
+	}
+
+	.section2 .sec-image {
+		margin:0;
+	}
+
+	.section3 .content {
+		height:auto;
+	}
+
+	.section3 .content .row > .col-md-3 .image {
+		height:35vw;
+	}
+
+	.section3 .content .title {
+		width:auto;
+		display:inline-block;
+		padding-bottom:15px !important;
+	} 
+	.section3 .content p {
+		padding-top:15px !important;
+	}
+	.section3 .content .title:before {
+		margin-right:0;
+		width:100vw;
+		right:0;
+		bottom:0;
+	}
+
+	.section3 .content .row {
+		margin:0 -5px;
+		padding-top:0 !important;
+	}
+
+	.section3 .content .row > div {
+		padding:0 5px;
+	}
+
+	.section3 .content .row > div .image {
+		height:180px;
+	}
+
+	.title .title-top h2 {
+		font-size:10px !important;
+	}
+
+	.title > h2 {
+		font-size:23px !important;
+	}
+
+	.section3 .content .title .title-top h2 {
+		font-size:10px !important;
+	}
+
+	.section3 .content .title > h2 {
+		font-size:23px !important;
+	}
+
+	.section3 .content > div > p, .section4 .content > div > p, .section5 .content > div > p, .section6 .content > div > p, .section7 .content > div > p {
+		font-size:13px;
+		line-height:21px;
+		letter-spacing: -0.05em;
+	}
+
+	.section6 .content {
+		height:auto;
+	}
+
+	.section6 {
+		background-image:url('/images/iheaven-collection/collection-bg2-m.jpg') !important;
+		padding-top:80px;
+		padding-bottom:250px;
+		height:auto;
+	}
+
+	.section4 {
+		background-image:url('/images/iheaven-collection/collection-bg-m.jpg') !important;
+		padding-bottom:250px;
+	}
+
+	.section4 .content .row {
+		padding-top:0 !important;
+		/*margin:0 -15px;*/
+		justify-content:space-between;
+		margin-left:5px;
+	}
+
+	.section4 .content .row > div {
+		max-width:32%;
+		padding:0 5px !important;
+	}
+
+	.section4 .content > div > .d-flex {
+		width:100%;
+		justify-content:center;
+	}
+
+	.section4 .content .row > .col-4 .image-3 {
+		height:30vw;
+	}
+
+	.section4 .content .row > .col-4 .image-3 img {
+		width:150%;
+	}
+
+	.section4 .content .title {
+		width:100%;
+		text-align:center;
+	}
+
+	.section4 .content > div {
+		display:flex;
+		flex-wrap:wrap;
+	}
+
+	.section4 .content > div > p {
+		order:4;
+		font-size:13px;
+		line-height:21px;
+		margin-top:30px;
+		padding-bottom:0 !important;
+	}
+
+	.section4 .content .title .title-top h2 {
+		font-size:14px;
+	}
+
+	.section5 .content {
+		height:auto;
+	}
+
+	.section5 .content .row > .col-md-3 .image-3 {
+		height:35vw;
+	}
+
+	.section5 .content .title .title-top h2 {
+		font-size:14px;
+	}
+
+	.section5 .content .title {
+		display:inline-block;
+		width:auto;
+		position:relative;
+		padding-bottom:0 !important;
+	}
+
+	.section5 .content .title:before {
+		content:"";
+		position:absolute;
+		bottom:-20px;
+		right:0;
+		width:100vw;
+		height:2px;
+		background-color:#222;
+	}
+
+	.section5 .content .row > div {
+		width:40%;
+	}
+
+	.section5 .content .row > div .image {
+		height:220px;
+	}
+
+	.section5 .content p {
+		padding-top:25px !important;
+	}
+
+	.section6 .content .title .title-top h2 {
+		font-size:14px;
+	}
+
+	.section6 .sec-list .image {
+		height:30vw;
+	}
+
+	.section6 .sec-list .image img {
+		width:115%;
+	}
+
+	.section6 .sec-list {
+		margin:20px -2.5px 0;
+	}
+
+	.section6 .sec-list > div {
+		padding:0 2.5px;
+	}
+
+	.section6 .content > div {
+		display:flex;
+		flex-direction: column;
+	}
+
+	.section6 .content > div > p {
+		padding-bottom:0 !important;
+		margin-top:30px;
+		order:4;
+		font-size:13px;
+		line-height:23px;
+		letter-spacing: -0.05em;
+	}
+
+	.section7 .content {
+		height:auto;
+	}
+
+	.section7 .content > div > .title {
+		padding-bottom:15px !important;
+	}
+
+	.section7 .content > div > p {
+		padding-top:15px !important;
+	}
+
+	.section7 .line {
+		top:50%;
+	}
+
+	.collection-scroll-menu {
+		width:100%;
+	}
+
+	.collection-scroll-menu > .d-flex > div {
+		padding:0;
+	}
+
+	.collection-scroll-menu > .d-flex > div:nth-child(odd) {
+		background-color:#bda281;
+	}
+
+	.collection-scroll-menu > .d-flex > div:nth-child(even) {
+		background-color:#a88f6f;
+	}
+
+	.collection-scroll-menu a {
+		color:#fff;
+		display:block;
+		text-align:center;
+		height:60px;
+		line-height:60px;
+	}
+
+	.section {
+		height:auto;
+		padding:140px 0 30px;
+	}
+
+	.section .content {
+		height:auto;
+	}
+
+	.section .content > .img {
+		padding-bottom:0 !important;
+	}
+
+	.section .content .text-top > h4 * {
+		font-family:"GravityHandwritten" !important;
+	}
+
+	.section .content .text-top > h4 span {
+
+	}
+
+	.section .content .text-top > h4 {
+		font-family:"GravityHandwritten" !important;
+		font-size:53px;
+		font-weight:normal !important;
+		opacity:0.5;
+		letter-spacing: 1px;
+		margin-bottom:-50px;
+	}
+
+	.section .content > div:nth-child(2) {
+		margin-top:-60px;
+	}
+}

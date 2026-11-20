@@ -1,0 +1,487 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css); font-family: 'Noto Sans KR', sans-serif;
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
+}
+
+
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 300;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');
+}
+
+
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
+}
+
+
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');
+}
+
+
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');
+}
+
+
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 900;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'NanumMyeongjo';
+    src: url('/font/NanumMyeongjoBold.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:"GravityHandwritten";
+    src: url('/font/Gravity_Handwritten/Gravity-Handwritten.ttf') format('ttf'),
+        url('/font/Gravity_Handwritten/Gravity-Handwritten.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Campton-BoldDEMO';
+    src: url('/font/Campton/Campton-BoldDEMO.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Campton-LightDEMO';
+    src: url('/font/Campton/Campton-LightDEMO.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CAMPTON-MEDIUM';
+    src: url('/font/Campton/CAMPTON-MEDIUM.TTF') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*@font-face {
+    font-family: 'NotoSansKR-Medium';
+    font-weight: 500;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');
+    font-style: normal;
+}*/
+
+@font-face {
+    font-family: 'NotoSansCJKkr-Regular';
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSansCJKkr-DemiLight';
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSansCJKkr-Medium';
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSansCJKkr-Bold';
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSans-SemiBold';
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/*@font-face {
+    font-family: 'MapoPeacefull';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Campton-BoldDEMO';
+    src: url('/font/Campton/CAMPTON-SEMIBOLD.TTF') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+@font-face {
+    font-family: 'Campton-SemiBold';
+    src: url('/font/Campton/CAMPTON-SEMIBOLD.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.Gravity,
+.Gravity * {
+    font-family:"GravityHandwritten" !important;
+}
+
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border-color: transparent;
+    box-shadow: 0 0px 0px transparent inset, 0 0 0 transparent;
+    outline: 0 none;
+}
+
+button:focus,button:active {
+   outline: none !important;
+   box-shadow: none;
+}
+
+.custom-control-input:active {
+    background-color:#ddbf97;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow:none !important;
+    border-color:inherit;
+}
+
+* {
+    letter-spacing:-0.025em;
+    scroll-behavior: smooth;
+    font-family: "NotoSansCJKkr-DemiLight";
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.Campton-BoldDEMO {
+    font-family:"Campton-BoldDEMO" !important;
+}
+
+.Campton-LightDEMO {
+    font-family:"Campton-LightDEMO" !important;
+    font-weight:bold;
+}
+
+*::placeholder {
+    font-family: "NotoSans-Medium" !important;
+}
+
+body > .rgba-background {
+    background-color:rgba(0, 0, 0, 0.6);
+    width:100%;
+    height:100%;
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:999;
+}
+
+/*.image,
+.image-2,
+.image-3 {
+    width:100%;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    flex-wrap:wrap;
+}*/
+
+.no-image {
+    width:100%;
+    background-color:#dfdfdf;
+    height:250px;
+    border:1px solid #ccc;
+}
+
+.no-image * {
+    cursor:default;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.no-image .image-text {
+    color:#aaa;
+    font-size:28px;
+    font-family:"Campton-BoldDEMO" !important;
+}
+
+.no-image .image-icon {
+    font-size:38px;
+    color:#aaa;
+}
+
+.image,
+.image-2,
+.image-3 {
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    /*display:inline-block;*/
+}
+
+.image.old > img,
+.image-2.old > img,
+.image-3.old > img {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+}
+
+.image-2 > img {
+    height:100%;
+    min-width:100%;
+} 
+
+.image > img {
+    width:100%;
+    min-height:100%;
+}
+
+/*.image-3 {
+    position:absolute;
+    left:-50%;
+    top:-50%;
+    transform:translate(50%, 50%);
+}*/
+
+.box {
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    position:relative;
+}
+
+pre {
+    font-family:"NotoSans-Medium" !important;
+    font-size:13px;
+}
+
+.row {
+    /*margin-left:0;
+    margin-right:0;*/
+}
+
+.fs-4 *, .fs-4 { font-size:4px; }.fs-5 *, .fs-5 { font-size:5px; }.fs-6 *, .fs-6 { font-size:6px; }.fs-7 *, .fs-7 { font-size:7px; }.fs-8 *, .fs-8 { font-size:8px; }.fs-9 *, .fs-9 { font-size:9px; }.fs-10 *, .fs-10 { font-size:10px; }.fs-11 *, .fs-11 { font-size:11px; }.fs-12 *, .fs-12 { font-size:12px; }.fs-13 *, .fs-13 { font-size:13px; }.fs-14 *, .fs-14 { font-size:14px; }.fs-15 *, .fs-15 { font-size:15px; }.fs-16 *, .fs-16 { font-size:16px; }.fs-17 *, .fs-17 { font-size:17px; }.fs-18 *, .fs-18 { font-size:18px; }.fs-19 *, .fs-19 { font-size:19px; }.fs-20 *, .fs-20 { font-size:20px; }.fs-21 *, .fs-21 { font-size:21px; }.fs-22 *, .fs-22 { font-size:22px; }.fs-23 *, .fs-23 { font-size:23px; }.fs-24 *, .fs-24 { font-size:24px; }.fs-25 *, .fs-25 { font-size:25px; }.fs-26 *, .fs-26 { font-size:26px; }.fs-27 *, .fs-27 { font-size:27px; }.fs-28 *, .fs-28 { font-size:28px; }.fs-29 *, .fs-29 { font-size:29px; }.fs-30 *, .fs-30 { font-size:30px; }.fs-31 *, .fs-31 { font-size:31px; }.fs-32 *, .fs-32 { font-size:32px; }.fs-33 *, .fs-33 { font-size:33px; }.fs-34 *, .fs-34 { font-size:34px; }.fs-35 *, .fs-35 { font-size:35px; }.fs-36 *, .fs-36 { font-size:36px; }.fs-37 *, .fs-37 { font-size:37px; }.fs-38 *, .fs-38 { font-size:38px; }.fs-39 *, .fs-39 { font-size:39px; }.fs-40 *, .fs-40 { font-size:40px; }.fs-41 *, .fs-41 { font-size:41px; }.fs-42 *, .fs-42 { font-size:42px; }.fs-43 *, .fs-43 { font-size:43px; }.fs-44 *, .fs-44 { font-size:44px; }.fs-45 *, .fs-45 { font-size:45px; }.fs-46 *, .fs-46 { font-size:46px; }.fs-47 *, .fs-47 { font-size:47px; }.fs-48 *, .fs-48 { font-size:48px; }.fs-49 *, .fs-49 { font-size:49px; }.fs-50 *, .fs-50 { font-size:50px; }.fs-51 *, .fs-51 { font-size:51px; }.fs-52 *, .fs-52 { font-size:52px; }.fs-53 *, .fs-53 { font-size:53px; }.fs-54 *, .fs-54 { font-size:54px; }.fs-55 *, .fs-55 { font-size:55px; }.fs-56 *, .fs-56 { font-size:56px; }.fs-57 *, .fs-57 { font-size:57px; }.fs-58 *, .fs-58 { font-size:58px; }.fs-59 *, .fs-59 { font-size:59px; }.fs-60 *, .fs-60 { font-size:60px; }.fs-61 *, .fs-61 { font-size:61px; }.fs-62 *, .fs-62 { font-size:62px; }.fs-63 *, .fs-63 { font-size:63px; }.fs-64 *, .fs-64 { font-size:64px; }.fs-65 *, .fs-65 { font-size:65px; }.fs-66 *, .fs-66 { font-size:66px; }.fs-67 *, .fs-67 { font-size:67px; }.fs-68 *, .fs-68 { font-size:68px; }.fs-69 *, .fs-69 { font-size:69px; }.fs-70 *, .fs-70 { font-size:70px; }.fs-71 *, .fs-71 { font-size:71px; }.fs-72 *, .fs-72 { font-size:72px; }.fs-73 *, .fs-73 { font-size:73px; }.fs-74 *, .fs-74 { font-size:74px; }.fs-75 *, .fs-75 { font-size:75px; }.fs-76 *, .fs-76 { font-size:76px; }.fs-77 *, .fs-77 { font-size:77px; }.fs-78 *, .fs-78 { font-size:78px; }.fs-79 *, .fs-79 { font-size:79px; }.fs-80 *, .fs-80 { font-size:80px; }.fs-81 *, .fs-81 { font-size:81px; }.fs-82 *, .fs-82 { font-size:82px; }.fs-83 *, .fs-83 { font-size:83px; }.fs-84 *, .fs-84 { font-size:84px; }.fs-85 *, .fs-85 { font-size:85px; }.fs-86 *, .fs-86 { font-size:86px; }.fs-87 *, .fs-87 { font-size:87px; }.fs-88 *, .fs-88 { font-size:88px; }.fs-89 *, .fs-89 { font-size:89px; }.fs-90 *, .fs-90 { font-size:90px; }.fs-91 *, .fs-91 { font-size:91px; }.fs-92 *, .fs-92 { font-size:92px; }.fs-93 *, .fs-93 { font-size:93px; }.fs-94 *, .fs-94 { font-size:94px; }.fs-95 *, .fs-95 { font-size:95px; }.fs-96 *, .fs-96 { font-size:96px; }.fs-97 *, .fs-97 { font-size:97px; }.fs-98 *, .fs-98 { font-size:98px; }.fs-99 *, .fs-99 { font-size:99px; }.fs-100 *, .fs-100 { font-size:100px; }.fs-101 *, .fs-101 { font-size:101px; }.fs-102 *, .fs-102 { font-size:102px; }.fs-103 *, .fs-103 { font-size:103px; }.fs-104 *, .fs-104 { font-size:104px; }.fs-105 *, .fs-105 { font-size:105px; }.fs-106 *, .fs-106 { font-size:106px; }.fs-107 *, .fs-107 { font-size:107px; }.fs-108 *, .fs-108 { font-size:108px; }.fs-109 *, .fs-109 { font-size:109px; }.fs-110 *, .fs-110 { font-size:110px; }.fs-111 *, .fs-111 { font-size:111px; }
+
+.min-h-100 {
+    min-height:100%;
+}
+
+.min-w-100 {
+    min-width:100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-weight-bold {
+    /*font-family: "NotoSansCJKkr-Medium" !important;*/
+}
+
+.small {
+    /*font-family:"GmarketSansLight" !important;*/
+}
+
+.cursor-pointer {
+    cursor:pointer;
+}
+
+.form-row {
+    margin-bottom:40px;
+}
+
+.text-custom-1 {
+    color:#ddbf97;
+}
+
+.text-custom-2 {
+    color:#bca280;
+}
+
+.bg-custom-1 {
+    background-color:#bca280;
+    color:#fff;
+    transition:all 0.2s;
+}
+
+.bg-custom-2 {
+    background-color:#a58b6a;
+    color:#fff;
+    transition:all 0.2s;
+}
+
+.bg-custom-1:hover {
+    background-color:#a58b6a;
+    color:#fff !important;
+}
+
+.bg-custom-2:hover {
+    background-color:#bca280;
+    color:#fff !important;
+}
+
+input::placeholder {
+    color: #cfcfcf !important;
+    font-family:"GmarketSansLight";
+    font-size:14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight:bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+pre,
+label,
+small,
+.form-text {
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+label {
+    cursor:pointer;
+    color:#333;
+}
+
+select.custom-select {
+    cursor:pointer;
+    padding-right:50px;
+    /* 원하는 너비설정 */
+    /*padding: .8em .5em;*/
+    /* 폰트 상속 */
+    background: url('/images/icon/select-icon.png') no-repeat 100% 50%;
+    background-size:45px;
+    /* iOS 둥근모서리 제거 */
+    -webkit-appearance: none;
+    /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input {
+    border-color:#ddd !important;
+}
+
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    
+    margin: 0;
+    padding: 1rem 0;
+    
+    list-style-type: none;
+    position:absolute;
+    left:50%;
+    bottom:8%;
+    transform:translateX(-50%);
+}
+
+.slick-dots li {
+    margin: 0 0.7rem;
+}
+
+.slick-dots button {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+    
+    border: none;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    
+    text-indent: -9999px;
+} 
+
+.slick-dots li.slick-active button {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.auto-height-area img {
+	height: auto !important;
+	min-height: auto !important;
+	position: unset;
+    transform: unset;
+}
+
+.auto-height {
+	height: auto !important;
+	min-height: auto !important;
+}
+
+@media (min-width: 1200px) {
+    .container, .container-md, .container-lg {
+        max-width: 1200px;
+    }
+}

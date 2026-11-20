@@ -1,0 +1,533 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+.section{
+	background-image: url('/images/ossuary/ossuary-bg1.png');
+	height: 100vh;
+}
+.section .sec-info {
+	height: 100vh;
+}
+.section .sec-info .text-top h1 span{
+	/*font-weight: 100;*/
+	font-size:44px;
+	position:relative;
+}
+.section .sec-info .text-top h1 span:before {
+	content:"";
+	position:absolute;
+	right:0;
+	bottom:-15px;
+	width:100vw;
+	height:2px;
+	background-color:#333;
+}
+.section .sec-info .text-top h2 {
+	font-size:44px;
+	font-weight:normal;
+	margin-top:20px;
+}
+.section .sec-info .text-top h1{
+	font-weight:normal;
+	line-height: 60px;
+	position:relative;
+}
+.section .sec-info .text-top h1 .banner-text {
+	position:absolute;
+	bottom:-20%;
+	right:0;
+}
+
+.section .sec-info .text-bot p {
+	font-size:15px;
+}
+.section .sec-info > div:nth-child(2) {
+	transform:translateY(50%);
+}
+
+.section .sec-info > div:nth-child(3) {
+	padding-bottom:80px !important;
+}
+
+.section2{
+	height: 100vh;
+	background-image: url('/images/ossuary/ossuary-bg2.png');
+}
+.section2 .content{
+	height: 100vh;
+}
+.section2 .content h2{
+	padding-top: 250px;
+	font-size: 45px;
+	position:relative;
+}
+
+.section2 .content > div > p {
+	font-size:18px;
+	line-height:28px;
+}
+
+.section2 .content h2:before {
+	content:"";
+	position:absolute;
+	right:0;
+	bottom:-25px;
+	width:100vw;
+	height:2px;
+	background-color:#333;
+}
+
+.section2 .content > div {
+	display:flex;
+	flex-wrap:wrap;
+	flex-direction: column;
+}
+
+.section3{
+	background-image: url('/images/ossuary/ossuary-bg3.png');
+	height: 100vh;
+	text-align: center;
+	color: white;
+}
+.section3 .content{
+	height: 100vh;
+}
+.section3 .content .img{
+	width: 100%;
+	height:350px;
+	overflow: hidden;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+.section3 .content .img img{
+	width: 150%;
+}
+.section3 .content .text-top p{
+	font-size: 35px;
+	color: #b8a07f;
+	font-family:"Campton-BoldDEMO" !important;
+}
+
+.section3 .content .text-top h2{
+	font-size: 45px;
+}
+.section3 .content > div > p {
+	padding-top:20px !important;
+	line-height:40px;
+	font-size:20px;
+	padding-top:15px !important;
+}
+
+.section4{
+	height: 125vh;
+	background-image: url('/images/ossuary/ossuary-bg4.png');
+}
+.section4 .content{
+	height: 125vh;
+}
+.section4 .content .sec-list .box-text-top h3 {
+	font-size:35px;
+}
+.section4 .content .sec-list > div > div > div {
+	padding:45px !important;
+}
+.section4 .content .box1{
+	background-image: url('/images/ossuary/back-image.jpg');
+	height: 590px;
+	color: white;
+}
+.section4 .content .box2{
+	background-image: url('/images/ossuary/back-image2.jpg');
+	height: 590px;
+	color: white;
+}
+
+.section4 .content .text-top div:nth-child(1) h2{
+	font-size:36px;
+	margin-top:5px;
+}
+.section4 .content .text-top div:nth-child(1) p{
+	font-size: 21.5px;
+	position:relative;
+	font-weight:bold;
+}
+
+.section4 .content .text-top div:nth-child(2) p{
+	float:right;
+	font-size: 20px;
+	position:relative;
+	/*font-weight:bold;*/
+	line-height:40px;
+}
+
+.section4 .content .text-top div:nth-child(2) p:before {
+	content:"";
+	position:absolute;
+	bottom:-20px;
+	right:5px;
+	width:100vw;
+	height:2px;
+	background-color:#222;
+}
+.section4 .content .box-text-top span{
+	font-size: 13px;
+	background-color: #b8a07f;
+	padding: 1px 3px;
+	color: #000 !important;
+}
+
+.section4 .content .box-text-bot p {
+	position:relative;
+	font-size:23.5px;
+}
+
+.section4 .content .box-text-bot span {
+	color:#9b876d;
+	position:relative;
+	font-style:italic;
+	font-size:30px;
+	font-family: 'Nanum Myeongjo', serif;
+	font-weight:900;
+}
+
+.section4 .content .box-text-bot > div > .d-flex {
+	align-items:center;
+}
+
+.section4 .content .box-text-bot p:before {
+	content:"";
+	position:absolute;
+	left:0;
+	bottom:4px;
+	width:100%;
+	height:1px;
+	background-color:#fff;
+}
+
+.section4 .content .box-text-bot span:before {
+	content:"";
+	position:absolute;
+	left:0;
+	bottom:5px;
+	width:100%;
+	height:1px;
+	background-color:#9b876d;
+}
+
+.section4 .content .box-text-bot > div > .d-flex {
+	
+}
+
+.section5{
+	height: 100vh;
+	text-align: center;
+}
+.section5 .content{
+	background-image: url('/images/ossuary/ossuary-bg5.png');
+	height: 100vh;
+}
+
+.section5 .content p {
+	font-size:20px;
+	line-height:40px;
+}
+
+@media(min-width:768px) {
+	.section4 .content .sec-list > div:nth-child(1) {
+		padding-right:5px !important;
+	}
+	.section4 .content .sec-list > div:nth-child(2) {
+		padding-left:5px !important;
+	}
+}
+
+@media(max-width:991px) {
+	.section3 .content > div {
+		margin-top:20%;
+	}
+
+	.section4 .text-top {
+		margin-bottom:40px;
+	}
+}
+
+@media(max-width:767px) {
+	.section3 .content .text-top h2{
+		font-size: 23px;
+	}
+	.section {
+		height:auto;
+		padding:100px 0;
+	}
+	.section .sec-info {
+		height:auto;
+	}
+		
+
+	.section2 .content h2 {
+		font-size:28px;
+	}
+	.section2 .content h2 span {
+		font-size: 40px;
+		margin-top:10px;
+		line-height:55px;
+	}
+
+	.section .sec-info .text-top h1 {
+		/*line-height:38px;*/
+		display:inline-block;
+		font-size:23px;
+		line-height:33px;
+	}
+	.section .sec-info .text-top h1 span {
+		font-size:23px;
+		letter-spacing: -0.05em;
+	}
+
+	.section .sec-info .text-top h2 {
+		margin-top:30px;
+		font-size:23px;
+	}
+
+	.section .sec-info .text-bot p {
+		font-size:10px;
+		letter-spacing: -0.02em;
+	}
+
+	.section .sec-info > div:nth-child(3) {
+		margin-top:70px;
+		padding-bottom:0 !important;
+	}
+
+	.section .sec-info > div:nth-child(3) img {
+		width:70px;
+	}
+
+	.section .sec-info .text-top h1 .banner-text {
+		width:65%;
+		max-width:100%;
+		bottom:70%;
+	}
+
+	.section .sec-info {
+		justify-content:center !important;
+	}
+
+	.section .sec-info .text-bot {
+		margin:10px 0 15px;
+	}
+
+	.section2 .content > div h2 {
+		font-weight:normal;
+		line-height:38px;
+		font-size:20px;
+		padding-top:0;
+	}
+
+	.section4 .content .text-top div:nth-child(1) h2 {
+		font-size:23px;
+		margin-bottom:w;
+	}
+
+	.section4 .content .text-top div:nth-child(1) p {
+		letter-spacing: -0.02em;
+		font-size:13px;
+	}
+
+	.section2 .content > div p {
+		font-size:13px;
+		line-height:21px;
+		letter-spacing: -0.05em;
+		order:2;
+	}
+
+	.section2 .content > div h2 span {
+		line-height:33px;
+		font-size:23px;
+	}
+
+	.section2 .content > div h2 {
+		line-height:33px;
+		font-size:23px;
+		order:1;
+		margin-bottom:45px;
+	}
+
+	.section2 .content > div h2 span {
+		font-weight:bold;
+	}
+
+	.section2,
+	.section4 {
+		padding:80px 0;
+		height:auto;
+	}
+
+	.section3 {
+		background-image:url('/images/ossuary/ossuary-bg-m.jpg') !important;
+		padding-bottom:250px !important;
+	}
+
+	.section3 .content .img {
+		height:30vw;
+	}
+
+	.section3 .content .img img {
+		width:150%;
+	}
+
+	.section3 .content > div {
+		margin-top:0;
+	}
+
+	.section4 .content h3 {
+		font-size:14px !important;
+		line-height:24px;
+		letter-spacing: -0.05em;
+		font-weight:normal;
+	}
+
+	.section4 .content .box-text-bot p {
+		font-size:12px;
+		letter-spacing: -0.05em;
+	}
+
+	.section4 .content .box1 {
+		margin-bottom:20px;
+	}
+
+	.section4 .content .text-top h2 {
+		margin:7px 0 15px;
+	}
+
+	.section4 .content .text-top p {
+		color:#222;
+	}
+
+	.section4 .content .text-top > .col-md-8 p {
+		border-bottom:1px solid #222;
+		padding-bottom:15px;
+		margin-bottom:30px;
+	}
+
+	.section4 .content .box-text-top span {
+		font-size:10px;
+	}
+
+	.section4 .content .box-text-bot span {
+		font-size:13px;
+		letter-spacing: -0.02em;
+	}
+
+	.section4 .content .text-top div:nth-child(2) p {
+		width:100%;
+		font-size:13px;
+		line-height:21px;
+		letter-spacing: -0.05em;
+		border-bottom:1px solid #222;
+		padding-bottom:20px;
+	}
+
+	.section4 .content .sec-list > div > div {
+		height:230px !important;
+		padding:15px !important;
+	}
+
+	.section4 .content .sec-list > div > div > div {
+		/*height:100%;*/
+		padding:0 !important;
+	}
+
+	.section4 .content .box-text-bot p:before {
+		bottom:1px;
+	}
+
+	.section4 .content .box-text-bot span:before {
+		bottom:1px;
+	}
+
+	.section4 .content .box-text-bot > div > .d-flex {
+		margin-top:3px;
+	}
+
+	.section4 .content .text-top div:nth-child(2) p:before {
+		display:none;
+		height:0;
+	}
+
+	.section3 .content .text-top p {
+		font-size:10px;
+		letter-spacing: -0.02em;
+	}
+
+	.section3 .content > div > p {
+		font-size:13px;
+		line-height:21px;
+		letter-spacing: -0.05em;
+	}
+
+	.section4 .content .sec-list {
+		margin:0 -5px !important;
+	}
+
+	.section4 .content .sec-list > div {
+		padding:0 5px !important;
+	}
+
+	.section5 .content > h3 {
+		font-size:54px;
+		font-family:"GravityHandwritten" !important;
+		font-weight:normal;
+		letter-spacing: 0.6px;
+		position:relative;
+	}
+
+	.section5 .content > h3:before {
+		content:"";
+		position:absolute;
+		left:50%;
+		bottom:-15px;
+		width:55px;
+		height:1px;
+		transform:translateX(-50%);
+		background-color:#444;
+	}
+
+	.section5 .content p {
+		font-size:13px;
+		line-height: 21px;
+		letter-spacing: -0.05em;
+		padding-top:30px !important;
+	}
+
+	.section5 {
+		height:auto;
+	}
+	.section5 img {
+		width:120px;
+		max-width:100%;
+	}
+
+	.section2 .content,
+	.section5 .content,
+	.section4 .content {
+		height:auto;
+	}
+
+	.section5 .content {
+		padding:100px 0;
+	}
+
+	.section5 p {
+		font-size:18px;
+	}
+
+	.section3 {
+		padding:100px 0;
+	}
+
+	.section3,
+	.section3 .content {
+		height:auto;
+	}
+}

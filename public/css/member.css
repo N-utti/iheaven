@@ -1,0 +1,494 @@
+.custom-control-input {
+	width:25px;
+	height:25px;
+	margin-top:-2.5px;
+}
+
+.custom-control-label {
+	padding-left:15px;
+}
+
+.member-page .page-title h2 {
+	margin-bottom:8px !important;
+}
+
+.custom-control-label::before {
+	width:25px;
+	height:25px;
+	border-radius:0 !important;
+	border:1px solid #bbb;
+	background-color:#dfdfdf;
+	margin-top:-2.5px;
+}
+
+.custom-control-label::after {
+	width:25px;
+	height:25px;
+	margin-top:-2.5px;
+}
+
+.id-pw-find-parent button {
+	font-size:16px;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color:#ddbf97;
+}
+
+.member-page > div {
+	padding:150px 0 150px;
+}
+
+.member-page .page-title {
+	width:100%;
+	text-align:center;
+}
+
+.member-page .page-title p {
+	font-weight:600;
+	/*font-family: 'NotoSansKR-Medium' !important;*/
+}
+
+.member-page .page-title h1 {
+	color:#333;
+	font-size:65px;
+	letter-spacing: -0.02em;
+}
+
+.id-pw-find-page .page-title h1,
+.pw-find-complete-page .page-title h1,
+.id-find-complete-page .page-title h1 {
+	font-size:48px !important;
+	margin-bottom:0 !important;
+}
+
+.member-page .page-title h2,
+.member-page .page-title h1 {
+	color:#333;
+	font-family:"Campton-BoldDEMO" !important;
+	font-size:65px;
+	margin-bottom:10px;
+}
+
+.member-page .login-page
+ {
+	width:500px;
+	max-width:100%;
+}
+
+.member-page .join-page {
+	width:100%;
+}
+
+.login-page .login-form .form-btn button {
+	background-color:#b8a07f;
+	color:white;
+	width:100%;
+	padding:8px 0;
+}
+
+.login-page .login-form .form-btn button small {
+	font-size:12px;
+}
+
+.login-page .login-form .form-btn button span {
+	font-size:20px;
+}
+
+.login-page .login-form .form-control {
+	border-color:#b8a07f !important;
+	height:47px;
+	margin-bottom:20px;
+}
+
+.login-page .login-form-menu {
+	margin-bottom:30px;
+}
+
+.member-page .bot-btn a {
+	font-weight:bold;
+}
+
+.login-page .login-form-menu > div.active {
+	border:1px solid #b8a07f;
+	border-bottom:0;
+}
+
+.login-page .login-form-menu > div:not(.active) {
+	border:1px solid #ddd;
+	border-bottom:1px solid #b8a07f;
+}
+
+.login-page .login-form-menu > div span {
+	cursor:pointer;
+}
+
+.login-page .login-form-menu > div.active span {
+	color:#b8a07f;
+}
+
+.login-page .login-form-menu > div span {
+	padding:0 !important;
+	line-height:50px;
+	font-size:18px;
+	letter-spacing: -0.02em;
+	height:50px;
+}
+
+.login-page .login-form-menu > div:not(.active) span {
+	color:#ddd;
+}
+
+.login-page .sns-login-btn {
+	margin-top:15px;
+}
+
+.login-page .sns-login-btn img {
+	width:100%;
+}
+
+.login-page .sns-login-btn > div {
+	margin:0 -5px;
+}
+
+.login-page .sns-login-btn .col-4 {
+	padding:0 5px;
+}
+
+.join-page .join-agree-area .agree-chk {
+	margin-bottom:10px;
+}
+
+.join-page .join-agree-area .agree-box {
+	overflow-x:hidden;
+	overflow-y:auto;
+	height:250px;
+	border:1px solid #cfcfcf;
+}
+
+.join-page .join-agree-area .agree-box pre {
+	white-space:pre-wrap;
+	padding:8px;
+}
+
+.join-page .join-all-agree-chk {
+	text-align:center;
+}
+
+.join-page .join-all-agree-chk label {
+	text-decoration: underline;
+	font-size:12px;
+}
+
+.join-page .address-search-btn {
+	/*background-color:#;*/
+}
+
+.join-page .join-input-bot .form-info {
+	color:#ff9966;
+}
+
+.kg-text {
+	right:0;
+	top:50%;
+	right:20px;
+	transform:translateY(-50%);
+}
+
+#non-login-form .bot-btn .col {
+	padding:0;
+	text-align:center;
+}
+
+.member-page .non-login-form hr,
+.member-page .login-form hr {
+	background-color:#b8a07f;
+}
+
+.member-page .bot-btn .col-auto {
+	color:#b8a07f;
+}
+
+#non-login-form .bot-btn .col a {
+	font-size:15px;
+}
+
+/*아이디 비밀번호 찾기*/
+.id-pw-find-parent .custom-control-label h4 {
+	font-size:23px;
+	letter-spacing: -0.02em;
+}
+.id-pw-find-parent > div {
+	width:100%;
+}
+
+.id-pw-find-parent .form-row {
+	align-items:center;
+}
+
+.id-pw-find-parent .form-btn {
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
+}
+
+.id-pw-find-parent .form-btn > button {
+	font-size:25px;
+	width:49%;
+	height:60px;
+}
+
+.id-pw-find-parent .form-icon {
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+	justify-content:center;
+	height:60px;
+}
+
+.id-pw-find-parent .form-btn {
+	margin-top:50px;
+}
+
+.id-pw-find-parent .row > .col-md-auto {
+	display:flex;
+	align-items:center;
+}
+
+.id-pw-find-parent .form-line {
+	width:1px;
+	height:88%;
+	background-color:#ccc;
+	display:inline-block;
+}
+
+
+.pw-find-complete-page .box .result-text {
+	margin:80px 0 100px;
+}
+
+.pw-find-complete-page .box .main-move-btn button {
+	padding:15px 20px;
+}
+
+.btn-leave {
+	background-color: #ffffff;
+    border: none;
+    color: #a7a7a7;
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+@media(max-width:767px) {
+	.my-page .form-row .col-md-2:nth-child(1) {
+		margin-bottom:10px;
+	}
+
+	input::placeholder {
+		font-size:16px;
+		letter-spacing: -0.05em;
+	}
+
+	.id-pw-find-parent .form-parent > div > .row > .col-md .box {
+		padding-left:0 !important;
+		padding-right:0 !important;
+	}
+
+	.member-page .bot-btn a {
+		font-weight:bold;
+	}
+
+	.member-page .page-title h2 {
+		font-size:46px;
+		letter-spacing: -0.02em;
+	}
+
+	.member-page .page-title p {
+		font-weight:bold;
+		font-size:13px;
+		line-height:21px;
+		letter-spacing: -0.05em;
+		margin-bottom:20px !important;
+	}
+
+	.join-page .join-form .join-agree-area > .join-all-agree-chk {
+		margin-top:20px !important;
+	}
+
+	.login-page .login-form .form-control {
+		height:55px;
+		padding-left:25px;
+	}
+
+	.login-page .login-form-menu > div span {
+		font-size:14px;
+		letter-spacing: -0.05em;
+		padding:15px 0 !important	;
+	}
+
+	.join-page .join-form .join-agree-area {
+		display:flex;
+		flex-direction: column;
+	}
+
+	.join-page .join-form .join-agree-area > .row {
+		order:2;
+	}
+
+	.join-page .join-form .join-agree-area > .join-all-agree-chk {
+		order:1;
+	}
+
+	.join-page .join-form .join-info-form .form-input {
+		padding:0 !important;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row:not(.form-email) > .col-md-2.col-auto {
+		order:1;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row:not(.form-email) > .col-auto {
+		order:2;
+	}
+
+	.join-page .form-area-title img {
+		width:25px;
+	}
+
+	.join-page .form-area-title h3 {
+		font-size:20px;
+		letter-spacing: -0.05em
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row label,
+	.join-page .join-form .join-info-form .form-input .form-row .form-text {
+		margin-bottom:10px;
+		font-weight:bold;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row label {
+		margin-left:-20px;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row {
+		justify-content:space-between;
+		padding-left:20px;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row .col-md-2.col {
+		padding-right:0 !important;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row .col-md.col-auto {
+		padding-left:0 !important;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row .form-text {
+		font-size:11px;
+	}
+
+	.join-page .join-form > .container {
+		padding:0 10px !important;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row .order-1 {
+		order:1 !important;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row .order-2 {
+		order:2 !important;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row .order-3 {
+		order:3 !important;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row .order-4 {
+		order:4 !important;
+	}
+
+	.join-page .join-form .join-info-form .form-input .form-row .order-5 {
+		order:5 !important;
+	}
+
+	.id-pw-find-parent .form-line {
+		width:100%;
+		height:1px;
+		background-color:#b8a07f;
+	}
+
+	.id-pw-find-parent > div {
+		padding:120px 0 80px;
+	}
+
+	.pw-find-complete-page .main-move-btn button {
+		width:100%;
+	}
+
+	.login-page .login-form-menu > div span {
+		line-height:20px;
+	}
+
+	.id-pw-find-page .form-row label {
+		font-size:15px;
+		font-family: 'NotoSansCJKkr-Medium' !important;
+		letter-spacing: -0.02em;
+	}
+
+	.id-pw-find-page .form-row button {
+		font-size:15px;
+		letter-spacing: -0.02em;
+		height:38px;
+		padding-left:10px;
+		padding-right:10px;
+	}
+
+	.id-pw-find-parent .custom-control-label h4 {
+		font-family: 'NotoSansCJKkr-Medium' !important;
+		letter-spacing: -0.02em;
+		font-size:17px;
+		margin-bottom:-5px;
+	}
+
+	.id-pw-find-page .page-title h1,
+	.pw-find-complete-page .page-title h1,
+	.id-find-complete-page .page-title h1 {
+		font-size:32px !important;
+		margin-bottom:0 !important;
+		margin-top:40px !important;
+	}
+
+	.custom-control-input {
+		width:20px;
+		height:20px;
+		margin-top:-2.5px;
+	}
+
+	.custom-control-label {
+		padding-left:15px;
+	}
+
+	.member-page .page-title h2 {
+		margin-bottom:8px !important;
+	}
+
+	.id-pw-find-parent .form-btn > button {
+		font-size:18px;
+	}
+
+	.custom-control-label::before {
+		width:20px;
+		height:20px;
+		border-radius:0 !important;
+		border:1px solid #bbb;
+		background-color:#dfdfdf;
+		margin-top:-2.5px;
+	}
+
+	.custom-control-label::after {
+		width:20px;
+		height:20px;
+		margin-top:-2.5px;
+	}
+
+}

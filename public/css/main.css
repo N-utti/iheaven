@@ -1,0 +1,444 @@
+#section > div {
+	padding:80px 0;
+}
+
+.sec-title h5 {
+	color:#666666;
+	font-size:20px;
+}
+
+.content-mobile-text,
+.content-mobile-text *
+ {
+	font-family:"Campton-BoldDEMO" !important;
+}
+
+.content-bg-text .row .col-auto span {
+	font-family:"Campton-BoldDEMO" !important;
+	font-size:11px;
+}
+
+.content-bg > div .bot-text {
+	font-family:"NotoSansCJKkr-Medium" !important;
+}
+
+.content-bg {
+	padding-top:64px;
+}
+
+.content-bg > div p {
+	font-size:15px;
+	line-height:24px;
+	letter-spacing:-0.05em;
+}
+
+.section1 img{
+	width: 100%;
+	overflow: hidden;
+}
+.section1 .sec-title h5 {
+	font-family:"Campton-BoldDEMO" !important;
+}
+.section1 .sec-list .box .sec1-text h5 {
+	font-size:24px;
+	color: #ddbf97;
+}
+.section1 .sec-list .box {
+	position:relative;
+    border-radius:20px;
+}
+.section1 .sec-list .box .sec1-text {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height:100%;
+	padding:44px !important;
+}
+.section1 .box .sec1-text p {
+	font-size: 16px;
+	line-height:24px;
+	letter-spacing:-0.05em;
+	color: white;
+	position: absolute;
+    bottom: 88px;
+    width: calc(100% - 88px);
+}
+.section1 .service-box-menu > div .col-3.active-box .box {
+	background-color:#ddbf97;
+}
+.section1 .service-box-menu > div .col-3 .box .menu-name h5 {
+	font-size:16px;
+	line-height:22px;
+}
+.section1 .service-box-menu > div .col-3.active-box .box .menu-name h5,
+.section1 .service-box-menu > div .col-3.active-box .box .menu-info p {
+	color:#222;
+}
+.section1 .service-box-menu > div .col-3 .box {
+	text-align:center;
+	height:120px;
+	display:flex;
+	align-items:center;
+	background-color:#222;
+	cursor:pointer;
+}
+.section1 .service-box-menu > div .col-3 .box .menu-name h5 {
+	color:#ddbf97;
+}
+.section1 .service-box-menu > div .col-3 .box .menu-info {
+	margin-top:0px;
+}
+.section1 .service-box-menu > div .col-3 .box .menu-info p {
+	font-size:11px;
+	color:#ddbf97;
+}
+.section1 .box .sec1-text .forward {
+	border: 1px solid rgba(255,255,255,0.5);
+    color: #fff;
+    font-size: 16px;
+    padding: 3px 8px 3px 12px;
+    display: inline-block;
+    position: absolute;
+    bottom: 35px;
+    border-radius: 100px;
+}
+.section1 .box .sec1-text .forward img {
+	height: 13px;
+    width: auto;
+    margin: 0 5px 4px;
+}
+
+.section2 .preview-image {
+	height:70vh;
+	overflow:hidden;
+}
+
+.section2 .preview-image .image-3 {
+	height:70vh;
+}
+
+.section2 .preview-image img {
+	width:100%;
+	/*margin-top:-50%;
+	transform:translateY(50%);*/
+	transform:translateY(-13%);
+}
+
+.section2 .slick-slide {
+   height:70vh;
+}
+.section2 .preview-image .image {
+	height:70vh;
+	display :flex !important;
+}
+.section2 .preview-image .image img {
+	height:100%;
+}
+.section2 .sec-image {
+	padding-top:2px;
+}
+.section2 .sec-image > div {
+	padding:0 1px;
+}
+
+.section2 .sec-image > div img {
+	
+}
+
+.section3 .sec-title h5 {
+	font-family:"Campton-BoldDEMO" !important;
+}
+
+.section3 .sec-img {
+	height:300px;
+	overflow: hidden;
+}
+
+.section3 .no-image,
+.section3 .image,
+.section3 .image-3 {
+	height:100%;
+}
+
+.section3 .image-3 img {
+	width: 100%;
+	min-height:100%;
+}
+.section3 .image-3{
+	
+}
+.section3 .container .sec3-bot{
+	overflow: hidden;
+}
+.sec3-bot .sec3-map .map-icon{
+	
+}
+.sec3-bot .sec3-map .map-icon img{
+	
+	width: 40px;
+}
+.section3 .sec3-bot .sec3-text{
+	font-size: 15px;
+}
+.section3 .sec3-bot .sec3-text h4{
+	font-size: 17px;
+	font-weight: 600;
+}
+.sec3-bot .sec-img {
+	position: relative;
+}
+.sec3-bot .sec-img p{
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 15px;
+	font-size:16px;
+	color: white;
+}
+
+.more-btn a {
+	color:#ddbf97;
+	font-size:14px !important;
+	font-family:"Campton-LightDEMO" !important;
+
+}
+
+.mobile-section .bot-info {
+	display:flex;
+	align-items:center;
+}
+
+.mobile-section.section3 .sec-title-text p {
+	font-size:14px;
+	color:#666;
+}
+
+.mobile-section .bot-info .more-btn a {
+	font-size:20px;
+}
+
+.more-btn a i {
+	font-size:13px !important;
+}
+
+.welcome-btn.updown {
+	display: block !important;
+    background-color: #bca280;
+    border-bottom: none !important;
+    text-align: center;
+}
+
+.welcome-btn.updown img {
+	display: block;
+    margin: 0 auto;
+}
+
+.welcome-btn.updown span {
+	margin-top: 5px;
+    display: block;
+    font-family: 'NotoSansCJKkr-Medium';
+}
+
+@media(max-width:1200px) {
+	.section1 .sec-list .box .sec1-text {
+		padding: 30px !important;
+	}
+}
+
+@media(max-width:767px) {
+	.section1 .sec-list {
+		margin-left:0;
+		margin-right:0;
+	}
+	.section1 .sec-list > div:not(.active-box) {
+		display:none;
+	}
+
+	#section > div {
+		padding:40px 0;
+	}
+	
+	.section1 .sec-list .box .sec1-text {
+		padding: 30px !important;
+	}
+
+	.mobile-section.section4 .no-image,
+	.mobile-section.section3 .no-image {
+		height:225px;
+	}
+
+	.mobile-section.section3 .image-3 {
+		height:225px;
+	}
+
+	.mobile-section.section4 .image {
+		height:225px;
+	}
+
+	.mobile-section.section3 .box .image {
+		height:225px;
+	}
+
+	.sec-title h5 {
+		font-size:20px;
+		font-family:"Campton-BoldDEMO" !important;
+	}
+}
+
+@media(max-width:991px) {
+	.section1 {
+		padding-bottom:80px !important;
+	}
+
+	.m-sec-title {
+		padding:35px 15px 20px !important;
+	}
+	.section1 .sec-list .box {
+		height:270px;
+	}
+	.section1 .sec-list .box img {
+		width:auto;
+		max-width:100%;
+		height:100%;
+	}
+	.section2 {
+		padding-left:20px !important;
+		padding-right:20px !important;
+		border-top:1px solid #ddd;
+	}
+	.section2 .preview-image {
+		height:50vh;
+	}
+
+	.section2 .slick-slide {
+	   height:50vh;
+}
+
+	.section2 .slide-image {
+		display:none;
+	}
+
+	.section2 .preview-image img {
+		width:120%;
+	}
+	
+	.section2 .preview-image {
+		height:265px;
+	}
+	.section2 .preview-image .image-3 {
+		height:265px;
+	}
+	.section2 .slick-slide {
+		height:265px;
+	}
+	.section2 .preview-image .image {
+		height:265px;
+	}
+
+	.section1 .sec-list .box .sec1-text h5 {
+		font-size:21px;
+	}
+
+	.section1 .box .sec1-text p {
+		letter-spacing: 0;
+		font-size:13px;
+		line-height:20px;
+		bottom: 68px;
+	}
+	.section1 .box .sec1-text .forward {
+		font-size: 13px;
+		padding: 2px 8px;
+	}
+	.section1 .box .sec1-text .forward img {
+		height: 10px;
+	}
+
+	.section1 .service-box-menu > div .col-3 .box .menu-name h5 {
+		font-size:16px;
+		line-height:21.5px;
+	}
+
+	.section1 .service-box-menu > div .col-3 .box .menu-info p {
+		font-size:11px;
+		/*color:#666;*/
+	}
+
+	.section1 .service-box-menu > div .col-3 .box {
+		height:100px;
+	}
+
+	.section2 .sec-title {
+		padding-top:0 !important;
+		padding-left:0 !important;
+		padding-right:0 !important;
+	}
+
+	.section2 .sec-title h5 {
+		font-size:20px;
+		font-family:"Campton-BoldDEMO" !important;
+	}
+
+	.section2 .sec-title p {
+		font-size:14px;
+		color:#666666;
+	}
+
+	.mobile-section.section3 {
+		padding:0 20px !important;
+	}
+
+	.mobile-section.section3 .sec-list > .row {
+		margin:0 -2.5px !important;
+
+	}
+
+	.mobile-section.section3 .sec-list > .row > div {
+		padding:0 2.5px !important;
+	}
+
+	.mobile-section.section3 .container-lg {
+		padding:40px 0 !important;
+		border-top:1px solid #ccc;
+	}
+
+	.mobile-section.section3 .sec-list .text-box {
+		padding:17px !important;
+		height:105px;
+	}
+
+	.mobile-section.section3 .title h6 {
+		font-size:13.2px;
+		color:#666;
+	}
+
+	.mobile-section.section3 .text p {
+		font-size:12px;
+		line-height:22px;
+		color:#666;
+		font-family: 'NotoSansCJKkr-Regular' !important;
+	}
+
+	.mobile-section.section4 {
+		padding:0 20px !important;
+	}
+
+	.mobile-section.section4 .container-lg {
+		padding:30px 0 60px !important;
+		/*border-top:1px solid #ccc;*/
+	}
+
+	.mobile-section.section4 .box h6 {
+		font-size:14px;
+	}
+
+	.mobile-section.section4 .box p {
+		font-size:12px;
+		color:#666;
+		font-family: 'NotoSansCJKkr-Medium' !important;
+	}
+
+	.mobile-section.section4 .box .text-box {
+		transform:translateY(25%);
+	}
+}

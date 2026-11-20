@@ -1,0 +1,888 @@
+.section{
+	height: 100vh;
+	/*background-image: url('/images/lucete/lucete-bg1.png');*/
+	position:relative;
+}
+.section .video-area {
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:-1;
+	background-color:#000;
+}
+
+.section .video-area:before {
+	content:"";
+	position:absolute;
+	left:-100px;
+	top:0;
+	width:calc(100% + 100px);
+	height:100%;
+	background-color:rgba(0, 0, 0, 0.8);
+}
+
+.section {
+	background-image:url('/images/lucete/lucete-bg.png');
+}
+
+.section .video-area video {
+	min-width:100%;
+	height:100%;
+}
+.section .title-text{
+	height: 100vh;
+	color: white;
+}
+.section .title-text h1{
+	font-family:"Campton-BoldDEMO" !important;
+	font-size: 70px;
+	font-weight: 600;
+	position:relative;
+}
+.section .title-text h1 img {
+	position:absolute;
+	bottom:60%;
+	left:-5px;
+
+}
+.section .title-text p{
+	font-size:20px;
+	font-weight: 200;
+}
+.section .title-text > div > img{
+	padding: 80px 0px;
+}
+
+.section2{
+	/*height: 100vh;*/
+	color: white;
+	background-image: url('/images/lucete/lucete-bg2.png');
+	padding: 15vh 0;
+}
+.section2 .img{
+	height: 350px;
+	overflow: hidden;
+}
+.section2 .img img{
+	width:180%;
+}
+.section2 .section2-area .sec-title .text-top h2{
+	font-family:"Campton-LightDEMO" !important;
+	font-weight:bold;
+	font-size: 35px;
+}
+.section2 .section2-area .sec-title > h2{
+	font-size: 45px;
+}
+.section2 .section2-area .line{
+	width: 100%;
+	background-color: #fff;
+	height: 1px;
+	margin: 20px 0px 40px;
+}
+.section2 .section2-area .preview-image {
+	width:100%;
+	height:65vh;
+}
+
+.section3{
+	height: 110vh;
+	background-image: url('/images/lucete/lucete-bg3.png');
+	background-position: left 73%;
+    background-size: 145%;
+}
+.section3 * {
+	color:#fff;
+}
+.section3 .text{
+	height: 110vh;
+}
+.section3 .text .text-box{
+	padding-bottom: 100px;
+	color: #fff;
+}
+.section3 .text .text-box .title-text-top {
+	/*margin-bottom:3px;*/
+}
+.section3 .text .text-box .title-text-top h2{
+	font-family:"Campton-LightDEMO" !important;
+	font-size: 35px;
+	line-height:35px;
+}
+.section3 .text .text-box > h2{
+	letter-spacing: -0.05em;
+	font-size: 45px;
+	position:relative;
+	display:inline-block;
+}
+.section3 .text .text-box > h2:before {
+	content:"";
+	position:absolute;
+	right:-150px;
+	bottom:20px;
+	width:100vw;
+	height:2px;
+	background-color:#fff;
+}
+.section3 .text .text-box p {
+	font-size:20px;
+	line-height:40px;
+}
+
+.section7{
+	background-color: #b19a7e;
+	height: 100vh;
+	text-align: center;	
+}
+.section7 .text-top h2 {
+	font-family:"Campton-BoldDEMO" !important;
+	letter-spacing: -0.02em;
+	font-size:35px;
+}
+.section7 .section7-content .products {
+	margin-top: 20px;
+}
+.section7 .section7-content{
+	height: 100vh;
+}
+.section7 .section7-content .w-100 p {
+	font-size: 18px;
+}
+.section7 .section7-content > div > h2 {
+	font-size:45px;
+	line-height:38px;
+	position: relative;
+    width: 309px;
+    display: inline-block;
+}
+.section7 .section7-content > div > h2 img {
+	position: absolute;
+    bottom: 40%;
+    left: 15px;
+}
+.section7 .section7-content .badge {
+	background-color: #7d6c57;
+	font-size: 16px;
+    padding: 2px 20px 5px;
+    border-radius: .7rem;
+}
+.section7 * {
+	color:#fff !important;
+}
+
+.section7 .section7-content .product-jewelry {
+	position: relative;
+	min-height: 1px;
+	padding:10px 5px 0;
+	float: left;
+	width: 25%;
+	text-align: left;
+}
+.section7 .section7-content .product-jewelry .title {
+	font-family: "Campton-BoldDEMO" !important;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 10px 0 2px;
+}
+.section7 .section7-content .product-jewelry ul li {
+	list-style: inside;
+	display: list-item;
+	font-size: 12px;
+}
+.section7 .section7-content .product-jewelry ul li span {
+	font-size: 10px;
+}
+.section7 .section7-content .product-jewelry .price {
+	font-family: "Campton-SemiBold" !important;
+	padding: 25px 0 0px;
+	font-size: 20px;
+}
+.section7 .section7-content .product-jewelry .prices {
+	padding-top: 13px;
+}
+.section7 .section7-content .product-jewelry .prices > div {
+	width: 50%;
+    float: left;
+}
+.section7 .section7-content .product-jewelry .prices .type {
+	display: block;
+    font-size: 12px;
+    padding-left: 22px;
+}
+.section7 .section7-content .product-jewelry .prices .price {
+	display: block;
+    padding: 0;
+    margin-top: -6px;
+}
+.section7 .section7-content .product-jewelry img {
+	width:100%;
+}
+
+.section4{
+	background-image: url('/images/lucete/lucete-bg4.png');
+	height: 100vh;
+	text-align: center;	
+}
+.section4 .text-top h2 {
+	font-family:"Campton-BoldDEMO" !important;
+	letter-spacing: -0.02em;
+	font-size:35px;
+}
+
+.section4 *,
+.section6 * {
+	color:#333 !important;
+}
+
+.section4 .section4-content > div > h2 {
+	font-size:45px;
+	line-height:38px;
+}
+.section4 .section4-content > div > p {
+	font-size:20px;
+}
+.section4 .text-top {
+	/*margin-bottom:3px;*/
+}
+.section4 .section4-content .img{
+	width: 100%;
+	height: 350px;
+	overflow: hidden;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+.section4 .section4-content .img img{
+	width: 100%;
+}
+.section4 .section4-content{
+	height: 100vh;
+}
+.section4 .section4-content .line{
+	width: 100%;
+	background-color: #222;
+	height: 2px;
+	margin: 27.5px 0px;
+}
+.section4 .section4-content .row .text p {
+	font-size:18px;
+	white-space: nowrap;
+	line-height:30px;
+}
+
+.section5{
+	height: 100vh;
+	background-image: url('/images/lucete/lucete-bg5.png');
+	color: white;
+}
+.section5 .section5-content{
+	height: 100vh;
+	padding: 100px 0px;
+}
+.section5 .section5-content .text-top > div > h2 {
+	position:relative;
+}
+.section5 .section5-content .text-top > div > h2:before {
+	content:"";
+	position:absolute;
+	right:0;
+	bottom:-20px;
+	width:100vw;
+	height:2px;
+	background-color:#fff;
+}
+.section5 .section5-content .text-top > div > h4{
+	font-family:"Campton-BoldDEMO" !important;
+	font-size: 35px;
+}
+.section5 .section5-content .text-top > div > h2{
+	font-size: 45px;
+}
+.section5 .section5-content .text-top p{
+	font-size:20px;
+	line-height: 40px;
+}
+.section5 .section5-content .img{
+	width: 100%;
+	overflow: hidden;
+}
+.section5 .section5-content .img img{
+	width: 100%;
+}
+.section5 .section5-content .text-bot{
+	text-align: right;
+	text-decoration: underline;
+}
+.section5 .section5-content .text-bot p {
+	/*font-weight:bold;*/
+	line-height:40px;
+	font-size:20px;
+}
+
+.section6{
+	height: 115vh;
+	background-image: url('/images/lucete/lucete-bg6.png');
+}
+.section6 .content{
+	height: 115vh;
+        padding: 100px 0px;
+}
+.section6 .content > div > div > h2{
+	font-size: 45px;
+	position:relative;
+}
+.section6 .content > div > p {
+	font-size:20px;
+}
+.section6 .content > div > div > h2:before {
+	content:"";
+	position:absolute;
+	right:0;
+	bottom:-15px;
+	width:100vw;
+	height:2px;
+	background-color:#222;
+}
+.section6 .content > div > div > h4{
+	font-size: 35px;
+	font-family:"Campton-BoldDEMO" !important;
+}
+.section6 .content .img{
+	width: 100%;
+	height:330px;
+	overflow: hidden;
+}
+.section6 .content .img img{
+	width: 100%;
+}
+.section6 .content .text-bot{
+	text-decoration: underline;
+	line-height: 33px;
+}
+
+.section6 .content .text-bot p { 
+	font-size:20px;
+	line-height:40px;
+	font-weight:bold;
+}
+.section6 .content .button button{
+	padding: 8px 30px;
+	background-color: transparent;
+	border: 2px solid #000;
+	color:#111 !important;
+	font-weight:bold;
+}
+
+.yt-section {
+	padding:200px 0;
+	background-color:#333;
+}
+
+.yt-section .sec-logo {
+	text-align:center;
+	margin-bottom:20px;
+}
+
+.yt-section .sec-title {
+	text-align:center;
+	margin-bottom:90px;
+}
+
+.yt-section .sec-title * {
+	color:#fff;
+}
+
+.yt-section .sec-title h4 {
+	font-size:51px;
+	margin-bottom:7px;
+}
+
+.yt-section .sec-title h6 {
+	font-size:23px;
+	margin-bottom:25px;
+	font-family:"Campton-BoldDEMO" !important;
+	letter-spacing: -0.02em;
+}
+
+.yt-section .sec-title p {
+	font-size:20px;
+	opacity:0.2;
+}
+
+.yt-section .col-md-4 .vid-text {
+	text-align:center;
+}
+
+.yt-section .col-md-4 .vid-text p {
+	color:#fff;
+	font-size:20px;
+	letter-spacing: -0.05em;
+	margin-top:13px;
+    margin-bottom:13px;
+}
+
+@media(min-width:768px) {
+	.section6 .row {
+		margin-left:0 !important;
+		margin-right:0 !important;
+		justify-content:space-between;
+	}
+
+	.section6 .row > div {
+		max-width:32.5%;
+		flex: 0 0 32.5%;
+		padding:0 !important;
+	}
+	
+	.d-md-item {
+		display: list-item !important;
+	}
+}
+
+@media(max-width:1400px) {
+	.section2 .img{
+		height:20vw;
+	}
+}
+
+@media(max-width:1200px) {
+	.section4 .section4-content .row .text p {
+		white-space:normal;
+		font-size:12px;
+		letter-spacing: -0.05em;
+		line-height:20px;
+	}
+}
+
+@media(max-width:991px) {
+	.section2 .img{
+		height: 200px;
+	}
+}
+
+@media(max-width:767px) {
+	.yt-section {
+		padding:100px 0;
+		background-color:#333;
+	}
+
+	.yt-section .sec-logo {
+		margin-bottom:10px;
+	}
+
+	.yt-section .sec-logo img {
+		width:130px;
+	}
+
+	.yt-section .col-md-4:not(:last-child) {
+		margin-bottom:50px;
+	}
+
+	.yt-section .sec-title h4 {
+		font-size:23px;
+	}
+
+	.yt-section .sec-title h6 {
+		font-size:10px;
+	}
+
+	.yt-section .sec-title p {
+		opacity:1;
+		font-size:13px;
+	}
+
+	.yt-section .col-md-4 .vid-text p {
+		font-size:13px;
+	}
+
+	.section2 .text,
+	.section3 .text,
+	.section4 .section4-content,
+	.section5 .section5-content,
+	.section6 .content,
+	.section7 .section7-content {
+		height:auto;
+	}
+
+	.section5 .section5-content > .row {
+		margin-left:2.5px !important;
+	}
+
+	.section2,
+	.section3,
+	.section4,
+	.section5,
+	.section6 {
+		height:auto;
+		padding:80px 0;
+	}
+	
+	.section7 {
+		height:auto;
+		padding:80px 0;
+	}
+
+	.section5 .section5-content {
+		padding:0;
+	}
+
+	.section2 .section2-area .sec-title .text-top h2 {
+		margin-bottom:5px;
+		font-size:10px;
+		letter-spacing: -0.02em
+	}
+
+	.section2 .section2-area .sec-title > h2 {
+		font-size:23px;
+	}
+
+	.section2 .sec-list {
+		margin:0 -20px !important;
+	}
+
+	.section2 .preview-image {
+		margin-top:5px;
+	}
+
+	.section .title-text h1 img {
+		left:0;
+	}
+
+	.section {
+		height:390px;
+	}
+
+	.section .title-text {
+		height:390px;
+	}
+
+	.section .title-text .lucete-top-logo {
+		position:absolute;
+		left:15px;
+		top:50%;
+		transform:translateY(-50%);
+		margin-top:30px;
+	}
+
+	.section2 .sec-list {
+		margin-left:-2.5px !important;
+	}
+
+	.section2 .sec-list .col-4 {
+		margin-left:5px;
+		padding:0 !important;
+	}
+
+	.section3 .text .text-box .title-text-top h2{
+		font-size: 14px;
+	}
+
+	.section2 .img{
+		height:145px;
+		/*height: 30vw;*/
+	}
+
+	.section5 .section5-content .text-top > div > h4{
+		font-size: 10px;
+		margin-bottom:7px;
+	}
+
+	.section3 {
+		background-position: 18% 80%;
+		background-size:200%;
+	}
+
+	.section3 .text .text-box {
+		padding-bottom:0;
+		margin-top:50px;
+	}
+
+	.section3 .text .text-box > h2 {
+		position:relative;
+		display:inline-block;
+		padding-bottom:20px !important	;
+	}
+
+	.section3 .text .text-box p {
+		margin-top:17px;
+		font-size:13px;
+		letter-spacing: -0.05em;
+		line-height:21px;
+	}
+
+	.section3 .text .text-box > h2:before {
+		content:"";
+		position:absolute;
+		right:0;
+		bottom:0;
+		width:100vw;
+		height:2px;
+		background-color:#fff;
+	}
+
+	.section4 .section4-content {
+		text-align:center;
+	}
+
+	.section4 .section4-content > div > p {
+		font-size:13px;
+		letter-spacing: -0.05em;
+		margin-left:0;
+		width:100%;
+		text-align:center;
+		margin-bottom:0 !important;
+	}
+
+	.section5 .section5-content > .row > div {
+		padding:0 !important;
+	}
+
+	.section5 .section5-content .text-top p {
+		font-size:13px;
+		line-height:21px;
+	}
+
+	.section5 .section5-content .text-top > div > h2{
+		font-size: 23px;
+	}
+
+	.section5 .section5-content .text-bot p {
+		font-size:13px;
+		line-height:28px;
+		letter-spacing: -0.05em;
+		font-family: 'NotoSansCJKkr-Regular' !important;
+	}
+
+	.section4 .section4-content .text-top h2 {
+		font-size:10px;
+		letter-spacing: -0.02em;
+	}
+
+	.section4 .section4-content > div > h2 {
+		font-size:23px;
+		line-height:25px;
+	}
+
+	.section4 .section4-content .row > .col-md-4 > .line {
+		display:none;
+	}
+
+	.section4 .section4-content .row > .col-md-4 {
+		display:flex;
+		flex-wrap:wrap;
+		align-items:center;
+		border-bottom:1px solid #333;
+		padding-top:15px;
+		padding-bottom:15px;
+	}
+
+	.section4 .section4-content .row > .col-md-4:last-child {
+		border-bottom:0;
+	}
+
+	.section4 .section4-content .row > .col-md-4 > .img {
+		width:50%;
+		height:130px;
+	}
+
+	.section4 .section4-content .row > .col-md-4 > .text {
+		width:50%;
+		text-align:left;
+		padding:0 0 0 16px;
+		line-height:25px;
+		display:flex;
+		align-items:center;
+	}
+
+	.section4 .section4-content .row > .col-md-4 > p br {
+		display:none;
+	}
+
+	.section5 .text-top {
+		text-align:center;
+	}
+
+	.section5 .section5-content .img {
+		text-align:center;
+	}
+
+	.section5 .section5-content .img img {
+		width:80%;
+	}
+
+	.section5 .section5-content .text-top {
+		margin-bottom:20px;
+	}
+
+	.section5 .section5-content .text-top > div > h2 {
+		width:100%;
+	}
+
+	.section5 .section5-content .text-top > div > h2:before {
+		content:"";
+		width:100%;
+		left:0;
+		height:1px;
+		bottom:-15px;
+		background-color:#ccc;
+	}
+
+	.section5 .section5-content .text-bot {
+		text-align:center;
+		margin-top:30px;
+	}
+
+	.section5 .section5-content .text-top > p br {
+		display:none;
+	}
+
+	.section5 {
+		background-image:url('/images/lucete/lucete-bg2-m.png');
+	}
+
+	.section6 .content > div > div > h4 {
+		font-weight:bold !important	;
+		font-size:10px;
+		letter-spacing: -0.02em;
+		margin-bottom:5px;
+	}
+
+	.section6 .content > div > p {
+		padding-top:35px !important;
+		padding-bottom:35px !important;
+		font-size:13px;
+		line-height:21px;
+		letter-spacing: -0.05em;
+	}
+
+	.section6 .content > div > div > h2 {
+		font-weight:bold !important	;
+		font-size:23px;
+		line-height:33px;
+		font-weight:normal;
+		display:inline-block;
+	}
+
+	.section6 .content > div > div > h2:before {
+		height:1px;
+		background-color:#333;
+	}
+
+	.section6 .content .text-bot p {
+		font-size:13px;
+		letter-spacing: -0.05em;
+		line-height:26px;
+	}
+
+	.section6 .content .row {
+		justify-content:space-between;
+		padding:0 !important;
+		margin-left: -2.5px !important;
+		margin-right: -2.5px !important;
+		padding-bottom:35px !important;
+	}
+
+	.section6 .content .row > div {
+		max-width:33.33%;
+		padding:0 2.5px;
+	}
+
+	.section6 .content .bot-info {
+		flex-direction: column;
+		align-items:flex-start !important;
+	}
+
+
+	.section6 .content .bot-info .button {
+		text-align:left;
+		width:100%;
+		margin-top:30px;
+	}
+
+	.section6 .content .bot-info .button img {
+		width:70px;
+	}
+
+	.section6 .content .img{
+		width: 100%;
+		height:125px;
+		overflow: hidden;
+	}
+
+	.section .title-text h1 {
+		font-size:30px;
+		letter-spacing: -0.02em;
+	}
+
+	.section .title-text p {
+		font-size:13px;
+	}
+
+	.section .title-text h1 img {
+		width:100%;
+	}
+
+	.section .title-text > div > img {
+		width:70px;
+	}
+
+	.section7 .section7-content .product-jewelry {
+		width: 50%;
+		padding: 10px 2px 20px;
+	}
+					
+	.section7 .section7-content .products {
+		padding: 0 10px;
+	}
+	
+	.section7 .section7-content .w-100 p {
+		font-size: 11px;
+	}
+	
+	.section7 .section7-content .w-100 p ~ p {
+		margin-bottom: 10px !important;
+	}
+	
+	.section7 .section7-content .product-jewelry .price {
+		padding: 0 0 5px;
+		font-size: 14px;
+		margin-top: -5px;
+	}
+	.section7 .section7-content .product-jewelry .price.price2 {
+		font-size: 10px;
+		padding: 0 0 7px;
+	}
+
+	.d-item {
+		display: list-item !important;
+	}
+	
+	.section7 .section7-content .product-jewelry ul li {
+		font-size: 12px;
+	}
+	
+	.section7 .section7-content .badge {
+		font-size: 12px;
+	}
+	
+	.section7 .section7-content .products {
+		margin-top: 8px;
+	}
+	
+	.section7 .section7-content .product-jewelry .title {
+		font-size: 17px;
+	}
+	.section7 .section7-content > div > h2 {
+		font-size: 35px;
+	}
+	.section7 .section7-content > div > h2 img {
+		bottom: 35%;
+		left: 35px;
+		width: 250px;
+	}
+	.section7 .title-img img {
+		width: 200px;
+	}
+}

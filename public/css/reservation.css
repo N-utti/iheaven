@@ -1,0 +1,778 @@
+.custom-control-input {
+	width:20px;
+	height:20px;
+}
+
+.custom-control-label::before {
+	width:20px;
+	height:20px;
+}
+
+.custom-control-label::after {
+	width:20px;
+	height:20px;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color:#ddbf97;
+}
+
+.reserve-page .step-parent hr {
+	background-color:#FCE9CD;
+}
+
+.reserve-page .step-area {
+	margin:80px 0;
+}
+
+.reserve-page .reservation-time label {
+	font-family: 'Campton-BoldDEMO' !important;
+	width:100%;
+	padding:5px 0;
+	border:1px solid #ddd;
+	text-align:center;
+	font-weight:bold;
+}
+
+.reserve-page .reservation-time label.disabled {
+	background-color: #aaa;
+	color: #fff;
+	cursor: unset;
+}
+
+.reserve-page .reservation-time .col-3.non-active label {
+	background-color:#ededed !important;
+	/*color:#fff;*/
+}
+
+.reserve-page .reservation-time .col-3.active-time label {
+	background-color:#bca280;
+	color:#fff;
+}
+
+#calendar {
+	height:350px;
+}
+
+.reserve-page .step-1 #calendar tr td {
+	/*height:40px;
+	padding:0;*/
+	text-align:center;
+	font-weight:bold;
+}
+
+.reserve-page .step-1 #calendar tr td span.prev-date {
+	/*background-color:#333;
+	color:#fff;*/
+}
+
+.step-2 .baby-info > .row > div > .box {
+	padding:40px;
+	border:1px solid #ddd;
+}
+
+.reservation-bot-info {
+	width:100%;
+	height:170px;
+	background-image:url('/images/reservation/re-bot-bg.png');
+}
+
+.reservation-bot-info img {
+	width:85px;
+}
+
+.reservation-bot-info .box {
+	display:flex;
+	justify-content:center;
+	flex-direction: column;
+	padding:0 80px;
+}
+
+.reservation-bot-info .box-text {
+	margin-top:10px;
+}
+
+.reservation-bot-info .box-text p {
+	font-family: 'NanumMyeongjo';
+	font-size:22px;
+	/*font-weight:bold;*/
+	color:#333;
+}
+
+.re-cancel-text {
+	font-size:15px;
+	margin-top:20px;
+}
+
+.btn-check-guardian {
+	width: 73px;
+    height: 32px !important;
+    font-size: 15px;
+    padding: 0 !important;
+}
+
+
+.reserve-page .step-2 .kg-text {
+	right:0;
+	top:50%;
+	right:20px;
+	transform:translateY(-50%);
+}
+
+
+.reserve-page .agree-chk .more-btn {
+	text-decoration: underline !important;
+}
+
+.reserve-page .mandatory-chk
+{
+	text-decoration: underline !important;
+	font-size: 13px;
+	color: #de5271;
+}
+.reserve-page .guardian-chk-block {
+	display: block;
+}
+
+.reserve-page .guardian-chk-area2
+{
+	text-align: right;
+    margin-top: 22px;
+    float: right;
+    padding-right: 8px;
+}
+
+.reserve-page .guardian-chk-area1 {
+	float: right;
+    width: 83px;
+    max-width: 83px;
+    margin-top: 20px;
+}
+
+.reserve-date .show-toggle {
+	background-color:#eeeeee;
+	padding:25px 20px;
+}
+
+.reserve-date .calendar-parent {
+	padding:25px 60px 55px;
+}
+
+.select-complete {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background-color:rgba(0, 0, 0, 0.6);
+	display:flex;
+}
+
+.select-complete .step-name {
+	margin-bottom:15px;
+}
+
+.select-complete .step-name h5 {
+	font-size:14px;
+	font-family:"Campton-BoldDEMO" !important;
+}
+
+.select-complete .complete-parent > ul {
+	margin-bottom:20px;
+}
+
+.select-complete .complete-parent > ul > li {
+	font-size:20px;
+	font-weight:bold;
+	line-height:30px;
+}
+
+.select-complete .complete-parent > ul > li:nth-child(2) {
+	color:#e4d0b6;
+}
+
+.select-complete .complete-parent .reselect-btn {
+	color:#333;
+	background-color:#ead5b9;
+	border:0;
+	padding:4px 20px;
+	font-weight:bold;
+	font-family:"NotoSans-Medium" !important;
+	font-size:14px;
+}
+
+.reserve-date .calendar-parent > .calendar-div {
+	height:100%;
+}
+
+.reserve-date .calendar-parent > .calendar-div > .calendar-btn {
+	position:absolute;
+	top:50%;
+	transform:translateY(-50%);
+	border-radius:50%;
+	width:25px;
+	height:25px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border:1px solid #ddbf97;
+}
+
+.reserve-date .calendar-parent > .calendar-div > .calendar-btn i {
+	line-height: 33px;
+	color:#ddbf97;
+	font-size:14px;
+}
+
+.reserve-date .calendar-parent table .calendar-btn {
+	border-radius:50%;
+	width:25px;
+	height:25px;
+	text-align:center;
+	border:1px solid #ddbf97;
+	color:#ddbf97;
+	position:relative;
+	transform:translateY(25%);
+}
+
+.reserve-date .calendar-parent table .calendar-btn label {
+	width:100%;
+	height:100%;
+}
+
+.reserve-date .calendar-parent table .calendar-btn label i {
+	line-height:25px;
+	color:#ddbf97;
+	font-size:14px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform:translate(-50%, -50%);
+}
+
+
+.reserve-date .calendar-active-info {
+	width:100%;
+	height:33px;
+	line-height:33px;
+	background-color:#eee;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+.reserve-date .calendar-active-info span { 
+	font-size:14px;
+}
+
+.reserve-date .calendar-parent .prev-date {
+	background-color:#ededed;
+	/*color:#fff;*/
+}
+
+.reserve-date .calendar-parent .span-day.active-day {
+	background-color:#bca280;
+	color:#fff;
+}
+
+.reserve-date .calendar-parent .span-day {
+	width:30px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	display:inline-block;
+	border-radius:50%;
+	cursor:pointer;
+	/*background-color:#bca280;
+	color:#fff;*/
+}
+
+.reserve-date .calendar-parent table tbody tr td {
+	text-align:center;
+}
+
+.reserve-date .calendar-parent > .calendar-div > .calendar-left-btn {
+	left:4%;
+}
+
+.reserve-date .calendar-parent > .calendar-div > .calendar-right-btn {
+	right:4%;
+}
+
+/*예약 완료 페이지*/
+.reservation-complete .main-move-btn {
+	margin-top:30px;
+}
+
+.reservation-complete .main-move-btn button {
+	width:100%;
+}
+
+.reservation-complete {
+	padding:100px 0;
+}
+.reservation-complete .box table {
+	min-width:100%;
+	width:450px;
+}
+
+.reservation-complete .box table tbody tr td:nth-child(1) {
+	background-color:#ccc;
+	text-align:center;
+}
+
+.reservation-complete .box table tbody tr td:nth-child(2) {
+	background-color:#eee;
+	padding-left:20px;
+	text-align:left;
+}
+
+@media(min-width:992px) {
+	.reserve-page-cont {
+		margin-top:180px !important;
+		margin-bottom:150px !important; 
+	}
+	
+	.standby-page-cont {
+		margin-top:220px !important;
+		margin-bottom:120px !important; 
+	}
+}
+
+@media(max-width:991px) {
+	.reserve-page-cont  {
+		margin-bottom:0 !important;
+	}
+
+	.reserve-page > .container-lg {
+		padding:0;
+	}
+
+	.reserve-mobile-page .step-parent {
+		padding:0 15px;
+	}
+
+	.reserve-page .page-title {
+		background-color:#eeeeee;
+		padding:50px 20px;
+		margin:0 -20px;
+	}
+
+	.reserve-page .page-title .page-title-text {
+		margin-bottom:20px;
+	}
+
+
+	.reserve-page .page-title .page-title-text p {
+		color:#222 !important;
+		margin-top:10px;
+	}
+
+	.reserve-mobile-page .info-complete {
+		color:#bca280;
+		text-align:right;
+	}
+
+	.reserve-mobile-page .step-2 {
+		margin-bottom:30px;
+	}
+
+	.reserve-mobile-page .step-3 {
+		margin-top:30px;
+	}
+	
+	.reserve-page .step-area .step-title {
+		margin-bottom:30px !important;
+	}
+
+	.step-2 .form-row .col-md-3 {
+		margin-bottom:10px;
+	}
+
+	.step-2 .baby-info > .row {
+		padding:0 15px;
+	}
+
+	.step-3 > .reservation-btn {
+		height:80px;
+		width:100%;
+		margin-top:50px;
+	}
+
+	.step-3 > .reservation-btn button {
+		font-size:26px;
+		width:100%;
+		padding:20px 0 !important;
+	}
+
+	.reserve-mobile-page hr {
+		background-color:#EBDCC7;
+	}
+
+	.step-3 .agree-chk .more-btn {
+		color:#DE267B;
+		margin-left:7px !important;
+		/*margin-top:5px;*/
+		font-size:14px;
+	}
+
+	.step-3 {
+		/*padding:0 15px;*/
+	}
+
+	.step-3 .agree-text {
+		font-size:14px;
+	}
+
+	.step-3 > .box {
+		padding:20px !important;
+	}
+
+	.step-3 > .box > .d-flex > div {
+		width:100%;
+	}
+
+	.step-3 > .box .agree-chk label span {
+		font-size:13.2px;
+		/*font-family: 'NotoSansKR-Medium' !important;*/
+	}
+
+	.step-3 > .box .agree-chk label span > span {
+		font-size:10px;
+	}
+	
+	.standby-page .page-title {
+		padding-top:58px !important;
+	}
+	.standby-page .btn-boxes {
+    	margin-top: 30px !important;
+    	margin-bottom: 64px;
+	}
+	.standby-page .btn-box {
+		width: 310px !important;
+		height: 95px !important;
+		margin: 6px 0 !important;
+	}
+	.standby-page .btn-box .header {
+		height: 36px !important;
+	}
+	.standby-page .btn-box .title {
+		margin-top: 44px !important;
+	}
+	.standby-page .btn-box span {
+		display: inline-block !important;
+	}
+}
+
+#calendar *:not(i) {
+	font-family: 'Campton-BoldDEMO' !important;
+}
+
+#calendar tbody > tr:nth-child(1) td {
+	padding-bottom:15px !important;
+}
+#calendar #tbCalendarYM {
+	font-size:24px;
+	font-family: 'Campton-BoldDEMO' !important;
+	letter-spacing: -0.05em;
+}
+#calendar tr td,
+#calendar tr th {
+	font-size:15px;
+	letter-spacing: 0;
+}
+
+@media(min-width:768px) {
+	.reserve-page .reservation-time > .border {
+		border:1px solid #ddd !important;
+	}
+}
+
+@media(max-width:767px) {
+	#calendar *:not(i) {
+		font-family: 'Campton-BoldDEMO' !important;
+	}
+	#calendar tbody > tr:nth-child(1) td {
+		padding-bottom:15px !important;
+	}
+	#calendar #tbCalendarYM {
+		font-size:24px;
+		font-family: 'Campton-BoldDEMO' !important;
+		letter-spacing: -0.05em;
+	}
+	#calendar tr td,
+	#calendar tr th {
+		font-size:15px;
+		letter-spacing: 0;
+	}
+
+	#calendar {
+		height:300px;
+	}
+
+	.step-parent .step-title {
+		padding:0 !important;
+	}
+
+	.step-2 .baby-info > .row > div {
+		padding:0 !important;
+	}
+
+	.step-2 .baby-info > .row > div > .box {
+		padding:35px 20px !important;
+	}
+
+	.time-select-parent > div > div > div {
+		padding:0 5px;
+	}
+
+	.step-2 label {
+		font-size:13.5px;
+	}
+
+	.time-select-parent * {
+		font-family: 'Campton-BoldDEMO' !important;
+	}
+	}
+	.show-toggle h4 {
+		font-family: 'Campton-BoldDEMO' !important;
+		font-size:20px;
+		letter-spacing: 0em;
+	}
+	.step-parent .step-title {
+		padding:0 15px;
+	}
+	.step-parent .step-title p {
+		margin-left:0 !important;
+		font-size:14px;
+		letter-spacing: 0.05em;
+	}
+	.step-parent .step-title h5 {
+		font-size:23px;
+	}
+	.step-parent .step-title .bg-secondary {
+		font-size:12px;
+	}
+	.reserve-page .step-parent hr {
+		display:none;
+	}
+
+	.reserve-page .reservation-time .time-select-parent {
+		padding:10px 0;
+	}
+
+	.reserve-page .reservation-time > .border {
+		/*border:0 !important;*/
+	}
+
+	.reserve-page .page-title h2 {
+		font-family: 'NotoSansCJKkr-Medium' !important;
+		font-weight:normal;
+		font-size:33px;
+		letter-spacing: -0.05em;
+	}
+
+	.reserve-page .page-title .page-title-bot-text p {
+		font-size:13px;
+		line-height:20px;
+		font-weight:normal !important;
+	}
+
+	.reserve-page .page-title .page-title-text p {
+		font-family: 'Campton-LightDEMO' !important;
+		font-weight:bold !important;
+		font-size:16.6px !important;
+		letter-spacing: -0.05em;
+	}
+
+	
+
+	.reserve-page .page-title img {
+		width:73px;
+	}
+
+	.reserve-page .step-parent .reserve-date > .row > div {
+		margin-bottom:40px;
+	}
+
+	.reserve-page .step-area {
+		margin:30px 0;
+	}
+
+	.reserve-date .calendar-parent > .calendar-div {
+		padding:30px 45px 40px;
+		/*display:none;*/
+		height:auto;
+	}
+
+	.reserve-date .time-select-parent {
+		/*display:none;*/
+	}
+
+	.reserve-page .step-1 #calendar tr td {
+		padding:6px 0;
+	}
+
+	.reserve-date .calendar-parent {
+		padding:0 !important;
+	}
+
+	.reserve-date > .row > div > .box {
+		padding:0 0px;
+	}
+
+	.reserve-date > .row > div > .box {
+		display:flex;
+		align-items:center;
+
+	}
+
+	.step-1 .select-complete {
+		width:100%;
+		/*width:calc(100% - 30px);*/
+		left:0;
+	}
+
+	/*에약 완료 페이지*/
+	.reservation-complete .page-title h3 {
+		font-size:24px;
+	}
+
+	.step-2 .baby-info > .row > div > .box {
+		/*padding:40px 45px;*/
+	}
+
+	.step-3 .agree-area label,
+	.step-3 .agree-area label b {
+		font-size:16px !important;
+	}
+
+	.reservation-bot-info.d-md-none {
+		width:100%;
+		height:200px;
+		background-image:url('/images/reservation/re-bot-bg-m.png');
+	}
+
+	.reservation-bot-info.d-md-none .box-text p {
+		font-size:14.5px;
+		letter-spacing: -0.05em;
+		line-height:23px;
+	}
+
+	.reservation-bot-info.d-md-none img {
+		width:55px;
+	}
+
+	.reservation-bot-info.d-md-none .box {
+		padding:0 20px;
+	}
+	
+	.standby-page .page-title h2 {
+		font-family: 'NotoSansCJKkr-Medium' !important;
+		font-weight:normal;
+		font-size:35px;
+		letter-spacing: -0.05em;
+	}
+	
+	.standby-page .btn-boxes {
+		margin-top: 40px;
+		display: flex;
+		justify-content: center;
+	    align-items: center;
+	}
+	
+	.standby-page .btn-box {
+		width: 320px;
+		height: 135px;
+		border-radius: 13px;
+		display: inline-block;
+		margin: 0 12px;
+		position: relative;
+		cursor: pointer;
+	}
+	.standby-page .btn-local {
+		background-color: #bca280;
+	}
+	.standby-page .btn-naver {
+		background-color: #08c059;
+	}
+	.standby-page .btn-box .header {
+		display: flex;
+		position: absolute;
+		top: 0;
+		height: 45px;
+		width: 100%;
+		align-items: flex-end;
+	}
+	.standby-page .btn-local .header {
+		height: 54px;
+	}
+	.standby-page .btn-local .header img {
+		margin-left: 120px;
+		width: 80px;
+	}
+	.standby-page .btn-naver .header img {
+		margin-left: 133px;
+	}
+	.standby-page .btn-box span {
+		font-size: 20px;
+		color: #fff;
+		display: block;
+	}
+	.standby-page .btn-box .title {
+		margin-top: 50px;
+		font-family: 'NotoSansCJKkr-Bold' !important;
+	}
+	.standby-page .btn-local .title {
+		margin-top: 50px;
+	}
+	.standby-page .btn-box .reserve {
+		font-family: 'NotoSansCJKkr-Regular' !important;
+		margin-top: -4px;
+	}
+	.standby-page .btn-local .reserve {
+		display: inline-block;
+		margin-top: 65px;	
+	}
+}
+
+@media(max-width:767px) {
+	.reserve-page .time-parent {
+		border :1px solid #ddd !important;
+	}
+
+	.reserve-date .calendar-active-info {
+		display:none !important;
+	}
+	
+}
+
+@media screen and (max-width: 768px) {
+	.reserve-page .guardian-chk-area
+	{
+		text-align: center;
+	}
+	.reserve-page .guardian-chk-area2
+	{
+		text-align: center;
+		margin-top: 10px;
+	}
+	.reserve-page .guardian-chk-area1
+	{
+		text-align: center;
+    	width: 100%;
+	    max-width: 100%;
+	    margin-top: 10px;
+	}
+	.standby-page .btn-box {
+		display: block;
+		margin: 6px auto !important;
+	}
+	.standby-page .btn-boxes {
+		display: block;
+	}
+	.standby-page .btn-local .title,
+	.standby-page .btn-local .reserve {
+		margin-top: 44px !important;
+	}
+}

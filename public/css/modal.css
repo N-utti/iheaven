@@ -1,0 +1,440 @@
+.open-modal-image {
+    cursor:pointer;
+}
+
+.custom-modal {
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.custom-modal .modal-content > .content {
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.custom-modal .modal-close {
+    position:absolute;
+    right:0;
+    bottom:calc(100%);
+}
+
+.custom-modal .modal-close .btn {
+    padding:0 !important;
+    }
+
+.custom-modal .modal-content {
+    width:auto;
+    max-width:100%;
+    padding:40px;
+    border:3px solid #bca280;
+}
+
+.custom-modal .modal-content > .title {
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/*비회원 예약조회*/
+.non-login-lookup .lookup-info table {
+    min-width:100%;
+    width:450px;
+}
+
+.non-login-lookup .lookup-info table tbody tr td:nth-child(1) {
+    background-color:#ccc;
+    text-align:center;
+}
+
+.non-login-lookup .lookup-info table tbody tr td:nth-child(2) {
+    background-color:#eee;
+    padding-left:20px;
+}
+
+
+/*사이트맵*/
+#sitemap-modal .modal-content {
+    max-width:95%;
+    width:65vw;
+}
+
+#sitemap-modal .site-title {
+    text-align:center;
+    background-color:#bca280;
+    height:45px;
+    line-height:17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+#sitemap-modal .site-title span {
+    font-size:16px;
+    color:white;
+}
+
+#sitemap-modal .content > .row > .col {
+    padding:0 5px;
+}
+
+#sitemap-modal .content > .row > .col .etc-site-list {
+    margin-top:135px;
+}
+
+#sitemap-modal .content > .row > .col .etc-site-list .site-title {
+    height:35px;
+    margin-bottom:8px;
+}
+
+#sitemap-modal .content > .row > .col .fs-20  {
+    font-size:20px;
+}
+
+#sitemap-modal .content .site-list {
+    margin-top:15px;
+}
+
+#sitemap-modal .content .site-list > ul > li {
+    line-height:40px;
+    text-align:center;
+    border-bottom:1px solid #ccc;
+}
+
+#sitemap-modal .content .site-list > ul > li:last-child {
+    border-bottom:0;
+}
+
+#sitemap-modal .content .site-list > ul > li a {
+    color:#222;
+}
+
+#sitemap-modal .content {
+    position:relative;
+}
+
+#sitemap-modal .content .sitemap-info {
+    position:absolute;
+    left:0;
+    bottom:0;
+}
+
+#sitemap-modal .content .sitemap-info p {
+    font-size:14px;
+}
+
+/*이용약관 모달*/
+.agree-modal .agree-area {
+    width:45vw;
+    height:300px;
+    padding:10px;
+    background-color:#f2ece6;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.agree-modal .agree-area pre {
+    /*word-break: break-all;*/
+    white-space:pre-wrap;
+    overflow:hidden;
+    font-size:13px;
+}
+
+/* width */
+.agree-modal .agree-area::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.agree-modal .agree-area::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+.agree-modal .agree-area::-webkit-scrollbar-thumb {
+    width:15px;
+  background: #bca280; 
+}
+
+/* Handle on hover */
+.agree-modal .agree-area::-webkit-scrollbar-thumb:hover {
+  background: #a38256;
+}
+
+.agree-modal .agree-area {
+  scrollbar-face-color: #bca280;
+  scrollbar-track-color: #f2ece6;
+  scrollbar-arrow-color: none;
+  scrollbar-highlight-color: #000;
+  scrollbar-3dlight-color: none;
+  scrollbar-shadow-color: #e0e0e0;
+  scrollbar-darkshadow-color: none;
+  scrollbar-arrow-color: #f2ece6;
+}
+
+/*이미지 모달*/
+#image-modal .modal-content {
+    padding:0;
+    border:0;
+    max-width:75vw;
+    max-height:75vh;
+    border-radius:0;
+    background-color:transparent !important;
+}
+
+#image-modal .modal-content .content {
+    background-color:transparent !important;
+}
+
+#image-modal .modal-content .image-area {
+    width:75vw;
+    height:75vh;
+    background-color:transparent !important;
+}
+
+#image-modal-height-full .modal-content {
+    padding:0;
+    border:0;
+    max-width:75vw;
+    max-height:75vh;
+    border-radius:0;
+    background-color:transparent !important;
+}
+
+#image-modal-height-full .modal-content .content {
+    background-color:transparent !important;
+}
+
+#image-modal-height-full .modal-content .image-area {
+    width:75vw;
+    height:75vh;
+    background-color:transparent !important;
+}
+
+
+#confirm-phone-modal .modal-content {
+	width:639px;
+	height: 388px;
+}
+
+#confirm-phone-modal .title .text h3 {
+	font-size: 44px;
+}
+
+#confirm-phone-modal .title .text h4 {
+	font-weight: bold;
+    font-size: 26px;
+    padding: 10px 0 0;
+}
+
+#confirm-phone-modal .buttons {
+	text-align: center;
+}
+
+#confirm-phone-modal .buttons button {
+	font-size: 18px;
+    padding: 6px 0 !important;
+    width: 105px;
+    height: 46px !important;
+    margin: 0 10px;
+}
+#confirm-phone-modal .explain {
+	padding: 30px 30px 0;
+    text-align: center;
+    font-size: 17px;
+    line-height: 30px;
+}
+
+#confirm-phone-modal .explain span ~ span {
+	font-size: 15px;
+    font-weight: bolder;
+}
+
+#confirm-phone-modal .explain i {
+	color: #a68b69;
+}
+
+.custom-modal .modal-content.modal-history {
+	width: 1055px;
+    height: 730px;
+    border: 0;
+    background-color: #a89274;
+    padding: 20px;
+    border-radius: 0;
+}
+
+.custom-modal .modal-content.modal-history .content {
+	-webkit-box-shadow: 0px 0px 5px 6px rgba(63, 54, 42, 0.1);
+    -moz-box-shadow: 0px 0px 5px 6px rgba(63, 54, 42, 0.1);
+    box-shadow: 0px 0px 5px 6px rgba(63, 54, 42, 0.1);
+    background-color: #fff;
+    padding: 30px;
+    text-align: center;
+}
+
+.custom-modal .modal-content.modal-history .content img.title {
+	margin-bottom: 30px;
+}
+
+.custom-modal .modal-content.modal-history .content .highlight {
+	width: 100%;
+    height: calc(100% - 114px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.custom-modal .modal-content.modal-history .content .highlight > p > img {
+	width: 100%;
+}
+
+.custom-modal .modal-content.modal-history .content .highlight::-webkit-scrollbar {
+	width:10px;
+}
+.custom-modal .modal-content.modal-history .content .highlight::-webkit-scrollbar-thumb {
+    background-color: #a89274;
+}
+.custom-modal .modal-content.modal-history .content .highlight::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+#leave-modal .modal-content {
+	padding: 38px 25px 20px;
+    border: 5px solid #a58b6a;
+    border-radius: 0;
+    width: auto;
+}
+
+#leave-modal .modal-content .content span {
+	color: #333;
+    font-size: 15px;
+    padding-bottom: 10px;
+    display: block;
+    text-align: center;
+}
+
+#leave-modal .modal-content .content .form {
+	padding: 20px 0;
+}
+
+#leave-modal .modal-content .content .form label {
+	font-size: 17px;
+    font-weight: 700;
+    color: #333;
+    display: inline-block;
+    float: left;
+}
+
+#leave-modal .modal-content .content .form input {
+	width: 130px;
+    height: 28px;
+    background-color: #eee;
+    border: none;
+    float: right;	
+}
+
+#leave-modal .modal-content .content .buttons {
+	padding-top: 40px;
+}
+
+#leave-modal .modal-content .content .buttons button {
+	font-size: 20px;
+    font-weight: 900;
+}
+
+
+
+
+#leave-modal-sns .modal-content {
+	padding: 38px 25px 20px;
+    border: 5px solid #a58b6a;
+    border-radius: 0;
+    width: auto;
+}
+
+#leave-modal-sns .modal-content .content span {
+	color: #333;
+    font-size: 15px;
+    padding-bottom: 10px;
+    display: block;
+    text-align: center;
+}
+
+#leave-modal-sns .modal-content .content .buttons {
+	padding-top: 40px;
+}
+
+#leave-modal-sns .modal-content .content .buttons button {
+	font-size: 20px;
+    font-weight: 900;
+}
+
+@media(max-width:768px) {
+    #image-modal .modal-content .image-area {
+        width:75vw;
+        height:45vh;
+    }
+    #image-modal-height-full .modal-content .image-area {
+        width:75vw;
+        height:45vh;
+    }
+
+    .custom-modal .modal-content {
+        width:92%;
+        padding:30px 20px;
+    }
+
+    .agree-modal .agree-area {
+        width:100%;
+        height:50vh;
+    }
+    #confirm-phone-modal .modal-content > .title {
+	    margin-bottom: 10px;
+    }
+    #confirm-phone-modal .title .text h3 {
+	    font-size: 29px;
+    }
+    #confirm-phone-modal .title .text h4 {
+	    font-size: 17px;
+    }
+    #confirm-phone-modal .buttons button {
+	    width: 70px;
+	    height: 31px !important;
+	    font-size: 14px;
+	    padding: 0 !important;
+    }
+    #confirm-phone-modal .explain {
+	    padding: 10px 0 0;
+		font-size: 11px;
+	    line-height: 20px;
+    }
+    #confirm-phone-modal .explain span ~ span {
+	    font-size: 10px;
+    }
+    #confirm-phone-modal .modal-content {
+	    width: 360px;
+	    height: 258px;
+    }
+    .custom-modal .modal-content.modal-history {
+	    width: 100%;
+	    height: calc(100% - 150px);
+	    padding: 10px;
+	    margin: 0 3vw 0;
+	}
+	.custom-modal .modal-content.modal-history .content img.title {
+		width: 35vw;
+	}
+	.custom-modal .modal-content.modal-history .content {
+		padding: 10px;
+	}
+	.custom-modal .modal-content.modal-history .content .highlight {
+	    height: calc(100% - 95px);
+    }
+}

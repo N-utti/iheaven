@@ -1,0 +1,554 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+@font-face {
+    font-family: 'NanumMyeongjoExtraBold';
+    src: url('/font/test.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.sec-title h2 {
+	font-size:45px;
+}
+
+.sec-title .title-bot-text p {
+	font-size:15px !important;
+}
+
+.sec-title .line {
+	width:50px !important;
+}
+
+.sec-title button {
+	padding:8px 30px !important;
+	font-size:20px !important;
+}
+
+.box-list .box h3 {
+	font-size:35px !important;
+}
+
+.box-list .box {
+	height:590px !important;
+	padding:65px 55px !important;
+}
+
+.section2 .content > div > p,
+.section3 .content > div > p {
+	font-size:15px !important;
+}
+
+.box-list .box .sec-list li {
+	font-size:23.5px !important;
+	line-height:37px !important;
+}
+
+.box-list .box .sec-list .price p {
+	font-size:30px !important;
+}
+
+.section4 .box p {
+	font-size:20px;
+	line-height:35px;
+}
+
+.box-list .box .sec-list li:nth-child(8),
+.box-list .box .sec-list li:nth-child(9),
+.box-list .box .sec-list li:nth-child(10) {
+	margin-left:-30px;
+}
+
+.section1{
+	height: 100vh;
+	background-image: url('/images/funeral-price/back-image1.jpg');
+	text-align: center;	
+}
+.section1 .section1-text{
+	height: 100%;
+}
+.section1 .section1-text > div{
+	position:relative;
+}
+.section1 .section1-text > div .banner-text {
+	position:absolute;
+	left:50%;
+	top:-50%;
+	transform:translateX(-50%);
+}
+.section1 .section1-text h1{
+	color:white;
+	font-weight: 600;
+	font-size:70px;
+}
+.section1 .section1-text p{
+	font-size:20px;
+	color: white;
+}
+.section2 {
+	color: #b8a07f;
+	height: 120vh;
+	background-image:url('/images/funeral-price/back-image2.jpg');
+}
+.section2 .content{
+	height: 120vh;
+}
+.section2 .content button{
+	padding: 5px 30px;
+	border: solid #b8a07f 2px;
+	color: #b8a07f;
+	background-color: transparent;
+}
+.section2 .content .line{
+	width: 30px;
+	background-color: #b8a07f;
+	height: 2px;
+}
+.section2 .content > div > p{
+	text-align: center;
+	padding: 30px;
+}
+.section2 .content .title-bot-text p{
+	font-family:"Campton-BoldDEMO" !important;
+}
+.section2 .content .box-list .box .sec-list {
+	position:relative;
+}
+.section2 .content .box-list > div .box {
+	height: 580px;
+	width: 100%;
+	padding: 50px 40px;
+}
+.section2 .content .box-list > div:nth-child(1) .box {
+	background-image:  url('/images/funeral-price/funeral-price-sec2boximg1.png');
+	border: solid #b8a07f 0.5px;
+	color: #000;
+}
+.section2 .content .box-list .box .sec-list .price {
+	position:absolute;
+	right:0;
+	bottom:0;
+}
+.section2 .content .box-list > div:nth-child(1) .price p {
+	color:#555;
+}
+.section2 .content .box-list .box .sec-list .price p {
+	font-family: 'Nanum Myeongjo', serif;
+	font-weight:900;
+	font-size:22px;
+	font-style:italic;
+}
+.section2 .content .box-list > div:nth-child(1) .box .sec-list .price p:before {
+	content:"";
+	display:inline-block;
+	position:absolute;
+	left:0;
+	bottom:3px;
+	width:100%;
+	height:2px;
+	background-color:#666;
+}
+.section2 .content .box-list > div:nth-child(2) .box .sec-list .price p:before {
+	content:"";
+	display:inline-block;
+	position:absolute;
+	left:0;
+	bottom:3px;
+	width:100%;
+	height:2px;
+	background-color:#b8a07f;
+}
+.section2 .content .box .sec-list ul {
+	overflow:visible !important;
+}
+.section2 .content .box-list > div .box li {
+	text-decoration: underline;
+	line-height:38px;
+	font-size:20px;
+}
+
+.section2 .content .box-list > div:nth-child(2) .box {
+	background-image:  url('/images/funeral-price/funeral-price-sec2boximg2.png');
+	border: solid #b8a07f 0.5px;
+}
+
+.section2 .content .box-list > div:nth-child(2) .box ul {
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: auto;
+  height:270px;
+}
+.section3{
+	color: #b8a07f;
+	height: 120vh;
+	background-color:#333;
+}
+.section3 .content{
+	height: 120vh;
+}
+.section3 .content .line{
+	width: 30px;
+	background-color: #b8a07f;
+	height: 2px;
+}	
+.section3 .content .title-bot-text p{
+	font-size: 11px;
+	font-family:"Campton-BoldDEMO" !important;
+}
+.section3 .content .box-list > div .box {
+	height: 570px;
+	width: 100%;
+	border: solid #b8a07f 0.5px;
+	padding: 50px 40px;
+}
+.section3 .content .box-list > div .box li {
+	text-decoration: underline;
+	line-height:38px;
+	font-size:20px;
+}
+.section3 .content .box-list > div:nth-child(1) .box {
+	background-image:  url('/images/funeral-price/funeral-price-sec3boximg1.png');
+	color: #000;
+}
+.section3 .content .box-list > div:nth-child(1) .box li{
+	text-decoration: underline;
+}
+.section3 .content .box-list > div:nth-child(2) .box {
+	background-image:  url('/images/funeral-price/funeral-price-sec3boximg2.png');
+}
+.section3 .content .box-list .box .sec-list {
+	position:relative;
+}
+.section3 .content .box-list .box .sec-list .price {
+	position:absolute;
+	right:0;
+	bottom:0;
+}
+.section3 .content .box-list > div:nth-child(1) .price p {
+	color:#555;
+}
+.section3 .content .box-list .box .sec-list .price p {
+	font-family: 'Nanum Myeongjo', serif;
+	font-weight:900;
+	font-size:22px;
+	font-style:italic;
+}
+.section3 .content .box-list > div:nth-child(1) .box .sec-list .price p:before {
+	content:"";
+	display:inline-block;
+	position:absolute;
+	left:0;
+	bottom:3px;
+	width:100%;
+	height:2px;
+	background-color:#555;
+}
+.section3 .content .box-list > div:nth-child(2) .box .sec-list .price p:before {
+	content:"";
+	display:inline-block;
+	position:absolute;
+	left:0;
+	bottom:3px;
+	width:100%;
+	height:2px;
+	background-color:#b8a07f;
+}
+.section3 .content .box-list .box li span{
+	font-size: 16px;
+	line-height:28px;
+}
+.section3 .content .box-list .box ul .li-he{
+	line-height: 15px;
+}
+.section3 .content .box-list > div:nth-child(2) .box li{
+	text-decoration: underline;
+}
+.section3 .content > div > p{
+	text-align: center;
+	padding: 30px;
+}
+.section3 .content button{
+	padding: 5px 30px;
+	border: solid #b8a07f 2px;
+	color: #b8a07f;
+	background-color: transparent;
+}
+.section4{
+	height: 120vh;
+	background-image:url('/images/funeral-price/back-image3.jpg');
+}
+.section4 .content{
+	height: 120vh;
+}
+.section4 .content .title-bot-text p {
+	font-size: 14px;
+	font-family:"Campton-BoldDEMO" !important;
+}
+.section4 .content .box-list .box {
+	height: 480px;
+	width: 100%;
+	padding: 50px 40px;
+	background-color: #333333;
+	color: #fff;
+}
+
+.section4 .content .box-list .col-auto small {
+	font-size:15px;
+}
+.section4 .content .box-list .box .underline p {
+	font-size:23.5px;
+	line-height:47px;
+}
+.section4 .content .box-list .box .price p {
+	font-family: 'Nanum Myeongjo', serif;
+	font-weight:900;
+	font-size:22px;
+	font-style:italic;
+	position:relative;
+	color:#eee;
+}
+.section4 .content .box-list .box .price p:before {
+	content:"";
+	display:inline-block;
+	position:absolute;
+	left:0;
+	bottom:3px;
+	width:100%;
+	height:2px;
+	background-color:#eee;
+}
+.section4 .content button{
+	padding: 8px 30px;
+	border: solid #000 2px;
+	color: #000;
+	background-color: transparent;
+}
+.section4 .content .line{
+	width: 40px;
+	background-color: #000;
+	height: 2px;
+	margin-top: 20px;
+}
+.section4 .content .box-list .box .underline{
+	text-decoration: underline;
+}	
+
+@media(max-width:991px) {
+	.section1,
+	.section2,
+	.section3,
+	.section4 {
+		height:auto;
+		padding:80px 0;
+	}
+
+	.section1 {
+		padding:200px 0 130px !important;
+	}
+
+	.section1 .section1-text > div > img:nth-child(4) {
+		width:70px;
+	}
+
+	.section1 .section1-text > div .banner-text {
+		width:24%;
+		top:-20%;
+	}
+
+	.section4 .content .box-list .box .underline p span {
+		text-decoration: underline;
+	}
+
+	.section4 .content .title-bot-text p {
+		font-size: 11px !important;
+		/*font-family:"Campton-BoldDEMO" !important;*/
+	}
+
+	.sec-title h2 {
+		font-size:20px;
+		letter-spacing: -0.05em;
+	}
+
+	.sec-title .pb-5 {
+		padding-bottom:25px !important;
+	}
+
+	.section1 .section1-text p {
+		font-size:13px;
+		letter-spacing: -0.05em;
+		padding-bottom:20px !important;
+	}
+
+	.section1 .section1-text h1 {
+		font-size:30px;
+		letter-spacing: -0.02em;
+		color:#b8a07f;
+	}
+	.section2 .content,
+	.section3 .content,
+	.section4 .content {
+		height:auto;
+	}
+	.section3 .content .box-list .box li span {
+		font-size:7px;
+		margin-left:16.5px !important;
+	}
+	.section2 .content .box-list .box .sec-list .price p,
+	.section3 .content .box-list .box .sec-list .price p {
+		font-size:16px;
+	}
+	.section2 .content .box-list > div .box,
+	.section3 .content .box-list > div .box {
+		padding:20px;
+	}
+	.section2 .content .box-list,
+	.section3 .content .box-list {
+		padding:0 8px;
+	}
+	.section2 .content .box-list .box .sec-list .price,
+	.section3 .content .box-list .box .sec-list .price {
+		bottom:auto;
+		top:20px;
+		right:20px;
+	}
+	.section2 .content .box-list > div,
+	.section3 .content .box-list > div {
+		padding:5px;
+	}
+	.section2 .content .box-list > div .box,
+	.section3 .content .box-list > div .box {
+		height:400px;
+	}
+
+	.section2 .content .box-list > div .box li img,
+	.section3 .content .box-list > div .box li img {
+		width:12px;
+		margin-right:5px !important;
+	}
+
+	.section2 .content .box-list > div .box li,
+	.section3 .content .box-list > div .box li {
+		font-size:12px !important;
+		line-height:22px !important;
+		letter-spacing: -0.05em;
+	}
+
+	.section2 .content .box-list > div .box,
+	.section3 .content .box-list > div .box {
+		padding:15px !important;
+		height:280px !important;
+	}
+
+	.box-list .box h3 {
+		font-size:14px !important;
+		letter-spacing: -0.05em;
+		line-height:21px;
+	}
+
+	.section2 .content .box-list .box .sec-list .price p,
+	.section3 .content .box-list .box .sec-list .price p {
+		font-size:13px !important;
+		letter-spacing: -0.02em;
+	}
+
+	.section2 .content .title-bot-text p,
+	.section3 .content .title-bot-text p {
+		font-size: 11px !important;
+	}
+
+	.section2 .content .box-list > div:nth-child(2) .box ul {
+		height:160px;
+		margin-bottom:-10px;
+		/*justify-content:flex-end;*/
+	}
+
+	.section4 .box p {
+		font-size:12px;
+		line-height:16.6px;
+	}
+
+	.section4 .content .box-list .box .underline p {
+		font-size:12px;
+		letter-spacing: -0.05em;
+		line-height:22px;
+	}
+
+	.section4 .content .box-list .box img {
+		width:12px;
+	}
+
+	.section2 .content .box-list .box .sec-list,
+	.section3 .content .box-list .box .sec-list {
+		position:static;
+	}
+
+	.section3 .content .box-list > div:nth-child(2) .box li:nth-child(1) {
+		line-height:13px !important;
+	}
+
+	.section2 .content > div > p,
+	.section3 .content > div > p {
+		padding:15px 0;
+		letter-spacing: -0.05em;
+		font-size:10px !important;
+	}
+
+	.section3 .content > div > p {
+		font-size:10px;
+	}
+
+	.section4 .content .box-list .box {
+		height:240px !important;
+		padding:15px 15px 25px !important;
+		background-image:url('/images/funeral-price/lucete-bg-m.png');
+	}
+
+	.section4 .price {
+		position:absolute;
+		right:15px;
+		top:15px;
+		opacity:0.7;
+	}
+
+	.section4 .content .box-list .box-info-text {
+		font-size:10px;
+		letter-spacing: -0.05em;
+		opacity:0.7;
+	}
+
+	.section4 .content .box-list .box > .h-100 {
+		display:flex;
+		flex-wrap:wrap;
+		flex-direction: column;
+		justify-content:space-between;
+	}
+
+	.section4 .content .box-list .box > .h-100 > p {
+		margin-bottom:15px;
+	}
+
+	.section4 .box-list button {
+		font-size:13px;
+		letter-spacing: -0.05em;
+	}
+
+	.section4 .box-list button img {
+		width:60px;
+	}
+
+	.section4 .content .box-list .box-info-text {
+		position:absolute;
+		right:15px;
+		bottom:25px;
+	}
+
+	.section4 .content .box-list .box .price p {
+		font-size:13px;
+		letter-spacing: -0.02em;
+	}
+
+	.section4 .content .box-list .box .underline {
+		text-decoration: none;
+	}
+}
